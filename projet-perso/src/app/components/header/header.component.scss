@@ -1,0 +1,95 @@
+.Logo {
+  width: 40%;
+  height: 40%;
+  margin-left: 1%;
+}
+
+::ng-deep .mat-card-image:first-child {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+::ng-deep .nouveauPostButton {
+  margin: auto;
+}
+
+::ng-deep .Boutons {
+  position: relative;
+  top: 60px;
+}
+
+#newButton {
+  background-color: #B45252;
+}
+
+h4 {
+  margin: 0 !important;
+  margin-left: 4% !important;
+  margin-top: 3% !important;
+}
+
+::ng-deep.Header {
+  background-color: #3B63C4 !important;
+  cursor: pointer;
+}
+
+.mat-card {
+  background-color: #7C9EF2;
+}
+
+mat-card {
+  margin: 2%;
+  padding: 2%;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding: 0 !important;
+}
+
+::ng-deep mat-form-field-flex {
+  background-color: #3B63C4 !important;
+}
+
+::ng-deep mat-card.divNewPostCompo {
+  background-color: #B45252 !important;
+  border: 3px solid black !important;
+}
+
+::ng-deep mat-card.divToDoList.mat-card,
+.divBlocNotesList,
+.divNewPostCompo {
+  display: none !important;
+}
+
+#todolist.mat-card,
+#blocNotesList {
+  border: 3px solid black;
+  background-color: #7C9EF2 !important;
+}
+
+::ng-deep {
+  @media (max-width: 900px) {
+
+    mat-card.divToDoList.mat-card {
+      display: block !important;
+    }
+
+    mat-card.divBlocNotesList.mat-card {
+      display: block !important;
+    }
+
+    mat-card.divNewPostCompo.mat-card {
+      display: block !important;
+    }
+
+    mat-card.motcleAutoComplete,
+    .titleAutoComplete {
+      display: none !important;
+    }
+
+    .Boutons {
+      position: relative;
+      top: 20px;
+    }
+  }
+}
