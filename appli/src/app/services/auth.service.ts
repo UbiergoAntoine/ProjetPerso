@@ -12,9 +12,6 @@ export class AuthService {
   createNewUser(email: string, password: string) {
     return new Promise(
       (resolve, reject) => {
-
-        // Méthodes liés à l'authentification ==> Toutes dans firebase.auth
-
         firebase.auth().createUserWithEmailAndPassword(email, password).then(
           () => {
             resolve();

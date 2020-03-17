@@ -125,8 +125,5 @@
       }
     }
   },
-  "defaultProject": "projet-perso",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "appli"
 }
