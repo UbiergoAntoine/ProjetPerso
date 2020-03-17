@@ -29,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 // PAGES
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -76,7 +77,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MatFormFieldModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    MatAutocompleteModule],
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
