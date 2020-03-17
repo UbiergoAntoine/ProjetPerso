@@ -1,3 +1,4 @@
+// ANGULAR
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,12 +29,25 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+// PAGES
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SigninComponent } from './components/login/signin/signin.component';
+import { SignupComponent } from './components/login/signup/signup.component';
+import { FooterComponent } from './components/footer/footer.component';
 // COMPONENTS
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    // PAGES
+    HomeComponent,
+    FooterComponent,
+    // COMPONENTS
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
