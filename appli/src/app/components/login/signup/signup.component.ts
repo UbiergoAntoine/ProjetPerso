@@ -2,52 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  signupForm: FormGroup;
-  errorMessage: string; // Envoyé par Fb  constructor() { }
-
+  signUpForm: FormGroup;
+  errorMessage: string;
   constructor(
     private formBuilder: FormBuilder,
     public authService: AuthService,
     private router: Router) { }
   ngOnInit() {
-    this.initForm();
+    this.initSignUpForm();
   }
-
-  initForm() {
-    this.signupForm = this.formBuilder.group({
-
-      // Validator oblige un string au format email
-
+  initSignUpForm() {
+    this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-
-      // Validator oblige au moins 6caractères alphanumériques (minimum pour FB) avec une REGEX {6,}!
-
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
     });
   }
-
-  onSubmit() {
-    const email = this.signupForm.get('email').value;
-    const password = this.signupForm.get('password').value;
-
-    // On envoie les valeurs rentrées par l'utili à la méthode createNewUser
-
+  onSignUpSubmit() {
+    const email = this.signUpForm.get('email').value;
+    const password = this.signUpForm.get('password').value;
     this.authService.createNewUser(email, password).then(
       () => {
-
-        // Si la création d'un nouveau compte fonctionne, root vers /posts
-
         this.router.navigate(['/posts']);
       },
       (error) => {
-        this.errorMessage = error; // Sinon, message d'erreur envoyé par FB
+        this.errorMessage = error;
       }
     );
   }

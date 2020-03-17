@@ -12,9 +12,6 @@ export class AuthService {
   createNewUser(email: string, password: string) {
     return new Promise(
       (resolve, reject) => {
-
-        // Méthodes liés à l'authentification ==> Toutes dans firebase.auth
-
         firebase.auth().createUserWithEmailAndPassword(email, password).then(
           () => {
             resolve();
@@ -44,6 +41,6 @@ export class AuthService {
 
   // Et finalement le signOut
   signOutUser() {
-    firebase.auth().signOut().then(() => console.log("Signout successful"));
+    firebase.auth().signOut().then(() => console.log('Signout successful'));
   }
 }
