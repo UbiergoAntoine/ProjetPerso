@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// FIREBASE
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
 // MATERIAL
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -37,6 +42,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SigninComponent } from './components/login/signin/signin.component';
 import { SignupComponent } from './components/login/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
+import * as firebase from 'firebase';
 // COMPONENTS
 
 
@@ -84,9 +90,27 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor() {
+    const firebaseConfig = {
+      apiKey: 'AIzaSyBjvM0N9c8T-VuTCG3pGtsBrXT5GvpKywE',
+      authDomain: 'ressources-developpement.firebaseapp.com',
+      databaseURL: 'https://ressources-developpement.firebaseio.com',
+      projectId: 'ressources-developpement',
+      storageBucket: 'ressources-developpement.appspot.com',
+      messagingSenderId: '368558450071',
+      appId: '1:368558450071:web:1cbb836bd67b1ea2e750d2',
+      measurementId: 'G-QZ1Z340VGP'
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  }
+}

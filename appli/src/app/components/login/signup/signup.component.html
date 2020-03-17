@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
     <h2>
-      <mat-icon>accessibility_new</mat-icon>&nbsp; Créer un compte
+      <mat-icon>accessibility_new</mat-icon> Créer un compte
     </h2>
     <form [formGroup]="signUpForm"
           (ngSubmit)="onSignUpSubmit()">
       <div class="form-group">
         <mat-form-field appearance="outline">
           <mat-label for="email">
-            <mat-icon>mail</mat-icon>&nbsp; Adresse mail
+            <mat-icon>mail</mat-icon> Adresse mail
           </mat-label>
           <input matInput
                  type="text"
@@ -21,7 +21,7 @@
       <div class="form-group">
         <mat-form-field appearance="outline">
           <mat-label for="password">
-            <mat-icon>vpn_key</mat-icon>&nbsp; Mot de passe
+            <mat-icon>vpn_key</mat-icon> Mot de passe
           </mat-label>
           <input matInput
                  type="password"
@@ -35,7 +35,7 @@
               class="btn btn-primary"
               type="submit"
               [disabled]="signUpForm.invalid">
-        <mat-icon>add</mat-icon>&nbsp; Créer mon compte
+        <mat-icon>add</mat-icon> Créer mon compte
       </button>
     </form>
     <p class="text-danger">{{ errorMessage }}</p>

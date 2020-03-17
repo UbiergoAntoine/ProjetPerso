@@ -1,1 +1,29 @@
-<p>login works!</p>
+<section class="login-container"
+         fxLayout="column"
+         fxLayoutAlign="center center">
+  <mat-card class="login-card">
+    <mat-card class="auth"
+              routerLinkActive="active"
+              *ngIf="!isAuth">
+      <button mat-button
+              routerLink="/login/signup">
+        <mat-icon>accessibility_new</mat-icon>Créer un compte
+      </button>
+    </mat-card>
+    <mat-card class="auth"
+              routerLinkActive="active"
+              *ngIf="!isAuth">
+      <button mat-button
+              routerLink="/login/signin">
+        <mat-icon>home</mat-icon> Connexion
+      </button>
+    </mat-card>
+    <mat-card class="auth">
+      <button mat-button
+              (click)="signOut()"
+              *ngIf="isAuth">
+        <mat-icon>exit_to_app</mat-icon>Déconnexion
+      </button>
+    </mat-card>
+  </mat-card>
+</section>
