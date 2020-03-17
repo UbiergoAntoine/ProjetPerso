@@ -1,5 +1,5 @@
 {
-  "name": "projet-perso",
+  "name": "appli",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -16,7 +16,11 @@
     "@angular/common": "~9.0.6",
     "@angular/compiler": "^9.0.6",
     "@angular/core": "~9.0.6",
+<<<<<<< HEAD:projet-perso/package.json
     "@angular/flex-layout": "^7.0.0-beta.24",
+=======
+    "@angular/flex-layout": "^9.0.0-beta.29",
+>>>>>>> devAntoine:appli/package.json
     "@angular/forms": "^9.0.6",
     "@angular/material": "^9.1.3",
     "@angular/platform-browser": "~9.0.6",
@@ -29,7 +33,10 @@
     "mobx-angular": "^4.1.0",
     "moment": "^2.24.0",
     "rxjs": "^6.5.4",
+<<<<<<< HEAD:projet-perso/package.json
     "serializr": "^2.0.0",
+=======
+>>>>>>> devAntoine:appli/package.json
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
