@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "appli"
+  "defaultProject": "appli",
+  "cli": {
+    "analytics": false
+  }
 }
