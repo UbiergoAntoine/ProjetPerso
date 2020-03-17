@@ -123,7 +123,6 @@
           }
         }
       }
-<<<<<<< HEAD:projet-perso/angular.json
     }
   },
   "defaultProject": "projet-perso",
@@ -131,8 +130,3 @@
     "analytics": false
   }
 }
-=======
-    }},
-  "defaultProject": "appli"
-}
->>>>>>> devAntoine:appli/angular.json
