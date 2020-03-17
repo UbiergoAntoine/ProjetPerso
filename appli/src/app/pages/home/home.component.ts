@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { computed } from 'mobx-angular';
-import { Post } from 'src/app/models/post.model';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { Post } from 'src/app/models/post.model';
 })
 export class HomeComponent implements OnInit {
 
-  post: Post;
+  // post: Post;
   constructor(
     private router: Router) { }
 
