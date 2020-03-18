@@ -16,6 +16,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'appli';
   isAuth: boolean;
   mobileQuery: MediaQueryList;
+  panelOpenState = false;
   private MobileQueryListener: () => void;
   constructor(
     private authService: AuthService,
