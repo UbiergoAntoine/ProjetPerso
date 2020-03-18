@@ -7,16 +7,13 @@ import { serialize } from 'serializr';
 
 @Injectable()
 export class TodoService {
-
-  // posts : todoList
-  // post : todo
-  // Post : TodoList
+  @observable doneList: Todo[] = [];
   @observable todoList: Todo[] = [];
 
   // Pour la TODOLIST il nous faut 2 computed avec 2 filter
   // 1 qui observe l'état des todo et les chargent, un autre qui observe les done
   constructor() {
-    this.getTodoList()
+    this.getTodoList();
   }
   createNewTodoList(newToDoList) {
     this.todoList.push(newToDoList);
@@ -46,5 +43,16 @@ export class TodoService {
     );
     firebase.database().ref('/TodoList/' + todo.id).remove();
     this.todoList.splice(todoIndexToRemove, 1);
+  }
+  removeDoneItemList(done: Todo) {
+    const doneIndexToRemove = this.doneList.findIndex(
+      (doneEl) => {
+        if (doneEl === done) {
+          return true;
+        }
+      }
+    );
+    firebase.database().ref('/TodoList/' + done.id).remove();
+    this.doneList.splice(doneIndexToRemove, 1);
   }
 }

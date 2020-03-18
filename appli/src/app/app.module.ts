@@ -3,11 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// FIREBASE
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { environment } from '../environments/environment';
-
 // MATERIAL
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -36,14 +31,25 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+// FIREBASE
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 // PAGES
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import * as firebase from 'firebase';
+// COMPONENTS
 import { SigninComponent } from './components/login/signin/signin.component';
 import { SignupComponent } from './components/login/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
-import * as firebase from 'firebase';
-// COMPONENTS
+import { TodoComponent } from './components/tools/todo/todo.component';
+import { BlocNotesComponent } from './components/tools/bloc-notes/bloc-notes.component';
+// SERVICES
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
+import { TodoService } from './services/todo.service';
+import { BlocNotesService } from './services/bloc-notes.service';
 
 
 @NgModule({
@@ -55,7 +61,9 @@ import * as firebase from 'firebase';
     FooterComponent,
     // COMPONENTS
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    TodoComponent,
+    BlocNotesComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,8 +102,19 @@ import * as firebase from 'firebase';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthGuardService,
+    AuthService,
+    TodoService,
+    BlocNotesService
+  ],
+  bootstrap: [
+    AppComponent
+  ],
+  entryComponents: [
+    BlocNotesComponent,
+    TodoComponent
+  ]
 })
 export class AppModule {
 
