@@ -1,16 +1,19 @@
 <section>
 </section>
-<div class="example-container"
+<div class="app-container"
      [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar color="primary"
-                 class="example-toolbar">
-        <button mat-button
-                (click)="snav.toggle()">
-            <mat-icon>menu</mat-icon> Ouvrir la sidenav
-        </button>
-    </mat-toolbar>
     <mat-sidenav-container class="example-sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav-content>
+            <mat-toolbar color="primary"
+                         class="example-toolbar">
+                <button mat-button
+                        (click)="snav.toggle()">
+                    <mat-icon>menu</mat-icon> Ouvrir la sidenav
+                </button>
+            </mat-toolbar>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
         <mat-sidenav #snav
                      [mode]="mobileQuery.matches ? 'over' : 'side'"
                      [fixedInViewport]="mobileQuery.matches"
@@ -23,8 +26,5 @@
                    *ngFor="let nav of fillerNav">{{nav}}</a>
             </mat-nav-list> -->
         </mat-sidenav>
-        <mat-sidenav-content>
-            <router-outlet></router-outlet>
-        </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
