@@ -12,6 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'appli';
   isAuth: boolean;
   mobileQuery: MediaQueryList;
+  panelOpenState = false;
   private MobileQueryListener: () => void;
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
