@@ -9,12 +9,9 @@ import { serialize } from 'serializr';
   providedIn: 'root'
 })
 export class BlocNotesService {
-  // posts : notes
-  // post : note
-  // Post : Notes
   @observable notes: Notes[] = [];
   constructor() {
-    this.getNotesList()
+    this.getNotesList();
   }
   createNewNotesList(newNotes) {
     this.notes.push(newNotes);

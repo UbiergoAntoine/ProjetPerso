@@ -80,6 +80,25 @@
                           <div mat-line>Paramètres</div>
                         </mat-list-item>
                       </mat-nav-list>
+            <p>Contenu de la sidenav<br> TKT je vais fix son CSS<br> On va la faire full responsive </p>
+            <button mat-button
+                    *ngIf="isAuth"
+                    class="todolist"
+                    (click)="openTodoList()">
+                <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
+            </button>
+            <button mat-button
+                    *ngIf="isAuth"
+                    class="blocnoteslist"
+                    (click)="openBlocNotesList()">
+                <mat-icon> notes</mat-icon>&nbsp; Bloc Notes &nbsp;
+            </button>
+            <!-- Là on mettra la liste des matières par exemple
+                <mat-nav-list>
+                <a mat-list-item
+                   routerLink="."
+                   *ngFor="let nav of fillerNav">{{nav}}</a>
+            </mat-nav-list> -->
         </mat-sidenav>
         
     </mat-sidenav-container>
