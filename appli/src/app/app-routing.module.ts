@@ -7,7 +7,6 @@ import { SignupComponent } from './components/login/signup/signup.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { MatiereComponent } from './components/matiere/matiere/matiere.component';
 import { MatiereFormComponent } from './components/matiere/matiere-form/matiere-form.component';
-import { MatiereSingleComponent } from './components/matiere/matiere-single/matiere-single.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,7 +16,7 @@ const routes: Routes = [
   // Matiere
   { path: 'matieres', canActivate: [AuthGuardService], component: MatiereComponent },
   { path: 'matieres/new', canActivate: [AuthGuardService], component: MatiereFormComponent },
-  { path: 'matieres/view/:id', canActivate: [AuthGuardService], component: MatiereSingleComponent },
+  // { path: 'matieres/view/:id', canActivate: [AuthGuardService], component: MatiereSingleComponent },
   { path: 'matieres/edit/:id', canActivate: [AuthGuardService], component: MatiereFormComponent },
   // // Posts
   // { path: 'posts', canActivate: [AuthGuardService], component: PostListComponent },

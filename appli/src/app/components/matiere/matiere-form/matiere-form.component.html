@@ -1,1 +1,39 @@
-<p>matiere-form works!</p>
+<div class="row">
+  <div class="FormScroll">
+    <h2>Nouvelle Matière</h2>
+    <form [formGroup]="matiereForm"
+          (ngSubmit)="onSaveMatiere()">
+      <!--Fin de la liste des themes -->
+      <mat-form-field appearance="outline">
+        <mat-label for="title">
+          <mat-icon>title</mat-icon>&nbsp; Titre
+        </mat-label>
+        <input type="text"
+               id="title"
+               class="form-control"
+               formControlName="title"
+               matInput
+               placeholder="Écrivez le titre">
+      </mat-form-field>
+      <!-- (change) désactive 'enregistrer' quand fileisUploading est true-->
+      <div class="form-group">
+        <mat-icon>photo_camera</mat-icon>&nbsp; Ajouter une photo <input type="file"
+               (change)="detectMatiereFiles($event)"
+               class="form-control"
+               accept="image/*">
+        <p class="text-success"
+           *ngIf="fileUploaded">Fichier chargé !</p>
+        <button mat-button
+                id="enregistrer"
+                class="btn btn-success"
+                [disabled]="matiereForm.invalid || fileIsUploading"
+                type="submit">
+          <mat-icon>save_alt</mat-icon>&nbsp; Enregistrer
+        </button>
+        <button class="annuler"
+                mat-button
+                (click)="onClose()">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>

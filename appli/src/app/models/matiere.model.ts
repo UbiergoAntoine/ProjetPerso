@@ -11,15 +11,14 @@ import {
   getDefaultModelSchema,
   serializable,
 } from 'serializr';
+import { Cours } from './cours.model';
 
 export class Matiere {
   @serializable id = '';
-  @serializable name = '';
-  @serializable @observable siecles = '';
-  @serializable biographie = '';
+  @serializable @observable name = '';
   @serializable photo = '';
-
-  // @serializable nationality: string;
+  // @serializable(list(primitive())) coursId: string[] = [];
+  // @observable cours: Cours[] = [];
   constructor(data?) {
     this.setData(data);
   }

@@ -37,19 +37,20 @@
                      [fixedInViewport]="mobileQuery.matches">
             <mat-nav-list dense>
                 <!-- <div mat-subheader>Folders</div> -->
-                <mat-list-item routerLink="#">
+                <mat-list-item routerLink='/home'>
                     <mat-icon mat-list-icon>home</mat-icon>
                     <div mat-line>Accueil</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item routerLink="#">
+                <mat-list-item>
                     <mat-icon mat-list-icon>restore</mat-icon>
                     <div mat-line>Mes derniers cours</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item routerLink="#">
+                <mat-list-item>
                     <mat-icon mat-list-icon>list</mat-icon>
-                    <div mat-line>Matières</div>
+                    <a mat-line
+                       routerLink='/matieres'>Matières</a>
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-expansion-panel [class.mat-elevation-z0]="true"
