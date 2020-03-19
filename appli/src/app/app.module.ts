@@ -46,14 +46,14 @@ import { SignupComponent } from './components/login/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TodoComponent } from './components/tools/todo/todo.component';
 import { BlocNotesComponent } from './components/tools/bloc-notes/bloc-notes.component';
+import { MatiereComponent } from './components/matiere/matiere/matiere.component';
+import { MatiereFormComponent } from './components/matiere/matiere-form/matiere-form.component';
 // SERVICES
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { TodoService } from './services/todo.service';
 import { BlocNotesService } from './services/bloc-notes.service';
-import { MatiereComponent } from './components/matiere/matiere/matiere.component';
-import { MatiereFormComponent } from './components/matiere/matiere-form/matiere-form.component';
-import { MatiereSingleComponent } from './components/matiere/matiere-single/matiere-single.component';
+import { MatieresService } from './services/matieres.service';
 
 
 @NgModule({
@@ -69,8 +69,7 @@ import { MatiereSingleComponent } from './components/matiere/matiere-single/mati
     TodoComponent,
     BlocNotesComponent,
     MatiereComponent,
-    MatiereFormComponent,
-    MatiereSingleComponent,
+    MatiereFormComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +102,7 @@ import { MatiereSingleComponent } from './components/matiere/matiere-single/mati
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -114,14 +114,17 @@ import { MatiereSingleComponent } from './components/matiere/matiere-single/mati
     AuthGuardService,
     AuthService,
     TodoService,
-    BlocNotesService
+    BlocNotesService,
+    MatieresService
+    // CoursService
   ],
   bootstrap: [
     AppComponent
   ],
   entryComponents: [
     BlocNotesComponent,
-    TodoComponent
+    TodoComponent,
+    MatiereFormComponent
   ]
 })
 export class AppModule {

@@ -49,7 +49,8 @@
                 <mat-divider></mat-divider>
                 <mat-list-item [routerLink]="['/matieres']" [routerLinkActive]="['active']">
                     <mat-icon mat-list-icon>list</mat-icon>
-                    <div mat-line>Matières</div>
+                    <a mat-line
+                       routerLink='/matieres'>Matières</a>
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-expansion-panel [class.mat-elevation-z0]="true"

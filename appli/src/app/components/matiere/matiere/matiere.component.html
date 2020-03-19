@@ -1,21 +1,21 @@
-<!-- <div class="listelivre"
+<div class="listelivre"
      fxLayout="row wrap">
   <h1>Liste des matières</h1>
   <mat-card fxFlex="21%"
             class="clickable"
-            (click)="onViewMatiere(matiere.id)"
-            *ngFor="let matiere of allMatieres">
+            (click)="viewCoursOfMatiere(matiere.id)"
+            *ngFor="let matiere of matieresComputed">
     <div class="relou">
       <img mat-card-image
            *ngIf="matiere.photo"
            [src]="matiere.photo" />
     </div>
-    <mat-card-title> {{ matiere.name }} </mat-card-title>
+    <p> {{ matiere.name }} </p>
   </mat-card>
   <button class="new-matiere"
           mat-fab
           color="primary"
-          (click)="onNewMatiere()">
+          (click)="addMatiere(matiere)">
     <mat-icon>add_circle_outline</mat-icon>
   </button>
-</div> -->
+</div>

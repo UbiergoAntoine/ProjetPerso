@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
           this.isAuth = true;
         } else {
           this.isAuth = false;
+          this.router.navigate(['login']);
         }
       }
     );

@@ -3,7 +3,6 @@
          fxLayoutAlign="center center">
   <mat-card class="login-card">
     <mat-card class="auth"
-              routerLinkActive="active"
               *ngIf="!isAuth">
       <button mat-button
               routerLink="/login/signup">
@@ -11,7 +10,6 @@
       </button>
     </mat-card>
     <mat-card class="auth"
-              routerLinkActive="active"
               *ngIf="!isAuth">
       <button mat-button
               routerLink="/login/signin">
