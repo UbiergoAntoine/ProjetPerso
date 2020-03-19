@@ -2,41 +2,40 @@
 </section>
 <div class="app-container"
      [class.example-is-mobile]="mobileQuery.matches">
-    <mat-sidenav-container class="example-sidenav-container"
-                [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav-container class="example-sidenav-container">
         <mat-sidenav-content>
             <mat-toolbar color="primary"
                          class="example-toolbar">
                 
                 <mat-toolbar-row>
                     <button mat-icon-button
+                        *ngIf="isAuth"
                         (click)="snav.toggle()">
                         <mat-icon>menu</mat-icon>
                     </button>
                     <span>Ressource de dev</span>
                     <span class="example-spacer"></span>
                     
-                    <button mat-icon-button
-                        (click)="snav.toggle()">
+                    <button mat-icon-button>
                         <mat-icon>search</mat-icon>
                     </button>
-                    <button mat-icon-button
-                        (click)="snav.toggle()">
+                    <button mat-icon-button>
                         <mat-icon>power_settings_new</mat-icon>
                     </button>
-                    <button mat-icon-button
-                        (click)="snav.toggle()">
+                    <button mat-icon-button>
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     
                 </mat-toolbar-row>
             </mat-toolbar>
-            <router-outlet></router-outlet>
+            <div class="main-content" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                <router-outlet></router-outlet>
+            </div>
         </mat-sidenav-content>
         <mat-sidenav #snav
                      [mode]="mobileQuery.matches ? 'over' : 'side'"
-                     [fixedInViewport]="mobileQuery.matches"
-                     fixedTopGap="56">
+                     [style.minWidth.px]="mobileQuery.matches ? 0 : 450"
+                     [fixedInViewport]="mobileQuery.matches">
                      <mat-nav-list dense>
                         <!-- <div mat-subheader>Folders</div> -->
                         <mat-list-item routerLink="#">
@@ -64,41 +63,40 @@
                                 </div>
                             </mat-expansion-panel-header>
                             <mat-nav-list>
-                                <a mat-list-item routerLink="#"><mat-icon>post_add</mat-icon>Bloc note</a>
-                                <a mat-list-item routerLink="#"><mat-icon>notes</mat-icon>Todolist</a>
-                                <a mat-list-item routerLink="#"><mat-icon>calendar_today</mat-icon>Agenda</a>
+                                <a mat-list-item
+                                *ngIf="isAuth"
+                                class="todolist"
+                                (click)="openTodoList()">
+                                    <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
+                                </a>
+                                
+                                <a mat-list-item
+                                        *ngIf="isAuth"
+                                        class="blocnoteslist"
+                                        (click)="openBlocNotesList()">
+                                    <mat-icon>notes</mat-icon>&nbsp; Bloc Notes &nbsp;
+                                </a>
+                                <a mat-list-item
+                                        *ngIf="isAuth"
+                                        class="blocnoteslist"
+                                        (click)="openBlocNotesList()">
+                                    <mat-icon>calendar_today</mat-icon>&nbsp; Agenda &nbsp;
+                                </a>
                             </mat-nav-list>
                         </mat-expansion-panel>
                         <mat-divider></mat-divider>
+
                         <mat-list-item routerLink="#">
                           <mat-icon mat-list-icon>archive</mat-icon>
                           <div mat-line>Archives</div>
                         </mat-list-item>
                         <mat-divider></mat-divider>
+                        
                         <mat-list-item routerLink="#">
                           <mat-icon mat-list-icon>home</mat-icon>
                           <div mat-line>Paramètres</div>
                         </mat-list-item>
                       </mat-nav-list>
-            <p>Contenu de la sidenav<br> TKT je vais fix son CSS<br> On va la faire full responsive </p>
-            <button mat-button
-                    *ngIf="isAuth"
-                    class="todolist"
-                    (click)="openTodoList()">
-                <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
-            </button>
-            <button mat-button
-                    *ngIf="isAuth"
-                    class="blocnoteslist"
-                    (click)="openBlocNotesList()">
-                <mat-icon> notes</mat-icon>&nbsp; Bloc Notes &nbsp;
-            </button>
-            <!-- Là on mettra la liste des matières par exemple
-                <mat-nav-list>
-                <a mat-list-item
-                   routerLink="."
-                   *ngFor="let nav of fillerNav">{{nav}}</a>
-            </mat-nav-list> -->
         </mat-sidenav>
         
     </mat-sidenav-container>
