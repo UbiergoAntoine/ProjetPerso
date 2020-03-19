@@ -10,7 +10,17 @@
            *ngIf="matiere.photo"
            [src]="matiere.photo" />
     </div>
-    <p> {{ matiere.name }} </p>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+      <p> {{ matiere.name }} </p>
+      <button class="delete-matiere"
+              mat-fab
+              color="primary"
+              (click)="deleteMatiere(matiere)">
+              
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    
   </mat-card>
   <button class="new-matiere"
           mat-fab

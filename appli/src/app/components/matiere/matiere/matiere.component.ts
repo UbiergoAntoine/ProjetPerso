@@ -30,6 +30,9 @@ export class MatiereComponent implements OnInit {
       data: { matiere }
     });
   }
+  deleteMatiere(matiere: Matiere): void {
+    this.matieresService.deleteMatiere(matiere);
+  }
   viewCoursOfMatiere(id: string) {
     this.router.navigate(['/matieres', 'view', id]);
   }
