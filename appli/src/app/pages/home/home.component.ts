@@ -11,6 +11,7 @@ import * as firebase from 'firebase';
 export class HomeComponent implements OnInit {
   selected = '';
   isAuth: boolean;
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   @observable keyWordsPostValue: string;
   @observable titlePostValue: string;
   constructor(

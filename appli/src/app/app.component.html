@@ -37,17 +37,20 @@
                      (click)="snav.toggle()">
             <mat-nav-list dense>
                 <!-- <div mat-subheader>Folders</div> -->
-                <mat-list-item routerLink='/home'>
+                <mat-list-item [routerLink]="['/home']"
+                               [routerLinkActive]="['active']">
                     <mat-icon mat-list-icon>home</mat-icon>
                     <div mat-line>Accueil</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item>
+                <mat-list-item [routerLink]="['/currentWork']"
+                               [routerLinkActive]="['active']">
                     <mat-icon mat-list-icon>restore</mat-icon>
                     <div mat-line>Mes derniers cours</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item>
+                <mat-list-item [routerLink]="['/matieres']"
+                               [routerLinkActive]="['active']">
                     <mat-icon mat-list-icon>list</mat-icon>
                     <a mat-line
                        routerLink='/matieres'>Matières</a>
@@ -83,13 +86,15 @@
                     </mat-nav-list>
                 </mat-expansion-panel>
                 <mat-divider></mat-divider>
-                <mat-list-item>
+                <mat-list-item [routerLink]="['/archive']"
+                               [routerLinkActive]="['active']">
                     <mat-icon mat-list-icon>archive</mat-icon>
                     <div mat-line>Archives</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item>
-                    <mat-icon mat-list-icon>home</mat-icon>
+                <mat-list-item [routerLink]="['/settings']"
+                               [routerLinkActive]="['active']">
+                    <mat-icon mat-list-icon>settings</mat-icon>
                     <div mat-line>Paramètres</div>
                 </mat-list-item>
             </mat-nav-list>

@@ -73,6 +73,7 @@ import { MatieresService } from './services/matieres.service';
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     AppRoutingModule,
     MatInputModule,
     MatCardModule,
