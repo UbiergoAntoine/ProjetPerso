@@ -6,29 +6,28 @@
         <mat-sidenav-content>
             <mat-toolbar color="primary"
                          class="example-toolbar">
-                
                 <mat-toolbar-row>
                     <button mat-icon-button
-                        *ngIf="isAuth"
-                        (click)="snav.toggle()">
+                            *ngIf="isAuth"
+                            (click)="snav.toggle()">
                         <mat-icon>menu</mat-icon>
                     </button>
                     <span>Ressource de dev</span>
                     <span class="example-spacer"></span>
-                    
                     <button mat-icon-button>
                         <mat-icon>search</mat-icon>
                     </button>
                     <button mat-icon-button>
-                        <mat-icon>power_settings_new</mat-icon>
-                    </button>
-                    <button mat-icon-button>
                         <mat-icon>more_vert</mat-icon>
                     </button>
-                    
+                    <button mat-icon-button
+                            (click)="signOut()">
+                        <mat-icon>power_settings_new</mat-icon>
+                    </button>
                 </mat-toolbar-row>
             </mat-toolbar>
-            <div class="main-content" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+            <div class="main-content"
+                 [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
                 <router-outlet></router-outlet>
             </div>
         </mat-sidenav-content>
@@ -36,68 +35,63 @@
                      [mode]="mobileQuery.matches ? 'over' : 'side'"
                      [style.minWidth.px]="mobileQuery.matches ? 0 : 450"
                      [fixedInViewport]="mobileQuery.matches">
-                     <mat-nav-list dense>
-                        <!-- <div mat-subheader>Folders</div> -->
-                        <mat-list-item routerLink="#">
-                          <mat-icon mat-list-icon>home</mat-icon>
-                          <div mat-line>Accueil</div>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item routerLink="#">
-                          <mat-icon mat-list-icon>restore</mat-icon>
-                          <div mat-line>Mes derniers cours</div>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item routerLink="#">
-                          <mat-icon mat-list-icon>list</mat-icon>
-                          <div mat-line>Matières</div>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        
-                        <mat-expansion-panel [class.mat-elevation-z0]="true" dense>
-                            
-                            <mat-expansion-panel-header>
-                                <div class="mat-list-item-content">
-                                    <mat-icon mat-list-icon>edit</mat-icon>
-                                    <div mat-line>Outils</div>
-                                </div>
-                            </mat-expansion-panel-header>
-                            <mat-nav-list>
-                                <a mat-list-item
-                                *ngIf="isAuth"
-                                class="todolist"
-                                (click)="openTodoList()">
-                                    <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
-                                </a>
-                                
-                                <a mat-list-item
-                                        *ngIf="isAuth"
-                                        class="blocnoteslist"
-                                        (click)="openBlocNotesList()">
-                                    <mat-icon>notes</mat-icon>&nbsp; Bloc Notes &nbsp;
-                                </a>
-                                <a mat-list-item
-                                        *ngIf="isAuth"
-                                        class="blocnoteslist"
-                                        (click)="openBlocNotesList()">
-                                    <mat-icon>calendar_today</mat-icon>&nbsp; Agenda &nbsp;
-                                </a>
-                            </mat-nav-list>
-                        </mat-expansion-panel>
-                        <mat-divider></mat-divider>
-
-                        <mat-list-item routerLink="#">
-                          <mat-icon mat-list-icon>archive</mat-icon>
-                          <div mat-line>Archives</div>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        
-                        <mat-list-item routerLink="#">
-                          <mat-icon mat-list-icon>home</mat-icon>
-                          <div mat-line>Paramètres</div>
-                        </mat-list-item>
-                      </mat-nav-list>
+            <mat-nav-list dense>
+                <!-- <div mat-subheader>Folders</div> -->
+                <mat-list-item routerLink="#">
+                    <mat-icon mat-list-icon>home</mat-icon>
+                    <div mat-line>Accueil</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink="#">
+                    <mat-icon mat-list-icon>restore</mat-icon>
+                    <div mat-line>Mes derniers cours</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink="#">
+                    <mat-icon mat-list-icon>list</mat-icon>
+                    <div mat-line>Matières</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-expansion-panel [class.mat-elevation-z0]="true"
+                                     dense>
+                    <mat-expansion-panel-header>
+                        <div class="mat-list-item-content">
+                            <mat-icon mat-list-icon>edit</mat-icon>
+                            <div mat-line>Outils</div>
+                        </div>
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                        <a mat-list-item
+                           *ngIf="isAuth"
+                           class="todolist"
+                           (click)="openTodoList()">
+                            <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
+                        </a>
+                        <a mat-list-item
+                           *ngIf="isAuth"
+                           class="blocnoteslist"
+                           (click)="openBlocNotesList()">
+                            <mat-icon>notes</mat-icon>&nbsp; Bloc Notes &nbsp;
+                        </a>
+                        <a mat-list-item
+                           *ngIf="isAuth"
+                           class="blocnoteslist"
+                           (click)="openBlocNotesList()">
+                            <mat-icon>calendar_today</mat-icon>&nbsp; Agenda &nbsp;
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink="#">
+                    <mat-icon mat-list-icon>archive</mat-icon>
+                    <div mat-line>Archives</div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink="#">
+                    <mat-icon mat-list-icon>home</mat-icon>
+                    <div mat-line>Paramètres</div>
+                </mat-list-item>
+            </mat-nav-list>
         </mat-sidenav>
-        
     </mat-sidenav-container>
 </div>

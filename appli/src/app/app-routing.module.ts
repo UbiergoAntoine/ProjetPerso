@@ -10,9 +10,9 @@ import { MatiereFormComponent } from './components/matiere/matiere-form/matiere-
 import { MatiereSingleComponent } from './components/matiere/matiere-single/matiere-single.component';
 
 const routes: Routes = [
-  { path: 'login', canActivate: [AuthGuardService], component: LoginComponent },
-  { path: 'login/signin', canActivate: [AuthGuardService], component: SigninComponent },
-  { path: 'login/signup', canActivate: [AuthGuardService], component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'login/signin', component: SigninComponent },
+  { path: 'login/signup', component: SignupComponent },
   { path: 'home', canActivate: [AuthGuardService], component: HomeComponent },
   // Matiere
   { path: 'matieres', canActivate: [AuthGuardService], component: MatiereComponent },

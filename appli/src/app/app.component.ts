@@ -6,8 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from './services/auth.service';
 import { TodoComponent } from './components/tools/todo/todo.component';
 import { BlocNotesComponent } from './components/tools/bloc-notes/bloc-notes.component';
-
-import { observable } from'mobx-angular';
+import { observable } from 'mobx-angular';
 
 
 @Component({
@@ -43,7 +42,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.MobileQueryListener);
   }
-
   signOut() {
     this.authService.signOutUser();
   }
