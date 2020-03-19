@@ -50,6 +50,9 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { TodoService } from './services/todo.service';
 import { BlocNotesService } from './services/bloc-notes.service';
+import { MatiereComponent } from './components/matiere/matiere/matiere.component';
+import { MatiereFormComponent } from './components/matiere/matiere-form/matiere-form.component';
+import { MatiereSingleComponent } from './components/matiere/matiere-single/matiere-single.component';
 
 
 @NgModule({
@@ -64,6 +67,9 @@ import { BlocNotesService } from './services/bloc-notes.service';
     SignupComponent,
     TodoComponent,
     BlocNotesComponent,
+    MatiereComponent,
+    MatiereFormComponent,
+    MatiereSingleComponent,
   ],
   imports: [
     BrowserModule,

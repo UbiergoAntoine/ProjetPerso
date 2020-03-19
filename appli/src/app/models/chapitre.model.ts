@@ -11,7 +11,7 @@ import {
   getDefaultModelSchema,
   serializable,
 } from 'serializr';
-import * as moment from 'moment'; // Y'a un bug mais ça marche donc Fack it
+import * as moment from 'moment';
 
 export class KeyWord {
   @serializable name: string;
