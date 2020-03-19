@@ -67,7 +67,7 @@ export class MatieresService {
         }
       );
       firebase.database().ref('/matieres/' + matiere.id).remove();
-      this.matieres.splice(matiereIndexToRemove, 1);
+      this.matieres.splice(matiereIndexToRemove, 0);
       this.saveMatieres();
     } else {
       alert('La matière n\'a pas été supprimé');

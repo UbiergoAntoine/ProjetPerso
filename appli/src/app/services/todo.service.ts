@@ -42,7 +42,7 @@ export class TodoService {
       }
     );
     firebase.database().ref('/TodoList/' + todo.id).remove();
-    this.todoList.splice(todoIndexToRemove, 1);
+    this.todoList.splice(todoIndexToRemove, 0);
   }
   removeDoneItemList(done: Todo) {
     const doneIndexToRemove = this.doneList.findIndex(
@@ -53,6 +53,6 @@ export class TodoService {
       }
     );
     firebase.database().ref('/TodoList/' + done.id).remove();
-    this.doneList.splice(doneIndexToRemove, 1);
+    this.doneList.splice(doneIndexToRemove, 0);
   }
 }
