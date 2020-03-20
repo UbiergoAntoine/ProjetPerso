@@ -23,7 +23,7 @@ export class Chapitre {
   @serializable titre: string;
   @serializable contenu: string;
   // @serializable(list(object(KeyWord))) keyWords: KeyWord[] = new Array<KeyWord>();
-  @serializable photo: string;
+  @serializable document: string;
   @serializable lien: string;
   @serializable notes: string;
   @serializable theme: string;

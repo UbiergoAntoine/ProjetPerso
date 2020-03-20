@@ -17,8 +17,8 @@ export class Matiere {
   @serializable id = '';
   @serializable @observable name = '';
   @serializable photo = '';
-  // @serializable(list(primitive())) coursId: string[] = [];
-  // @observable cours: Cours[] = [];
+  @serializable(list(primitive())) coursId: string[] = [];
+  @observable cours: Cours[] = [];
   constructor(data?) {
     this.setData(data);
   }

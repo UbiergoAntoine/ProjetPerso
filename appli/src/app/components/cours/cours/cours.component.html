@@ -5,6 +5,11 @@
             class="clickable"
             (click)="viewCoursOfMatiere(cours.id)"
             *ngFor="let cours of coursComputed">
+    <!-- <div class="relou">
+      <img mat-card-image
+           *ngIf="cours.photo"
+           [src]="cours.photo" />
+    </div> -->
     <div fxLayout="row"
          fxLayoutAlign="space-between center">
       <p> {{ cours.name }} </p>

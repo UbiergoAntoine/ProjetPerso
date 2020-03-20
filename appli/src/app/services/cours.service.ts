@@ -106,7 +106,7 @@ export class CoursService {
   }
   createCours(newCours: Cours) {
     this.cours.push(newCours);
-    const newCoursId = firebase.database().ref('/cours').push(newCours).key;
+    const newCoursId = firebase.database().ref('/cours/').push(newCours).key;
     newCours.id = newCoursId;
     firebase.database().ref('/cours/' + newCoursId).set(newCours);
     this.saveCours();
