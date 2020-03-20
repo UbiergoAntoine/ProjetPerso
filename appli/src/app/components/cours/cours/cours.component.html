@@ -1,0 +1,30 @@
+<div class="listelivre"
+     fxLayout="row wrap">
+  <h1>Liste des matières</h1>
+  <mat-card fxFlex="21%"
+            class="clickable"
+            (click)="viewCoursOfCours(cours.id)"
+            *ngFor="let cours of courssComputed">
+    <div class="relou">
+      <img mat-card-image
+           *ngIf="cours.photo"
+           [src]="cours.photo" />
+    </div>
+    <div fxLayout="row"
+         fxLayoutAlign="space-between center">
+      <p> {{ cours.name }} </p>
+      <button class="delete-cours"
+              mat-fab
+              color="primary"
+              (click)="deleteCours(cours)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+  <button class="new-cours"
+          mat-fab
+          color="primary"
+          (click)="addCours(cours)">
+    <mat-icon>add_circle_outline</mat-icon>
+  </button>
+</div>

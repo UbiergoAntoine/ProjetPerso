@@ -1,0 +1,40 @@
+import { computed } from 'mobx-angular';
+import { Component, OnInit } from '@angular/core';
+import { Cours } from 'src/app/models/cours.model';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { CoursService } from '../../../services/cours.service';
+import { CoursFormComponent } from '../cours-form/cours-form.component';
+export interface DialogData {
+  cours: Cours;
+}
+@Component({
+  selector: 'app-cours',
+  templateUrl: './cours.component.html',
+  styleUrls: ['./cours.component.scss']
+})
+export class CoursComponent implements OnInit {
+  cours: Cours;
+  constructor(
+    private coursService: CoursService,
+    private router: Router,
+    public dialog: MatDialog) { }
+
+  ngOnInit(): void {
+  }
+  @computed get courssComputed() {
+    return this.coursService.cours;
+  }
+  addCours(cours: Cours): void {
+    this.dialog.open(CoursFormComponent, {
+      data: { cours }
+    });
+  }
+  deleteCours(cours: Cours): void {
+    this.coursService.deleteCours(cours);
+  }
+  viewCoursOfCours(id: string) {
+    this.router.navigate(['/courss', 'view', id]);
+  }
+
+}

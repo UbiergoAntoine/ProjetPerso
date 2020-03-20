@@ -67,3 +67,100 @@ export class CommentsService {
 }
 
 */
+import { Injectable } from '@angular/core';
+import { observable } from 'mobx-angular';
+import { Subject } from 'rxjs';
+import { Cours } from '../models/cours.model';
+import * as firebase from 'firebase';
+import Datasnapshot = firebase.database.DataSnapshot;
+import { serialize } from 'serializr';
+@Injectable()
+export class CoursService {
+  @observable cours: Cours[] = [];
+  // @observable themeFilter: string;
+  coursSubject = new Subject<Cours[]>();
+  constructor() {
+    this.getCours();
+  }
+  getCours() {
+    console.log('Get cours');
+    firebase.database().ref('/cours')
+      .on('value', (data: Datasnapshot) => {
+        console.log('data', data);
+        this.cours = data.val()
+          ? Object.values(data.val()).map(cours => new Cours(cours))
+          : [];
+      });
+  }
+  saveCours() {
+    this.cours.forEach(cour => {
+      firebase.database().ref('/cours/' + cour.id).set(serialize(cour));
+    });
+  }
+  getSingleCours(id: string) {
+    if (this.cours) {
+      return this.cours.find((cour) => {
+        return cour.id === id;
+      });
+    }
+  }
+  createCours(newCours: Cours) {
+    this.cours.push(newCours);
+    const newCoursId = firebase.database().ref('/cours').push(newCours).key;
+    newCours.id = newCoursId;
+    firebase.database().ref('/cours/' + newCoursId).set(newCours);
+    this.saveCours();
+  }
+  updateCours(cours: Cours) {
+    console.log(serialize(cours));
+    firebase.database().ref('/cours/' + cours.id).update(serialize(cours));
+  }
+  deleteCours(cours: Cours) {
+    if (confirm('Supprimer la matière ?')) {
+      if (cours.photo) {
+        const storageRef = firebase.storage().refFromURL(cours.photo);
+        storageRef.delete().then(
+          () => {
+            console.log('Photo removed!');
+          },
+          (error) => {
+            console.log('Could not remove photo! : ' + error);
+          }
+        );
+      }
+      const coursIndexToRemove = this.cours.findIndex(
+        (coursEl) => {
+          if (coursEl === cours) {
+            return true;
+          }
+        }
+      );
+      firebase.database().ref('/cours/' + cours.id).remove();
+      this.cours.splice(coursIndexToRemove, 0);
+      this.saveCours();
+    } else {
+      alert('La matière n\'a pas été supprimé');
+    }
+  }
+  uploadFile(file: File) {
+    return new Promise((resolve, reject) => {
+      const almostUniqueFileName = Date.now().toString();
+      const upload = firebase.storage().ref()
+        .child('images/' + almostUniqueFileName + file.name).put(file);
+      upload.catch(err => console.warn(err));
+      upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+        () => {
+          console.log('Chargement…');
+        },
+        (error) => {
+          console.log('Erreur de chargement ! : ', error);
+          reject();
+        },
+        () => {
+          resolve(upload.snapshot.ref.getDownloadURL());
+        }
+      );
+    }
+    );
+  }
+}
