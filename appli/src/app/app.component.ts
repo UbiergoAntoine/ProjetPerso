@@ -7,6 +7,7 @@ import { AuthService } from './services/auth.service';
 import { TodoComponent } from './components/tools/todo/todo.component';
 import { BlocNotesComponent } from './components/tools/bloc-notes/bloc-notes.component';
 import { observable } from 'mobx-angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   panelOpenState = false;
   private MobileQueryListener: () => void;
   constructor(
+    private router: Router,
     private authService: AuthService,
     public dialog: MatDialog,
     public changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
@@ -51,4 +53,5 @@ export class AppComponent implements OnInit, OnDestroy {
   openBlocNotesList(): void {
     this.dialog.open(BlocNotesComponent);
   }
+
 }

@@ -7,7 +7,6 @@
   height: 100%;
 }
 
-
 .example-is-mobile .example-toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
@@ -41,19 +40,22 @@ h1.example-app-name {
 .example-spacer {
   flex: 1 1 auto;
 }
+
 .sidenav-content {
   margin: 0;
 }
 
-.mat-list-item.active{
-  background: rgba(0,0,0,.04);
+.mat-list-item.active {
+  background: rgba(0, 0, 0, .04);
   color: #673ab7;
 }
+
 /* Css de mat-list-item sur mat-expansion-panel */
-.mat-form-field + .mat-form-field {
+.mat-form-field+.mat-form-field {
   margin-left: 8px;
 }
-.mat-list-base[dense] .mat-expansion-panel{
+
+.mat-list-base[dense] .mat-expansion-panel {
   display: block;
   -webkit-tap-highlight-color: transparent;
   width: 100%;
@@ -63,11 +65,13 @@ h1.example-app-name {
   overflow: hidden;
   box-sizing: border-box;
 }
+
 .mat-list-base[dense] .mat-expansion-panel-header {
   font-size: 12px;
   padding: 0;
   padding-right: 10px;
 }
+
 .mat-list-base[dense] .mat-expansion-panel .mat-list-icon {
   flex-shrink: 0;
   width: 20px;
@@ -87,8 +91,10 @@ h1.example-app-name {
   position: relative;
   height: inherit;
 }
+
 .mat-list-base[dense] .mat-expansion-panel .mat-list-item-content .mat-line {
   padding-right: 0;
   padding-left: 16px;
 }
+
 /* FIN Css de mat-list-item sur mat-expansion-panel */

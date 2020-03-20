@@ -7,9 +7,10 @@
             <mat-toolbar color="primary"
                          class="example-toolbar">
                 <mat-toolbar-row>
-                    <button mat-icon-button
-                            *ngIf="isAuth"
-                            (click)="snav.toggle()">
+                    <button *ngIf="isAuth"
+                            class="snav-toggle-button"
+                            mat-icon-button
+                            (click)="snav.open()">
                         <mat-icon>menu</mat-icon>
                     </button>
                     <span>Ressource de dev</span>
@@ -27,15 +28,16 @@
                 </mat-toolbar-row>
             </mat-toolbar>
             <div class="main-content"
+                 autoFocus="true"
                  [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
                 <router-outlet></router-outlet>
             </div>
         </mat-sidenav-content>
         <mat-sidenav #snav
                      [style.minWidth.px]="mobileQuery.matches ? 0 : 450"
-                     [fixedInViewport]="mobileQuery.matches"
-                     (click)="snav.toggle()">
-            <mat-nav-list dense>
+                     [fixedInViewport]="mobileQuery.matches">
+            <mat-nav-list dense
+                          (click)="snav.close()">
                 <!-- <div mat-subheader>Folders</div> -->
                 <mat-list-item [routerLink]="['/home']"
                                [routerLinkActive]="['active']">

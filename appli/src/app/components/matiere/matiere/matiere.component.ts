@@ -36,8 +36,5 @@ export class MatiereComponent implements OnInit {
   viewCoursOfMatiere(id: string) {
     this.router.navigate(['/matieres', 'view', id]);
   }
-  onDeletePost(matiere: Matiere) {
-    this.matieresService.deleteMatiere(matiere);
-  }
 
 }
