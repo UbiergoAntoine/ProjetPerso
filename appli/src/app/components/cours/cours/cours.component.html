@@ -1,15 +1,10 @@
 <div class="listelivre"
      fxLayout="row wrap">
-  <h1>Liste des matières</h1>
+  <h1>Liste des cours</h1>
   <mat-card fxFlex="21%"
             class="clickable"
-            (click)="viewCoursOfCours(cours.id)"
-            *ngFor="let cours of courssComputed">
-    <div class="relou">
-      <img mat-card-image
-           *ngIf="cours.photo"
-           [src]="cours.photo" />
-    </div>
+            (click)="viewCoursOfMatiere(cours.id)"
+            *ngFor="let cours of coursComputed">
     <div fxLayout="row"
          fxLayoutAlign="space-between center">
       <p> {{ cours.name }} </p>

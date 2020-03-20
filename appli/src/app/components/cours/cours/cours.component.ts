@@ -22,7 +22,7 @@ export class CoursComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @computed get courssComputed() {
+  @computed get coursComputed() {
     return this.coursService.cours;
   }
   addCours(cours: Cours): void {
@@ -33,8 +33,8 @@ export class CoursComponent implements OnInit {
   deleteCours(cours: Cours): void {
     this.coursService.deleteCours(cours);
   }
-  viewCoursOfCours(id: string) {
-    this.router.navigate(['/courss', 'view', id]);
+  viewCoursOfMatiere(id: string) {
+    this.router.navigate(['/cours', 'view', id]);
   }
 
 }

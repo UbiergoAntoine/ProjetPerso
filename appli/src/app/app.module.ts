@@ -48,12 +48,16 @@ import { TodoComponent } from './components/tools/todo/todo.component';
 import { BlocNotesComponent } from './components/tools/bloc-notes/bloc-notes.component';
 import { MatiereComponent } from './components/matiere/matiere/matiere.component';
 import { MatiereFormComponent } from './components/matiere/matiere-form/matiere-form.component';
+
 // SERVICES
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { TodoService } from './services/todo.service';
 import { BlocNotesService } from './services/bloc-notes.service';
 import { MatieresService } from './services/matieres.service';
+import { CoursComponent } from './components/cours/cours/cours.component';
+import { CoursFormComponent } from './components/cours/cours-form/cours-form.component';
+import { CoursService } from './services/cours.service';
 
 
 @NgModule({
@@ -69,7 +73,9 @@ import { MatieresService } from './services/matieres.service';
     TodoComponent,
     BlocNotesComponent,
     MatiereComponent,
-    MatiereFormComponent
+    MatiereFormComponent,
+    CoursComponent,
+    CoursFormComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +121,8 @@ import { MatieresService } from './services/matieres.service';
     AuthService,
     TodoService,
     BlocNotesService,
-    MatieresService
+    MatieresService,
+    CoursService
     // CoursService
   ],
   bootstrap: [
@@ -124,7 +131,8 @@ import { MatieresService } from './services/matieres.service';
   entryComponents: [
     BlocNotesComponent,
     TodoComponent,
-    MatiereFormComponent
+    MatiereFormComponent,
+    CoursFormComponent
   ]
 })
 export class AppModule {
