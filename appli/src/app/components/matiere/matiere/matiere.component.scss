@@ -1,0 +1,22 @@
+.matieres-container {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.matiere-list-container {
+  max-width: 250px;
+  width: 100%;
+  height: 100%;
+}
+
+.matiere-list {
+  max-width: 200px;
+  max-height: 200px;
+  position: relative;
+}
+
+.matiere-name {
+  position: absolute;
+  top: 24px;
+}

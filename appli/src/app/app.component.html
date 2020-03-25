@@ -1,9 +1,7 @@
-<section>
-</section>
 <div class="app-container"
      [class.example-is-mobile]="mobileQuery.matches">
     <mat-sidenav-container class="example-sidenav-container">
-        <mat-sidenav-content>
+        <mat-sidenav-content class="sidenav-content">
             <mat-toolbar color="primary"
                          class="example-toolbar">
                 <mat-toolbar-row>
@@ -13,7 +11,7 @@
                             (click)="snav.open()">
                         <mat-icon>menu</mat-icon>
                     </button>
-                    <span>Ressource de dev</span>
+                    <a [routerLink]="['/home']"><span>Ressource de dev</span></a>
                     <span class="example-spacer"></span>
                     <button mat-icon-button>
                         <mat-icon>search</mat-icon>

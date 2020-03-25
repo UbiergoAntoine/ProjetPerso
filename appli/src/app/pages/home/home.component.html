@@ -54,46 +54,47 @@
                       class="contenuPost">{{post.stackBlitz}}</mat-card-content>
     <mat-card class="notesPost"> {{post.notes}} </mat-card>
   </mat-card> -->
-<h1>Ressources de Développement</h1>
-<div class="home-layout" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="24px">
+<h1>HOME COMPONENT</h1>
+<div class="home-layout"
+     fxLayout="column"
+     fxLayoutAlign="space-around center"
+     fxLayoutGap="24px">
   <mat-card class="mat-card-info">
     <mat-card-title>Mes informations</mat-card-title>
     <mat-card-content>
-      <mat-grid-list cols="3" rowHeight="20px">
+      <mat-grid-list cols="3"
+                     rowHeight="20px">
         <mat-grid-tile colspan="3">
           <mat-divider></mat-divider>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-icon>account_circle</mat-icon>
         </mat-grid-tile>
-        <mat-grid-tile colspan="2">
-          Dupond Jacques
-        </mat-grid-tile>
+        <mat-grid-tile colspan="2"> Dupond Jacques </mat-grid-tile>
         <mat-grid-tile colspan="3">
           <mat-divider></mat-divider>
         </mat-grid-tile>
         <mat-grid-tile>
-        <mat-icon>alternate_email</mat-icon>
+          <mat-icon>alternate_email</mat-icon>
         </mat-grid-tile>
-        <mat-grid-tile colspan="2">
-          admin@admin.fr
-        </mat-grid-tile>
+        <mat-grid-tile colspan="2"> admin@admin.fr </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>
   </mat-card>
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-evenly stretch" class="mat-card-info" fxLayoutGap="24px">
-    <mat-card fxFlex="auto" fxFlex.lt-md="100">
+  <div fxLayout="row"
+       fxLayout.lt-md="column"
+       fxLayoutAlign="space-evenly stretch"
+       class="mat-card-info"
+       fxLayoutGap="24px">
+    <mat-card fxFlex="auto"
+              fxFlex.lt-md="100">
       <mat-card-title>Mes derniers cours</mat-card-title>
-      <mat-card-content>
-          DZA
-      </mat-card-content>
+      <mat-card-content> DZA </mat-card-content>
     </mat-card>
-    <mat-card fxFlex="auto" fxFlex.lt-md="100">
+    <mat-card fxFlex="auto"
+              fxFlex.lt-md="100">
       <mat-card-title>Agenda</mat-card-title>
-      <mat-card-content>
-        FFZFZE
-      </mat-card-content>
+      <mat-card-content> FFZFZE </mat-card-content>
     </mat-card>
   </div>
 </div>
-
