@@ -1,10 +1,10 @@
 import { computed } from 'mobx-angular';
 import { Component, OnInit } from '@angular/core';
-import { Cours } from 'src/app/models/cours.model';
+import { Cours } from './node_modules/src/app/models/cours.model';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CoursService } from '../../../services/cours.service';
-import { CoursFormComponent } from '../cours-form/cours-form.component';
+import { CoursFormComponent } from '../chapitres-form/cours-form.component';
 export interface DialogData {
   cours: Cours;
 }
@@ -34,7 +34,7 @@ export class CoursComponent implements OnInit {
     this.coursService.deleteCours(cours);
   }
   viewCoursOfMatiere(id: string) {
-    this.router.navigate(["/cours", id]);
+    this.router.navigate(['/cours', 'view', id]);
   }
 
 }

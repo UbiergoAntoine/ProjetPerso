@@ -8,6 +8,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { MatiereComponent } from './components/matiere/matiere/matiere.component';
 import { MatiereFormComponent } from './components/matiere/matiere-form/matiere-form.component';
 import { CoursComponent } from './components/cours/cours/cours.component';
+import { ChapitresComponent } from './components/chapitres/chapitres/chapitres.component';
+import { ChapitreSingleComponent } from './components/chapitres/chapitre-single/chapitre-single.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'matieres', canActivate: [AuthGuardService], component: MatiereComponent },
   { path: 'matieres/new', canActivate: [AuthGuardService], component: MatiereFormComponent },
   { path: 'matieres/view/:id', component: CoursComponent },
+  { path: 'cours/:idCours', component: ChapitresComponent },
+  { path: 'chapitre/:idChapitre', component: ChapitreSingleComponent },
   { path: 'matieres/edit/:id', canActivate: [AuthGuardService], component: MatiereFormComponent },
   // // Posts
   // { path: 'posts', canActivate: [AuthGuardService], component: PostListComponent },

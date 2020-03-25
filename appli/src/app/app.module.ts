@@ -58,6 +58,10 @@ import { MatieresService } from './services/matieres.service';
 import { CoursComponent } from './components/cours/cours/cours.component';
 import { CoursFormComponent } from './components/cours/cours-form/cours-form.component';
 import { CoursService } from './services/cours.service';
+import { ChapitresService } from './services/chapitres.service';
+import { ChapitresComponent } from './components/chapitres/chapitres/chapitres.component';
+import { ChapitresFormComponent } from './components/chapitres/chapitres-form/chapitres-form.component';
+import { ChapitreSingleComponent } from './components/chapitres/chapitre-single/chapitre-single.component';
 
 
 @NgModule({
@@ -75,7 +79,10 @@ import { CoursService } from './services/cours.service';
     MatiereComponent,
     MatiereFormComponent,
     CoursComponent,
-    CoursFormComponent
+    CoursFormComponent,
+    ChapitresComponent,
+    ChapitresFormComponent,
+    ChapitreSingleComponent
   ],
   imports: [
     BrowserModule,
@@ -122,7 +129,8 @@ import { CoursService } from './services/cours.service';
     TodoService,
     BlocNotesService,
     MatieresService,
-    CoursService
+    CoursService,
+    ChapitresService
     // CoursService
   ],
   bootstrap: [
@@ -132,7 +140,9 @@ import { CoursService } from './services/cours.service';
     BlocNotesComponent,
     TodoComponent,
     MatiereFormComponent,
-    CoursFormComponent
+    CoursFormComponent,
+    ChapitresFormComponent,
+    ChapitreSingleComponent
   ]
 })
 export class AppModule {

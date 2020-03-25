@@ -26,7 +26,6 @@ export class Chapitre {
   @serializable document: string;
   @serializable lien: string;
   @serializable notes: string;
-  @serializable theme: string;
   @serializable stackBlitz: string;
   @serializable date: '';
 

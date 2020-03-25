@@ -1,0 +1,30 @@
+<div class="listelivre"
+     fxLayout="row wrap">
+  <h1>Liste des chapitres</h1>
+  <mat-card fxFlex="21%"
+            class="clickable"
+            (click)="viewChapitresDetail(chapitres.id)"
+            *ngFor="let chapitres of chapitresComputed">
+    <!-- <div class="relou">
+      <img mat-card-image
+           *ngIf="chapitres.photo"
+           [src]="chapitres.photo" />
+    </div> -->
+    <div fxLayout="row"
+         fxLayoutAlign="space-between center">
+      <p> {{ chapitres.name }} </p>
+      <button class="delete-chapitres"
+              mat-fab
+              color="primary"
+              (click)="deleteChapitres(chapitres)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+  <button class="new-chapitres"
+          mat-fab
+          color="primary"
+          (click)="addChapitres(chapitres)">
+    <mat-icon>add_circle_outline</mat-icon>
+  </button>
+</div>
