@@ -1,0 +1,40 @@
+#newThingsTodo {
+  position: relative;
+}
+
+.todoCompo {
+  height: 90vh;
+  width: 70vw;
+}
+
+.mat-form-field-infix,
+textarea#todo.form-control.mat-input-element {
+  width: 500px !important;
+}
+
+.effacer {
+  color: red !important;
+  margin-left: 4% !important;
+}
+
+h5 {
+  padding-left: 32px;
+  font-size: 18px;
+}
+
+
+.itemsTodo,
+.itemsDone {
+  padding-left: 100px;
+}
+
+.divider {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+
+mat-checkbox.valider {
+  position: relative;
+  top: 5px;
+}

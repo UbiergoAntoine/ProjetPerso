@@ -1,0 +1,45 @@
+@import '../../../theme/umla.scss';
+
+.postContainer {
+  margin-right: 200px;
+  margin-left: 200px;
+  padding-top: 0;
+}
+
+.imageContainer {
+  display: flex;
+  padding: 0 !important;
+}
+
+mat-card-title {
+  margin-top: 3% !important;
+}
+
+.postContainer {
+  background-color: #6D87C5;
+  margin-top: 5%;
+
+}
+
+.contenuPost {
+  background-color: #6D87C5;
+}
+
+mat-card-content {
+  padding: 2%;
+}
+
+.postContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.EditPost {
+  background-color: mat-color($umla-app-primary, A400);
+  margin: 8px;
+}
+
+.SupprPost {
+  background-color: mat-color($umla-app-warn);
+  margin: 8px;
+}

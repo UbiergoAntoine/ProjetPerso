@@ -1,0 +1,16 @@
+<div *ngIf="post"
+     class="postContent">
+  <app-bandeau [post]="post"></app-bandeau>
+  <app-post-resume [post]="post"></app-post-resume>
+  <div *ngIf="!isAuth">
+    <button mat-button
+            class="EditPost"
+            (click)="onEditPost(post.id)">
+      <mat-icon>edit</mat-icon>&nbsp; Editer le post
+    </button>
+    <button mat-button
+            class="SupprPost"
+            (click)="onDeletePost(post)">
+      <mat-icon class="clear">delete</mat-icon> Effacer le post
+    </button></div>
+</div>

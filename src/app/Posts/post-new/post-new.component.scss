@@ -1,0 +1,46 @@
+.mat-form-field {
+  display: inline;
+}
+
+mat-form-field {
+  margin: 5%;
+}
+
+.mat-form-field-wrapper {
+  padding: 8px !important;
+}
+
+mat-icon {
+  vertical-align: middle !important;
+}
+
+form {
+  margin: 3%;
+  margin-bottom: 6%;
+}
+
+.mat-dialog-container {
+  width: 60vw !important;
+  height: 90vh !important;
+  overflow: auto;
+  /* view hieght  // vw */
+  background-color: #98A4C1 !important;
+}
+
+h4 {
+  text-align: center;
+}
+
+#enregistrer {
+  padding-top: 8px;
+}
+
+// les couleurs
+
+.cardPhoto {
+  background-color: #3B63C4;
+}
+
+.cardNewPost {
+  background-color: #7C9EF2;
+}

@@ -1,0 +1,124 @@
+<div>
+  <mat-card class="cardNewPost">
+    <h4>Enregistrer un nouveau post</h4>
+    <form [formGroup]="postForm"
+          (ngSubmit)="onSavePost()">
+      <!-- Le form du new post-->
+      <mat-form-field appearance="outline">
+        <mat-label for="theme">
+          <mat-icon>list</mat-icon>&nbsp; Thème
+        </mat-label>
+        <mat-select matSelect
+                    class="form-control"
+                    formControlName="theme"
+                    [(value)]="selected"
+                    placeholder="Choisissez votre thème">
+          <mat-select-trigger>{{selected}}</mat-select-trigger>
+          <mat-option>
+            <mat-icon>all_out</mat-icon>&nbsp;--- Tous les themes ---
+          </mat-option>
+          <mat-option [value]="theme.name"
+                      *ngFor="let theme of postService.themes">
+            <mat-icon>{{theme.icon}}</mat-icon>{{theme.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!--Le reste-->
+      <mat-form-field appearance="outline">
+        <mat-label for="titre">
+          <mat-icon>title</mat-icon>&nbsp; Titre
+        </mat-label>
+        <input type="text"
+               id="titre"
+               class="form-control"
+               formControlName="titre"
+               matInput
+               placeholder="Écrivez le titre">
+      </mat-form-field>
+      <!---->
+      <mat-form-field appearance="outline">
+        <mat-label for="contenu">
+          <mat-icon>title</mat-icon>&nbsp; Contenu
+        </mat-label>
+        <textarea type="text"
+                  id="contenu"
+                  class="form-control"
+                  formControlName="contenu"
+                  matInput
+                  placeholder="Écrivez le contenu"></textarea>
+      </mat-form-field>
+      <!--
+          -->
+      <mat-form-field appearance="outline">
+        <mat-label for="keyWords">
+          <mat-icon>title</mat-icon>&nbsp; Mots-clés
+        </mat-label>
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let keyWord of keyWords"
+                    [removable]="removable"
+                    [selectable]="selectable"
+                    (removed)="remove(keyWord)"> {{keyWord.name}} <mat-icon matChipRemove
+                      *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input MatChipInput
+                 formControlName="keyWords"
+                 placeholder="Nouveau mot-clé"
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+      <!---->
+      <mat-form-field appearance="outline">
+        <mat-label for="lien">
+          <mat-icon>title</mat-icon>&nbsp; Lien
+        </mat-label>
+        <textarea type="text"
+                  id="lien"
+                  class="form-control"
+                  formControlName="lien"
+                  matInput
+                  placeholder="Écrivez des liens"></textarea>
+      </mat-form-field>
+      <!---->
+      <mat-form-field appearance="outline">
+        <mat-label for="notes">
+          <mat-icon>title</mat-icon>&nbsp; Notes
+        </mat-label>
+        <textarea type="text"
+                  id="notes"
+                  class="form-control"
+                  formControlName="notes"
+                  matInput
+                  placeholder="Écrivez la note"></textarea>
+      </mat-form-field>
+      <!--Le Stackblitz-->
+      <mat-form-field appearance="outline">
+        <mat-label for="stackBlitz">
+          <mat-icon>title</mat-icon>&nbsp; stackBlitz
+        </mat-label>
+        <textarea type="text"
+                  id="stackBlitz"
+                  class="form-control"
+                  formControlName="stackBlitz"
+                  matInput
+                  placeholder="Met le lien du StackBlitz"></textarea>
+      </mat-form-field>
+      <!-- Le bouton pour enregistrer le form-->
+      <mat-card class="cardPhoto">
+        <mat-icon>photo_camera</mat-icon>&nbsp; Ajouter une photo <input type="file"
+               (change)="detectFiles($event)"
+               class="form-control"
+               accept="image/*">
+        <p *ngIf="fileUploaded">Fichier chargé !</p>
+      </mat-card>
+      <button mat-button
+              id="enregistrer"
+              [disabled]="postForm.invalid || fileIsUploading"
+              type="submit">
+        <mat-icon>save_alt</mat-icon>&nbsp; Enregistrer
+      </button>
+    </form>
+  </mat-card>
+</div>

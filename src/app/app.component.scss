@@ -1,0 +1,83 @@
+@import '../theme/umla.scss';
+
+:host,
+.header,
+.headerContainer {
+  width: 100%;
+}
+
+div.header.mat-elevation-z12 {
+  height: 192px;
+  margin-bottom: 32px;
+}
+
+.connectionButtons {
+  margin-bottom: 25px;
+}
+
+.exit {
+  background: none !important;
+}
+
+
+mat-icon {
+  padding-left: 8px;
+  padding-right: 8px;
+  vertical-align: middle;
+}
+
+.icones {
+  position: absolute;
+  right: 10px;
+}
+
+@media (max-width:1100px) {
+  .toolbar button mat-icon {
+    display: none;
+  }
+}
+
+@media (max-width:900px) {
+
+
+  mat-sidenav {
+    width: 220px;
+    height: 100%;
+  }
+
+  mat-toolbar {
+    display: none !important
+  }
+
+}
+
+
+.exit {
+  background-color: #7C9EF2 !important;
+
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  background-color: mat-color($umla-app-primary);
+  height: 48px;
+
+  img {
+    margin: 32px;
+    height: 128px;
+    border-radius: 20px;
+  }
+}
+
+
+.newPostButton {
+  background-color: mat-color($umla-app-primary, A100);
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+}
+
+.headerContainer {
+  margin-bottom: 32px;
+}

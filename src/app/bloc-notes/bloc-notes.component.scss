@@ -1,0 +1,36 @@
+.note {
+  padding-bottom: 16px;
+}
+
+.blocNotesCompo {
+  height: 70vh;
+  width: 60vw;
+}
+
+.prettyDate {
+  font-weight: bold;
+}
+
+.notes {
+  font-size: 20px;
+  margin-right: 16px !important;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+.notesInput {
+  width: 100%;
+}
+
+.blocNoteIcon {
+  position: relative;
+  top: 4px;
+  left: 4px;
+  margin-right: 16px;
+}
+
+mat-card-action.ideaInput {
+  margin-bottom: 0 !important;
+}
