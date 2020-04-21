@@ -2,23 +2,15 @@
   <div class="headerContainer"
        fxLayout="row"
        fxLayoutAlign="end">
-    <!-- Le logo de l'app-->
     <div fxFlex></div>
     <a class="logo-header"
        routerLink="/">
       <img src="../assets/images/logo.jpg">
     </a>
-    <!-- Les boutons de connection-->
     <div class="connectionButtons"
          fxFlex
          fxLayout="row"
          fxLayoutAlign="center end">
-      <!-- <button mat-button
-              *ngIf="isAuth"
-              class="blocnoteslist"
-              (click)="openBlocNotesList()">
-        <mat-icon>music_note</mat-icon>&nbsp; Musique &nbsp;
-      </button> -->
       <button mat-button
               *ngIf="isAuth"
               class="todolist"
