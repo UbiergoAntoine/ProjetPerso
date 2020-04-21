@@ -23,7 +23,7 @@ export class PostNewComponent implements OnInit {
 
 
   // Pour les Mat-Chips
-  selected = "";
+  selected = '';
   visible = true;
   selectable = true;
   removable = true;
@@ -37,14 +37,15 @@ export class PostNewComponent implements OnInit {
   fileIsUploading = false;
   fileUrl: string;
   fileUploaded = false;
-  constructor(public postService: PostService,
+  constructor(
+    public postService: PostService,
     private router: Router,
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AppComponent, HeaderComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    this.initForm()
+    this.initForm();
   }
   initForm() {
     this.postForm = this.formBuilder.group({
@@ -57,13 +58,11 @@ export class PostNewComponent implements OnInit {
       stackBlitz: ['']
     });
   }
-
   onSavePost() {
     const newPost = new Post({
       titre: this.postForm.get('titre').value,
       contenu: this.postForm.get('contenu').value,
       keyWords: this.keyWords.map(keyword => keyword.name),
-      //   keyWords: this.transformKeyWords(this.keyWords), ===> Exactement pareil !
       lien: this.postForm.get('lien').value,
       notes: this.postForm.get('notes').value,
       theme: this.postForm.get('theme').value,
@@ -77,17 +76,6 @@ export class PostNewComponent implements OnInit {
     this.postService.createNewPost(newPost);
     this.router.navigate(['/posts']);
   }
-
-  // C'est exactement la même chose que si on avait fait ça
-
-  // transformKeyWords(keyWords: any[]) {
-  //   let newKewords = [];
-  //   keyWords.forEach(kw => {
-  //     newKewords.push(kw.name);
-  //   })
-  //   return newKewords;
-  // }
-  // Méthode qui déclenchera uploadFile() et qui récupèrera l'URl retourné :
   onUploadFile(file: File) {
     this.fileIsUploading = true;
     this.postService.uploadFile(file).then(
@@ -101,8 +89,6 @@ export class PostNewComponent implements OnInit {
   detectFiles(event) {
     this.onUploadFile(event.target.files[0]);
   }
-
-  // Pour la mat-MatChipInputEvent
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -112,8 +98,6 @@ export class PostNewComponent implements OnInit {
       console.log('this.keyWords', this.keyWords);
       console.log('this.postForm.get.value', this.postForm.get('keyWords').value);
     }
-
-    // Reset the input value
     if (input) {
       input.value = '';
     }

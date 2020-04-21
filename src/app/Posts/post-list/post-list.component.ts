@@ -12,7 +12,8 @@ import { Post } from 'src/app/models/post.model';
 export class PostListComponent implements OnInit {
 
   post: Post;
-  constructor(public postService: PostService,
+  constructor(
+    public postService: PostService,
     private router: Router) { }
 
   ngOnInit() {

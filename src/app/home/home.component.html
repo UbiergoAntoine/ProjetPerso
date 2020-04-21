@@ -24,7 +24,6 @@
     <div *ngFor="let post of otherPosts">
       <app-bandeau [post]="post"
                    showMore="true"></app-bandeau>
-      <!-- -->
       <app-post-resume [post]="post"></app-post-resume>
     </div>
     <div *ngIf="noResult">No result</div>
@@ -33,25 +32,3 @@
                class="postFilters"
                [post]="post"></app-filters>
 </div>
-<!-- Ensuite la liste de tous les autres posts-->
-<!--  <mat-card class="cartePost"
-            fxFlex="48%"
-            *ngFor="let post of postsComputed"
-            (click)="onViewPost(post.id)">
-    <mat-card class="imageContainer">
-      <img mat-card-image
-           *ngIf="post.photo"
-           [src]="post.photo" /></mat-card>
-    <mat-card-title class="contenuPost">{{post.titre}}</mat-card-title>
-    <mat-card-subtitle class="contenuPost"> {{post.theme}} </mat-card-subtitle>
-    <mat-chip-list id="chips"
-                   class="contenuPost">
-      <mat-chip> {{post.keyWords}}</mat-chip>
-    </mat-chip-list>
-    <mat-card-content class="contenuPost"
-                      id="carteLiens"> {{post.lien}} </mat-card-content>
-    <mat-card-content class="contenuPost"> {{post.contenu}} </mat-card-content>
-    <mat-card-content id="carteLiens"
-                      class="contenuPost">{{post.stackBlitz}}</mat-card-content>
-    <mat-card class="notesPost"> {{post.notes}} </mat-card>
-  </mat-card> -->

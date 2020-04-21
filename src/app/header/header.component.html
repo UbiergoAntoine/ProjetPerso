@@ -1,5 +1,4 @@
 <div>
-  <!--Logo / Header-->
   <mat-card>
     <mat-card class="Header"
               (click)="backOnMain()">
@@ -9,7 +8,6 @@
       <h4>POUJADE Valentin & UBIERGO Antoine</h4>
     </mat-card>
   </mat-card>
-  <!--Le Menu-->
   <mat-card fxLayout="column">
     <mat-form-field appearance="outline"
                     fxLayoutAlign="space-around center">
@@ -32,7 +30,6 @@
       </mat-select>
     </mat-form-field>
   </mat-card>
-  <!--Liste de chips contenant les mots-clés-->
   <mat-card fxLayout="column"
             class="motcleAutoComplete">
     <mat-form-field class="FormsMenu"
@@ -63,7 +60,6 @@
       </mat-autocomplete>
     </mat-form-field>
   </mat-card>
-  <!--Autocomplete titres des posts-->
   <mat-card fxLayout="column"
             class="titleAutoComplete">
     <mat-form-field class="FormsMenu"
@@ -94,7 +90,6 @@
       </mat-autocomplete>
     </mat-form-field>
   </mat-card>
-  <!--le bouton todo-->
   <mat-card id="todolist"
             class="divToDoList">
     <button mat-button
@@ -102,7 +97,6 @@
       <mat-icon>done_outline</mat-icon>&nbsp; To Do List
     </button>
   </mat-card>
-  <!--le bouton blocnotes-->
   <mat-card id="blocNotesList"
             class="divBlocNotesList">
     <button mat-button
@@ -118,7 +112,6 @@
       <mat-icon>add</mat-icon>&nbsp; Nouveau post
     </button>
   </mat-card>
-  <!--Les 3 boutons de connexion-->
   <mat-card class="auth"
             routerLinkActive="active"
             *ngIf="!isAuth">

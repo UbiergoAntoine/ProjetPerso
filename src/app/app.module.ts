@@ -55,7 +55,6 @@ import { BandeauComponent } from './Posts/bandeau/bandeau.component';
 import { PostResumeComponent } from './Posts/post-resume/post-resume.component';
 import { PostFormComponent } from './Posts/post-form/post-form.component';
 import { FiltersComponent } from './Posts/filters/filters.component';
-import { MusiqueComponent } from './musique/musique.component';
 
 
 // Les services
@@ -77,8 +76,7 @@ import { MusiqueComponent } from './musique/musique.component';
     BandeauComponent,
     PostResumeComponent,
     PostFormComponent,
-    FiltersComponent,
-    MusiqueComponent
+    FiltersComponent
   ],
 
   imports: [

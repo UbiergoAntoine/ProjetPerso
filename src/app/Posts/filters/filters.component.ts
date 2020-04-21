@@ -1,4 +1,3 @@
-import { KeyWord } from './../post-new/post-new.component';
 import { Post } from './../../models/post.model';
 import { BlocNotesService } from './../../services/bloc-notes.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -16,21 +15,17 @@ export class FiltersComponent implements OnInit {
   selected = '';
   @observable keyWordsPostValue: string;
   @observable titlePostValue: string;
-  constructor(public postService: PostService,
-    public blocnotesService: BlocNotesService, ) { }
+  constructor(
+    public postService: PostService,
+    public blocnotesService: BlocNotesService) { }
 
-  ngOnInit() {
-  }
-
-  // Les computed et les filter pour le header
-
-
+  ngOnInit() { }
   @computed get allKeyWords() {
     if (this.postService.posts) {
       return this.postService.posts.reduce((acc, post) => {
         return acc.concat(
           post.keyWords.filter(k => {
-            return acc.every(key => key.name.toLowerCase() !== k.name.toLowerCase())
+            return acc.every(key => key.name.toLowerCase() !== k.name.toLowerCase());
           })
         );
       }, []);
@@ -41,13 +36,9 @@ export class FiltersComponent implements OnInit {
     this.postService.keyWordsFilter = event.target.value;
   }
   selectKeyWords(keyWord: string) {
-    this.postService.keyWordsFilter = keyWord
+    this.postService.keyWordsFilter = keyWord;
   }
-
-  // le computed pour les titres des posts
-
   @computed get postsTitleAutocomplete() {
-    // toujours vérifier que le service est intialisé avant que la computed se mette en route
     if (this.postService.posts) {
       return this.postService.posts.filter(post => {
         if (this.titlePostValue) {
@@ -58,7 +49,6 @@ export class FiltersComponent implements OnInit {
       });
     }
   }
-
   searchTitle(event) {
     this.titlePostValue = event.target.value;
   }
@@ -66,7 +56,6 @@ export class FiltersComponent implements OnInit {
   selectTitle(titre: string) {
     this.postService.titreFilter = titre;
   }
-  // Pour clear la value des input sur le click de la croix
   resetFilter() {
     this.postService.keyWordsFilter = '';
   }

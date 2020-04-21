@@ -12,21 +12,4 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
-  /*
-    viewContact() {
-      this.router.navigate(['/contact']);
-     }
-
-
-     viewPortfolio() {
-
-    this.router.navigate(['/portfolio']);
-}
-
-    viewGitHub () {
-
-    url('https://github.com/AntoineUbiergo')
-
-    }*/
-
 }

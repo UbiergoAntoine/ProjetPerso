@@ -1,26 +1,14 @@
 import { AuthService } from './services/auth.service';
-import { Post } from './models/post.model';
 import { PostNewComponent } from './Posts/post-new/post-new.component';
 import { BlocNotesService } from './services/bloc-notes.service';
 import { BlocNotesComponent } from './bloc-notes/bloc-notes.component';
 import { PostService } from './services/post.service';
 import {
-  Component, OnInit, Inject,
-  ViewChild,
-  TemplateRef,
-  AfterViewInit,
-  ViewContainerRef,
-  OnDestroy,
+  Component, OnInit
 } from '@angular/core';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
 import { TodoComponent } from './todo/todo.component';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { Todo } from './models/todo.model';
-import { Notes } from './models/notes.model';
 import * as firebase from 'firebase';
-import { observable, computed } from 'mobx-angular';
 
 
 
@@ -38,7 +26,6 @@ export class AppComponent implements OnInit {
     public postService: PostService,
     public blocnotesService: BlocNotesService,
     private authService: AuthService,
-    private router: Router,
     public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -56,8 +43,6 @@ export class AppComponent implements OnInit {
   signOut() {
     this.authService.signOutUser();
   }
-
-  // Pour ouvrir les 3 modals
   openTodoList(): void {
     this.dialog.open(TodoComponent);
   }
@@ -68,7 +53,5 @@ export class AppComponent implements OnInit {
   openNewPostComponent(): void {
     this.dialog.open(PostNewComponent);
   }
-
-
 
 }

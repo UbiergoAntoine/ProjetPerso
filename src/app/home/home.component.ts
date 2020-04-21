@@ -12,12 +12,12 @@ import { Post } from 'src/app/models/post.model';
 export class HomeComponent implements OnInit {
 
   post: Post;
-  constructor(public postService: PostService,
+  constructor(
+    public postService: PostService,
     private router: Router) { }
 
   ngOnInit() {
   }
-
   @computed get firstPost() {
     return this.postService.getFilteredPosts[0];
   }
@@ -29,9 +29,5 @@ export class HomeComponent implements OnInit {
   }
   @computed get otherPosts() {
     return this.postService.getFilteredPosts.slice(3);
-  }
-
-  @computed get noResult() {
-    return this.postService.getFilteredPosts.length === 0 && (this.postService.themeFilter || this.postService.keyWordsFilter || this.postService.titreFilter)
   }
 }

@@ -22,22 +22,15 @@ export class TodoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     public dialogRef: MatDialogRef<AppComponent, HeaderComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
-    // autorun(() => {
-    //   if (this.todoService.todoList)
-    // })
-  }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
   @computed get todoListComputed() {
-    // toujours vérifier que le service est intialisé avant que la computed se mette en route
     if (this.todoService.todoList) {
       return this.todoService.todoList.filter(stilltodo => {
-        //  return stilltodo.todo.toLowerCase().includes(this.todoService.todoFilter.toLowerCase());
         return !stilltodo.done;
       });
     }
   }
   @computed get doneListComputed() {
-    // toujours vérifier que le service est intialisé avant que la computed se mette en route
     if (this.todoService.todoList) {
       return this.todoService.todoList.filter(donechecked => {
         return donechecked.done;
@@ -45,13 +38,13 @@ export class TodoComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.initForm()
+    this.initForm();
   }
   initForm() {
     this.TodoListForm = this.formBuilder.group({
       todo: ['', Validators.required],
       done: false,
-    })
+    });
   }
   onSaveTodoList() {
     const newToDoList = new Todo({

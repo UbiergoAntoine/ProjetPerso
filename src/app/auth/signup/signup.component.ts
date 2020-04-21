@@ -12,7 +12,8 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   errorMessage: string; // Envoyé par Fb  constructor() { }
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     public authService: AuthService,
     private router: Router) { }
   ngOnInit() {

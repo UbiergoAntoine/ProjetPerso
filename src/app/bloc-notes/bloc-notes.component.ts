@@ -20,7 +20,8 @@ export class BlocNotesComponent implements OnInit {
   @observable date: Date;
   @observable noteId: string;
 
-  constructor(public blocnotesService: BlocNotesService,
+  constructor(
+    public blocnotesService: BlocNotesService,
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -32,12 +33,12 @@ export class BlocNotesComponent implements OnInit {
     this.initForm();
     this.route.params.subscribe(params => {
       this.noteId = params.id;
-    })
+    });
   }
   initForm() {
     this.notesListForm = this.formBuilder.group({
       note: ['', Validators.required]
-    })
+    });
   }
   onSaveNotesList() {
     const newNotes = new Notes({
