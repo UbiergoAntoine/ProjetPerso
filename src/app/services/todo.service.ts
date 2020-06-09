@@ -16,7 +16,7 @@ export class TodoService {
   // Pour la TODOLIST il nous faut 2 computed avec 2 filter
   // 1 qui observe l'état des todo et les chargent, un autre qui observe les done
   constructor() {
-    this.getTodoList()
+    this.getTodoList();
   }
   createNewTodoList(newToDoList) {
     this.todoList.push(newToDoList);

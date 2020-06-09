@@ -57,6 +57,7 @@ import { PostFormComponent } from './Posts/post-form/post-form.component';
 import { FiltersComponent } from './Posts/filters/filters.component';
 import { ThemePageComponent } from './theme-page/theme-page.component';
 import { ThemeComponent } from './theme/theme.component';
+import { ThemeService } from './services/theme.service';
 
 
 // Les services
@@ -117,7 +118,8 @@ import { ThemeComponent } from './theme/theme.component';
     AuthGuardService,
     AuthService,
     TodoService,
-    BlocNotesService
+    BlocNotesService,
+    ThemeService
   ],
 
   bootstrap: [
