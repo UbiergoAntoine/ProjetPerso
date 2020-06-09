@@ -55,6 +55,8 @@ import { BandeauComponent } from './Posts/bandeau/bandeau.component';
 import { PostResumeComponent } from './Posts/post-resume/post-resume.component';
 import { PostFormComponent } from './Posts/post-form/post-form.component';
 import { FiltersComponent } from './Posts/filters/filters.component';
+import { ThemePageComponent } from './theme-page/theme-page.component';
+import { ThemeComponent } from './theme/theme.component';
 
 
 // Les services
@@ -76,7 +78,9 @@ import { FiltersComponent } from './Posts/filters/filters.component';
     BandeauComponent,
     PostResumeComponent,
     PostFormComponent,
-    FiltersComponent
+    FiltersComponent,
+    ThemePageComponent,
+    ThemeComponent
   ],
 
   imports: [

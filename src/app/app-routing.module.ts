@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { ThemePageComponent } from './theme-page/theme-page.component';
 
 const routes: Routes = [
   { path: 'auth/signin', component: SigninComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'posts/edit/:id', component: PostEditComponent },
   { path: 'posts/view/:id', component: PostSingleComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'themes', component: ThemePageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' }];
 
