@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { computed } from 'mobx-angular';
 import { Post } from 'src/app/models/post.model';
+import { Theme } from '../models/theme.model';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-theme',
@@ -11,9 +13,11 @@ import { Post } from 'src/app/models/post.model';
 })
 export class ThemeComponent implements OnInit {
 
-  post: Post;
+  theme: Theme;
   constructor(
     public postService: PostService,
+    public themeService: ThemeService,
+
     private router: Router) { }
 
   ngOnInit() {
@@ -29,5 +33,9 @@ export class ThemeComponent implements OnInit {
   }
   @computed get otherPosts() {
     return this.postService.getFilteredPosts.slice(3);
+  }
+
+  @computed get themeList() {
+    this.themeService.getThemeList
   }
 }

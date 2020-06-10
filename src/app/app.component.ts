@@ -39,7 +39,6 @@ export class AppComponent implements OnInit {
       }
     );
   }
-
   signOut() {
     this.authService.signOutUser();
   }
