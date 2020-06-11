@@ -12,6 +12,7 @@ import {
   getDefaultModelSchema,
   serializable,
 } from 'serializr';
+import { Post } from './post.model';
 
 
 export class Theme {
@@ -20,11 +21,11 @@ export class Theme {
   @serializable id: string;
   @serializable name: string;
   @serializable icon: string;
+  @serializable(list(object(Post))) posts: Post[] = new Array<Post>();
 
   constructor(data?) {
     this.setData(data);
   }
-
   setData(data?: any) {
     if (data) {
       Object.assign(this, data);

@@ -35,7 +35,7 @@ export class ThemeComponent implements OnInit {
     return this.postService.getFilteredPosts.slice(3);
   }
 
-  @computed get themeList() {
-    this.themeService.getThemeList
-  }
+  // @computed get themeList() {
+  //   this.themeService.getThemeList
+  // }
 }
