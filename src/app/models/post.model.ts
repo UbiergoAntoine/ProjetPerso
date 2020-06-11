@@ -28,7 +28,7 @@ export class Post {
   @serializable notes: string;
   @serializable theme: string;
   @serializable stackBlitz: string;
-  @serializable date: string = "";
+  @serializable date = '';
 
 
   constructor(data?) {

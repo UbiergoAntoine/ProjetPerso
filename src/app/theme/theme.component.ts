@@ -1,5 +1,5 @@
 import { PostService } from '../services/post.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { computed } from 'mobx-angular';
 import { Post } from 'src/app/models/post.model';
@@ -13,7 +13,9 @@ import { ThemeService } from '../services/theme.service';
 })
 export class ThemeComponent implements OnInit {
 
-  theme: Theme;
+  @Input() theme: Theme;
+
+  // theme: Theme;
   constructor(
     public postService: PostService,
     public themeService: ThemeService,
