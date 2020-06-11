@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'posts', component: PostListComponent },
   { path: 'posts/edit/:id', component: PostEditComponent },
   { path: 'posts/view/:id', component: PostSingleComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'themes', component: ThemePageComponent },
+  { path: 'posts-list', component: HomeComponent },
+  { path: 'home', component: ThemePageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' }];
 

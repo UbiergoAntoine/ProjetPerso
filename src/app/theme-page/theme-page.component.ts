@@ -1,10 +1,9 @@
+import { ThemeService } from './../services/theme.service';
 import { PostService } from '../services/post.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { computed } from 'mobx-angular';
 import { Post } from 'src/app/models/post.model';
-import { ThemeService } from '../services/theme.service';
-
 @Component({
   selector: 'app-theme-page',
   templateUrl: './theme-page.component.html',
@@ -12,7 +11,7 @@ import { ThemeService } from '../services/theme.service';
 })
 export class ThemePageComponent implements OnInit {
 
-  post: Post;
+  // post: Post;
   constructor(
     public postService: PostService,
     public themeService: ThemeService,
@@ -21,8 +20,15 @@ export class ThemePageComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
   @computed get allThemes() {
     return this.themeService.themes;
+  }
+  selectTheme(theme: string) {
+    this.themeService.themeFilter = theme;
+    console.log('VALUE DU THEME FILTER', this.themeService.themeFilter);
+    this.router.navigate(['/posts-list']);
   }
   // @computed get firstPost() {
   //   return this.postService.getFilteredPosts[0];
