@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { computed } from 'mobx-angular';
 import { Post } from 'src/app/models/post.model';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-theme-page',
@@ -14,9 +15,15 @@ export class ThemePageComponent implements OnInit {
   post: Post;
   constructor(
     public postService: PostService,
+    public themeService: ThemeService,
     private router: Router) { }
 
   ngOnInit() {
+  }
+  
+
+  @computed get allThemes() {
+    return this.themeService.fetchThemes();
   }
   // @computed get firstPost() {
   //   return this.postService.getFilteredPosts[0];
