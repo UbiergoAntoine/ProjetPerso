@@ -44,6 +44,7 @@ export class ThemeService {
         this.themes = data.val()
           ? Object.values(data.val()).map(theme => new Theme(theme))
           : [];
+        // console.log('this.theme', this.themes);
       });
   }
 
@@ -119,26 +120,26 @@ export class ThemeService {
   //     alert('Le theme n\'a pas été supprimé en vous allez y être redirigé');
   //   }
   // }
-  uploadFile(file: File) {
-    return new Promise(
-      (resolve, reject) => {
-        const almostUniqueFileName = Date.now().toString();
-        const upload = firebase.storage().ref()
-          .child('images/' + almostUniqueFileName + file.name).put(file);
-        upload.catch(err => console.warn(err));
-        upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
-          () => {
-            console.log('Chargement…');
-          },
-          (error) => {
-            console.log('Erreur de chargement ! : ', error);
-            reject();
-          },
-          () => {
-            resolve(upload.snapshot.ref.getDownloadURL());
-          }
-        );
-      }
-    );
-  }
+  // uploadFile(file: File) {
+  //   return new Promise(
+  //     (resolve, reject) => {
+  //       const almostUniqueFileName = Date.now().toString();
+  //       const upload = firebase.storage().ref()
+  //         .child('images/' + almostUniqueFileName + file.name).put(file);
+  //       upload.catch(err => console.warn(err));
+  //       upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+  //         () => {
+  //           console.log('Chargement…');
+  //         },
+  //         (error) => {
+  //           console.log('Erreur de chargement ! : ', error);
+  //           reject();
+  //         },
+  //         () => {
+  //           resolve(upload.snapshot.ref.getDownloadURL());
+  //         }
+  //       );
+  //     }
+  //   );
+  // }
 }

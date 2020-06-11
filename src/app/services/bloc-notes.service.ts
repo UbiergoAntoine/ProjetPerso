@@ -14,7 +14,7 @@ export class BlocNotesService {
   // Post : Notes
   @observable notes: Notes[] = [];
   constructor() {
-    this.getNotesList()
+    this.getNotesList();
   }
   createNewNotesList(newNotes) {
     this.notes.push(newNotes);

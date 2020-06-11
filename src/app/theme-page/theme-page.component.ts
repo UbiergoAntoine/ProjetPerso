@@ -20,10 +20,9 @@ export class ThemePageComponent implements OnInit {
 
   ngOnInit() {
   }
-  
 
   @computed get allThemes() {
-    return this.themeService.fetchThemes();
+    return this.themeService.themes;
   }
   // @computed get firstPost() {
   //   return this.postService.getFilteredPosts[0];

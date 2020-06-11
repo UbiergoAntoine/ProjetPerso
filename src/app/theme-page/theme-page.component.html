@@ -1,4 +1,6 @@
 <p>THEME PAGE</p>
-<div *ngFor="let theme of allThemes" (click)="selectTheme(theme)">
-    <!-- <app-theme [theme]="theme"></app-theme> -->
+<div class="themes-container"
+     *ngFor="let theme of allThemes"
+     (click)="selectTheme(theme)">
+    <app-theme [theme]="theme"></app-theme>
 </div>
