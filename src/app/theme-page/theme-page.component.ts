@@ -10,7 +10,8 @@ import { Post } from 'src/app/models/post.model';
   styleUrls: ['./theme-page.component.scss']
 })
 export class ThemePageComponent implements OnInit {
-
+  defaultElevation = 2;
+  raisedElevation = 8;
   // post: Post;
   constructor(
     public postService: PostService,

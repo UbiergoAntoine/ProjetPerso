@@ -1,4 +1,29 @@
 <div class="blocNotesCompo">
+  <!--Le tableau de la TodoList-->
+  <div class="container-notes">
+    <h5>Dernières notes : </h5>
+    <mat-nav-list>
+      <mat-list-item class="blocNotesList"
+        *ngFor="let note of blocnotesService.notes; let first = first; let last = last;">
+        <mat-icon class="blocNoteIcon">notes</mat-icon>
+        <p style="width: 20%;">{{note.prettyDate}}</p>
+        <markdown [data]="note.note"
+                  ngPreserveWhitespaces
+                  class="note"></markdown>
+        <button mat-button
+                class="effacer"
+                style="width: 40%;"
+                (click)="onDeleteNote(note)">
+          <mat-icon>close</mat-icon> &nbsp; Effacer cette note
+        </button>
+        <mat-divider *ngIf="!last"></mat-divider>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+  
+ 
+  
+
   <form [formGroup]="notesListForm"
         (ngSubmit)="onSaveNotesList()">
     <mat-card class="formBlocNotes">
@@ -34,27 +59,4 @@
       </mat-card-actions>
     </mat-card>
   </form>
-  <!--Le tableau de la TodoList-->
-  <h5>Dernières notes : </h5>
-  <div class="blocNotesList"
-       fxLayout="row"
-       fxLayoutAlign="start center"
-       *ngFor="let note of blocnotesService.notes; let first = first; let last = last;">
-    <mat-icon fxFlex="24px"
-              class="blocNoteIcon">notes</mat-icon>
-    <div fxLayout="column"
-         fxFlex>
-      <div fxLayout="row"
-           fxLayoutAlign="start center"
-           fxFlex><span class="prettyDate"> {{note.prettyDate}} </span><button mat-button
-                class="effacer"
-                (click)="onDeleteNote(note)">
-          <mat-icon>close</mat-icon> &nbsp; Effacer cette note
-        </button></div>
-      <markdown [data]="note.note"
-                ngPreserveWhitespaces
-                class="note"></markdown>
-    </div>
-    <mat-divider *ngIf="!last"></mat-divider>
-  </div>
 </div>
