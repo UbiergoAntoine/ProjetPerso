@@ -11,7 +11,7 @@ export class ThemeService {
   @observable themeFilter: string;
   @observable keyWordsFilter: string;
   @observable titreFilter: string;
-  themes = [{
+  @observable themes = [{
     name: 'Front-End',
     icon: 'keyboard'
   },
