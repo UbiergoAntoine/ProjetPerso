@@ -1,15 +1,15 @@
-import { HomeComponent } from './home/home.component';
-import { AuthGuardService } from './services/auth-guard.service';
 
-import { PostSingleComponent } from './Posts/post-single/post-single.component';
-import { PostEditComponent } from './Posts/post-edit/post-edit.component';
-import { PostNewComponent } from './Posts/post-new/post-new.component';
-import { PostListComponent } from './Posts/post-list/post-list.component';
+import { PostListComponent } from './components/posts/post-list/post-list.component';
+import { PostNewComponent } from './modals/post-new/post-new.component';
+import { PostEditComponent } from './pages/post-edit/post-edit.component';
+import { PostSingleComponent } from './pages/post-single/post-single.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AuthGuardService } from './services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
-import { ThemePageComponent } from './theme-page/theme-page.component';
+import { ThemePageComponent } from './pages/theme-page/theme-page.component';
 
 const routes: Routes = [
   { path: 'auth/signin', component: SigninComponent },

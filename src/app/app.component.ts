@@ -1,18 +1,14 @@
+import { TodoComponent } from './modals/todo/todo.component';
+import { BlocNotesComponent } from './modals/bloc-notes/bloc-notes.component';
+import { PostNewComponent } from './modals/post-new/post-new.component';
 import { AuthService } from './services/auth.service';
-import { PostNewComponent } from './Posts/post-new/post-new.component';
 import { BlocNotesService } from './services/bloc-notes.service';
-import { BlocNotesComponent } from './bloc-notes/bloc-notes.component';
 import { PostService } from './services/post.service';
 import {
   Component, OnInit
 } from '@angular/core';
-import { TodoComponent } from './todo/todo.component';
 import { MatDialog } from '@angular/material/dialog';
 import * as firebase from 'firebase';
-
-
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

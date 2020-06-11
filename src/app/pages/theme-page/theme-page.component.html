@@ -1,0 +1,14 @@
+<div class="theme-page-container">
+    <p>THEME PAGE</p>
+    <button mat-button
+            *ngIf="isAuth"
+            (click)="openThemeForm()">
+        <mat-icon>done_outline</mat-icon>&nbsp; Ajouter un langage &nbsp;
+    </button>
+    <p>J'ai changé la route, maintenant cette page est le "/home" et l'ancienne route "/home" est "posts-list"</p>
+    <div class="themes-container"
+         *ngFor="let theme of allThemes"
+         (click)="selectTheme(theme)">
+        <app-theme [theme]="theme"></app-theme>
+    </div>
+</div>
