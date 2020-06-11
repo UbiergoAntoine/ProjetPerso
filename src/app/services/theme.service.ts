@@ -38,49 +38,49 @@ export class ThemeService {
       console.log(this.themeFilter);
     });
   }
-  // fetchThemes() {
-  //   firebase.database().ref('/themes')
-  //     .on('value', (data: Datasnapshot) => {
-  //       this.themes = data.val()
-  //         ? Object.values(data.val()).map(theme => new Theme(theme))
-  //         : [];
-  //     });
-  // }
+  fetchThemes() {
+    firebase.database().ref('/themes')
+      .on('value', (data: Datasnapshot) => {
+        this.themes = data.val()
+          ? Object.values(data.val()).map(theme => new Theme(theme))
+          : [];
+      });
+  }
 
   // @computed get getSortedThemes(): Theme[] {
   //   return this.themes.slice().sort((a, b) => {
   //     return a.date > b.date ? 1 : -1;
   //   });
   // }
-  @computed get getFilteredThemes(): Theme[] {
-    return this.getSortedThemes.filter(theme => {
-      if (this.themeFilter) {
-        return theme.theme === this.themeFilter;
-      } else {
-        return true;
-      }
-    }).filter(theme => {
-      if (this.titreFilter) {
-        return this.titreFilter.toLowerCase().split(' ').every(word => theme.titre.toLowerCase().includes(word));
-      } else {
-        return true;
-      }
-    }).filter(theme => {
-      if (this.keyWordsFilter) {
-        return theme.keyWords.some(keyword => keyword.name.toLowerCase() === this.keyWordsFilter.toLowerCase());
-      } else {
-        return true;
-      }
-    });
-  }
+  // @computed get getFilteredThemes(): Theme[] {
+  //   return this.getSortedThemes.filter(theme => {
+  //     if (this.themeFilter) {
+  //       return theme.theme === this.themeFilter;
+  //     } else {
+  //       return true;
+  //     }
+  //   }).filter(theme => {
+  //     if (this.titreFilter) {
+  //       return this.titreFilter.toLowerCase().split(' ').every(word => theme.titre.toLowerCase().includes(word));
+  //     } else {
+  //       return true;
+  //     }
+  //   }).filter(theme => {
+  //     if (this.keyWordsFilter) {
+  //       return theme.keyWords.some(keyword => keyword.name.toLowerCase() === this.keyWordsFilter.toLowerCase());
+  //     } else {
+  //       return true;
+  //     }
+  //   });
+  // }
 
-  getSingleTheme(id: string) {
-    if (this.themes) {
-      return this.themes.find((theme) => {
-        return theme.id === id;
-      });
-    }
-  }
+  // getSingleTheme(id: string) {
+  //   if (this.themes) {
+  //     return this.themes.find((theme) => {
+  //       return theme.id === id;
+  //     });
+  //   }
+  // }
   createNewTheme(newTheme: Theme) {
     this.themes.push(newTheme);
     const newThemeId = firebase.database().ref('/themes').push(newTheme).key;
@@ -91,34 +91,34 @@ export class ThemeService {
   updateTheme(theme: Theme) {
     firebase.database().ref('/themes/' + theme.id).update(serialize(theme));
   }
-  removeTheme(theme: Theme) {
+  // removeTheme(theme: Theme) {
 
-    if (confirm('Supprimer le theme ?')) {
-      if (theme.photo) {
-        const storageRef = firebase.storage().refFromURL(theme.photo);
-        storageRef.delete().then(
-          () => {
-            console.log('Photo removed!');
-          },
-          (error) => {
-            console.log('Could not remove photo! : ' + error);
-          }
-        );
-      }
-      const themeIndexToRemove = this.themes.findIndex(
-        (themeEl) => {
-          if (themeEl === theme) {
-            return true;
-          }
-        }
-      );
-      firebase.database().ref('/themes/' + theme.id).remove();
-      this.themes.splice(themeIndexToRemove, 1);
+  //   if (confirm('Supprimer le theme ?')) {
+  //     if (theme.photo) {
+  //       const storageRef = firebase.storage().refFromURL(theme.photo);
+  //       storageRef.delete().then(
+  //         () => {
+  //           console.log('Photo removed!');
+  //         },
+  //         (error) => {
+  //           console.log('Could not remove photo! : ' + error);
+  //         }
+  //       );
+  //     }
+  //     const themeIndexToRemove = this.themes.findIndex(
+  //       (themeEl) => {
+  //         if (themeEl === theme) {
+  //           return true;
+  //         }
+  //       }
+  //     );
+  //     firebase.database().ref('/themes/' + theme.id).remove();
+  //     this.themes.splice(themeIndexToRemove, 1);
 
-    } else {
-      alert('Le theme n\'a pas été supprimé en vous allez y être redirigé');
-    }
-  }
+  //   } else {
+  //     alert('Le theme n\'a pas été supprimé en vous allez y être redirigé');
+  //   }
+  // }
   uploadFile(file: File) {
     return new Promise(
       (resolve, reject) => {
