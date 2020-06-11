@@ -30,6 +30,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MarkdownModule } from 'ngx-markdown';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MaterialElevationDirective } from './material-elevation.directive';
 
 
 // Les compos
@@ -81,7 +83,8 @@ import { ThemeService } from './services/theme.service';
     PostFormComponent,
     FiltersComponent,
     ThemePageComponent,
-    ThemeComponent
+    ThemeComponent,
+    MaterialElevationDirective
   ],
 
   imports: [
@@ -94,6 +97,7 @@ import { ThemeService } from './services/theme.service';
     MatSelectModule,
     MatInputModule,
     MatCardModule,
+    MatGridListModule,
     MatSlideToggleModule,
     FlexLayoutModule,
     MatExpansionModule,

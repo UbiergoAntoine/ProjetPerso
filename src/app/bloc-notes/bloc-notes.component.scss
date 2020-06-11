@@ -1,5 +1,5 @@
 .note {
-  padding-bottom: 16px;
+  min-width: 60%;
 }
 
 .blocNotesCompo {
@@ -10,7 +10,9 @@
 .prettyDate {
   font-weight: bold;
 }
-
+.container-notes {
+  height: 65%;
+}
 .notes {
   font-size: 20px;
   margin-right: 16px !important;
@@ -20,16 +22,16 @@ h5 {
   font-size: 18px;
 }
 
-.notesInput {
-  width: 100%;
-}
+// .notesInput {
+//   width: 100%;
+// }
 
-.blocNoteIcon {
-  position: relative;
-  top: 4px;
-  left: 4px;
-  margin-right: 16px;
-}
+// .blocNoteIcon {
+//   position: relative;
+//   top: 4px;
+//   left: 4px;
+//   margin-right: 16px;
+// }
 
 mat-card-action.ideaInput {
   margin-bottom: 0 !important;
