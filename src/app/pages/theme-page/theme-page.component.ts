@@ -25,8 +25,8 @@ export class ThemePageComponent implements OnInit {
   @computed get allThemes() {
     return this.themeService.themes;
   }
-  selectTheme(s: string) {
-    this.postService.themeFilter = s;
+  selectTheme(themeName: string) {
+    this.postService.themeFilter = themeName;
     console.log('VALUE DU THEME FILTER', this.postService.themeFilter);
     this.router.navigate(['/posts-list']);
   }

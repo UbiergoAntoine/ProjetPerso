@@ -9,9 +9,9 @@
     <mat-select [(ngModel)]="postService.themeFilter"
                 class="FormsMenu"
                 matSelect
-                [(value)]="selected"
+                [(value)]="postService.themeFilter"
                 placeholder="Choisissez votre thème">
-      <mat-select-trigger>{{selected}}</mat-select-trigger>
+      <mat-select-trigger>{{postService.themeFilter}}</mat-select-trigger>
       <mat-option>
         <mat-icon>all_out</mat-icon>&nbsp;--- Réinitialiser ---
       </mat-option>

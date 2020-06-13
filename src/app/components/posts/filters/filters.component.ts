@@ -1,6 +1,6 @@
 import { BlocNotesService } from './../../../services/bloc-notes.service';
 import { Post } from './../../../models/post.model';
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { computed, observable } from 'mobx-angular';
 import { ThemeService } from 'src/app/services/theme.service';
@@ -16,37 +16,13 @@ export class FiltersComponent implements OnInit {
   @Input() theme: Theme;
 
   @Input() post: Post;
-
-  // @Input
-  @observable selected = '';
   @observable keyWordsPostValue: string;
   @observable titlePostValue: string;
   constructor(
-    // private cdRef: ChangeDetectorRef,
     private themeService: ThemeService,
     public postService: PostService,
     public blocnotesService: BlocNotesService) { }
-
-  // ngAfterViewChecked() {
-  //   console.log("! changement de la date du composant !");
-  //   if (this.postService.themeFilter) {
-  //     this.postService.themeFilter = this.selected;
-  //   }
-  // }
-
-  ngOnInit() {
-    console.log('this.postService.themeFilter', this.postService.themeFilter);
-    //     if (this.postService.themeFilter) {
-    //       this.postService.themeFilter = this.selected;
-    //     }
-
-    //     selectElement('leaveCode', '11')
-
-    // function selectElement(id, valueToSelect) {
-    //     let element = document.getElementById(id);
-    //     element.value = valueToSelect;
-    // }
-  }
+  ngOnInit() { }
 
   @computed get themeFilter() {
     return this.postService.themeFilter;

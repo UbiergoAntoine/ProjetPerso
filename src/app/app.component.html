@@ -3,25 +3,22 @@
      *ngIf="signedMode">
   <div class="headerContainer"
        fxLayout="row"
-       fxLayoutAlign="end">
-    <div fxFlex>
-      <div class="custom-control custom-switch"
-           (click)="darkModeToggle.toggle()">
-        <mat-checkbox type="checkbox"
-                      class="custom-control-input"
-                      [(ngModel)]="darkMode"
-                      #darkModeToggle>
-          <label class="custom-control-label"
-                 for="darkMode">Dark Mode</label>
-        </mat-checkbox>
-      </div>
+       fxLayoutAlign="space-between end">
+    <div class="toggle-container"
+         (click)="darkModeToggle.toggle()">
+      <mat-slide-toggle class="dark-mode-toggle"
+                        disabled
+                        [(ngModel)]="darkMode"
+                        #darkModeToggle>
+        <label class="dm-label"
+               for="darkModeToggle">Dark Mode</label>
+      </mat-slide-toggle>
     </div>
     <a class="logo-header"
        routerLink="/">
       <img src="../assets/images/logo.jpg">
     </a>
     <div class="connectionButtons"
-         fxFlex
          fxLayout="row"
          fxLayoutAlign="center end">
       <button mat-button

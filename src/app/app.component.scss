@@ -6,13 +6,32 @@
   width: 100%;
 }
 
+.headerContainer {
+  padding: 0px 24px;
+}
+
+.toggle-container {
+  width: 148px;
+  height: 32px;
+  z-index: 9999;
+  margin-bottom: 24px;
+
+  .dark-mode-toggle {
+    opacity: 1 !important;
+  }
+
+  .dm-label {
+    padding-left: 8px
+  }
+}
+
 div.header.mat-elevation-z12 {
   height: 192px;
   margin-bottom: 32px;
 }
 
 .connectionButtons {
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
 .exit {
