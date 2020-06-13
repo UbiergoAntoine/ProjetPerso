@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
     public postService: PostService,
     private router: Router) { }
 
-  ngOnInit() {
-    this.postService.themeFilter = this.theme.name;
-  }
+  ngOnInit() { }
   @computed get firstPost() {
     return this.postService.getFilteredPosts[0];
   }

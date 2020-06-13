@@ -29,5 +29,4 @@ export class DarkModeService {
       localStorage.setItem('dark', 'false');
     }
   }
-
 }

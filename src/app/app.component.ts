@@ -65,7 +65,5 @@ export class AppComponent implements OnInit {
   // DarkMode
   toggleDarkTheme(setDarkMode) {
     this.darkModeService.setDarkTheme(setDarkMode.checked);
-    // console.log("checked >", this.isThemeDark);
-    console.log("checked >", setDarkMode.checked);
   }
 }
