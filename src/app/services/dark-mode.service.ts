@@ -25,8 +25,8 @@ export class DarkModeService {
       console.log('Light Used');
       document.documentElement.style.setProperty('--white-color', this.white);
       document.documentElement.style.setProperty('--black-color', this.black);
-      document.documentElement.style.setProperty('--black-color', this.black);
       localStorage.setItem('dark', 'false');
     }
   }
+
 }

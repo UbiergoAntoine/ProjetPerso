@@ -13,6 +13,7 @@ import * as firebase from 'firebase';
 import { AuthGuardService } from './services/auth-guard.service';
 import { computed, observable } from 'mobx-angular';
 import { DarkModeService } from './services/dark-mode.service';
+import { OverlayContainer } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,12 +24,15 @@ export class AppComponent implements OnInit {
   @observable isAuth: boolean;
   isThemeDark: Observable<boolean>;
   constructor(
+    public overlayContainer: OverlayContainer,
     private authGuardService: AuthGuardService,
     public postService: PostService,
     public blocnotesService: BlocNotesService,
     private authService: AuthService,
     public dialog: MatDialog,
-    public darkModeService: DarkModeService) { }
+    public darkModeService: DarkModeService) {
+    overlayContainer.getContainerElement().classList.add('dark-mode');
+  }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(

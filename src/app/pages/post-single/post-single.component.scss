@@ -35,11 +35,11 @@ mat-card-content {
 }
 
 .EditPost {
-  background-color: mat-color($dark-mode-app-primary, A400);
+  // background-color: mat-color($light-primary);
   margin: 8px;
 }
 
 .SupprPost {
-  background-color: mat-color($dark-mode-app-warn);
+  // background-color: mat-color($light-accent);
   margin: 8px;
 }

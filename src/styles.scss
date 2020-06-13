@@ -1,3 +1,5 @@
+@import './theme/dark-mode.scss';
+
 html,
 body {
   height: 100%;
@@ -6,7 +8,19 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
 }
 
+@include angular-material-theme($light-theme);
+
+// @media (angular-material-theme($light-theme))
+
+.dark-mode {
+  body {
+    background-color: #E6E6E6;
+
+  }
+
+}
 
 //

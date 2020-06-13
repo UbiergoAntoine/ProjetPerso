@@ -6,6 +6,17 @@
   width: 100%;
 }
 
+.general-container {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.dark-mode {
+  background-color: #4b4a4a;
+}
+
 .headerContainer {
   padding: 0px 24px;
 }
@@ -72,14 +83,14 @@ mat-icon {
 
 
 .exit {
-  background-color: #7C9EF2 !important;
+  background-color: primary !important;
 
 }
 
 .header {
   width: 100%;
   text-align: center;
-  background-color: mat-color($dark-mode-app-primary);
+  // background-color: "primary";
   height: 48px;
 
   img {
@@ -91,7 +102,7 @@ mat-icon {
 
 
 .newPostButton {
-  background-color: mat-color($dark-mode-app-primary, A100);
+  // background-color: "primary";
   position: fixed;
   bottom: 50px;
   left: 50px;
