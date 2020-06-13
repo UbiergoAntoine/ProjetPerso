@@ -19,17 +19,22 @@ export class FiltersComponent implements OnInit {
   @observable keyWordsPostValue: string;
   @observable titlePostValue: string;
   constructor(
-    private themeService: ThemeService,
     public postService: PostService,
     public blocnotesService: BlocNotesService) { }
-  ngOnInit() { }
+  ngOnInit() {
+    console.log('this.postservice.themeFilter', this.postService.themeFilter);
+    console.log('this.postservice.titreFilter', this.postService.titreFilter);
+
+    console.log('this.postservice.keyWordsFilter', this.postService.keyWordsFilter);
+
+  }
 
   @computed get themeFilter() {
     return this.postService.themeFilter;
   }
   @computed get allKeyWords() {
-    if (this.postService.posts) {
-      return this.postService.posts.reduce((acc, post) => {
+    if (this.postService.getFilteredPosts) {
+      return this.postService.getFilteredPosts.reduce((acc, post) => {
         return acc.concat(
           post.keyWords.filter(k => {
             return acc.every(key => key.name.toLowerCase() !== k.name.toLowerCase());
@@ -46,14 +51,22 @@ export class FiltersComponent implements OnInit {
     this.postService.keyWordsFilter = keyWord;
   }
   @computed get postsTitleAutocomplete() {
-    if (this.postService.posts) {
-      return this.postService.posts.filter(post => {
+    if (this.postService.getFilteredPosts) {
+      return this.postService.getFilteredPosts.filter(post => {
         if (this.titlePostValue) {
           return post.titre.toLowerCase().includes(this.titlePostValue.toLowerCase());
         } else {
           return true;
         }
       });
+    }
+  }
+
+  @computed get anyFilterSet() {
+    if (this.postService.titreFilter || this.postService.keyWordsFilter || this.postService.themeFilter) {
+      return true;
+    } else {
+      return false;
     }
   }
   searchTitle(event) {
@@ -63,11 +76,25 @@ export class FiltersComponent implements OnInit {
   selectTitle(titre: string) {
     this.postService.titreFilter = titre;
   }
-  resetFilter() {
+  resetFilter(event) {
+    event.stopPropagation();
     this.postService.keyWordsFilter = '';
+    console.log('this.postService.keyWordsFilter', this.postService.keyWordsFilter);
   }
 
-  resetTitleFilter() {
+  resetTitleFilter(event) {
+    event.stopPropagation();
     this.postService.titreFilter = '';
+    console.log('this.postService.titreFilter', this.postService.titreFilter);
+  }
+
+  resetThemeFilter(event) {
+    event.stopPropagation();
+    this.postService.themeFilter = '';
+  }
+  resetAllFilters(event) {
+    this.resetFilter(event);
+    this.resetTitleFilter(event);
+    this.resetThemeFilter(event);
   }
 }

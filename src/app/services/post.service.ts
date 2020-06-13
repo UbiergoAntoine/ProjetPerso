@@ -14,26 +14,6 @@ export class PostService {
   @observable keyWordsFilter: string;
   @observable titreFilter: string;
   @observable themes: Theme[] = [];
-  // themes = [{
-  //   name: 'Front-End',
-  //   icon: 'keyboard'
-  // },
-  // {
-  //   name: 'Back-End',
-  //   icon: 'backup'
-  // },
-  // {
-  //   name: 'Design',
-  //   icon: 'developer_board'
-  // },
-  // {
-  //   name: 'Logiciels',
-  //   icon: 'build'
-  // },
-  // {
-  //   name: 'Théorie',
-  //   icon: 'dashboard'
-  // }];
   constructor() {
     this.fetchPosts();
     this.fetchThemes();
@@ -76,6 +56,7 @@ export class PostService {
       }
     });
   }
+
 
   getSinglePost(id: string) {
     if (this.posts) {

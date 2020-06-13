@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
     public dialog: MatDialog,
     public darkModeService: DarkModeService) {
     overlayContainer.getContainerElement().classList.add('dark-mode');
+    // overlayContainer.getContainerElement().classList.add('dark-mode');
   }
 
   ngOnInit() {

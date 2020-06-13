@@ -11,16 +11,33 @@ body {
 
 }
 
+
 @include angular-material-theme($light-theme);
 
+
 // @media (angular-material-theme($light-theme))
+// .dark-mode {
+//   body {
+//     background-color: #E6E6E6;
 
-.dark-mode {
-  body {
-    background-color: #E6E6E6;
+//   }
 
-  }
-
-}
+// }
 
 //
+.mat-form-field-label {
+  color: $primary;
+}
+
+.mat-form-field-underline {
+  background-color: $primary;
+}
+
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}

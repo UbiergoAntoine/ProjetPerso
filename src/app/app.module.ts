@@ -62,7 +62,6 @@ import { AuthService } from './services/auth.service';
 import { PostService } from './services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { DarkModeService } from './services/dark-mode.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,8 +121,7 @@ import { DarkModeService } from './services/dark-mode.service';
     AuthService,
     TodoService,
     BlocNotesService,
-    ThemeService,
-    DarkModeService
+    ThemeService
   ],
 
   bootstrap: [

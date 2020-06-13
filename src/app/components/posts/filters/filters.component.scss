@@ -1,6 +1,13 @@
-@import '../../../../theme/dark-mode.scss';
-
 .main-container-filters {
   width: 300px;
   padding-left: 32px;
+}
+
+.reset-all-filters {
+  position: absolute;
+  top: -56px;
+}
+
+.theme-select {
+  width: 244px !important;
 }
