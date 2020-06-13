@@ -3,6 +3,8 @@ import { Post } from './../../../models/post.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { computed, observable } from 'mobx-angular';
+import { ThemeService } from 'src/app/services/theme.service';
+import { Theme } from 'src/app/models/theme.model';
 
 @Component({
   selector: 'app-filters',
@@ -11,15 +13,24 @@ import { computed, observable } from 'mobx-angular';
 })
 export class FiltersComponent implements OnInit {
 
+  @Input() theme: Theme;
+
   @Input() post: Post;
+
+  // @Input
   selected = '';
   @observable keyWordsPostValue: string;
   @observable titlePostValue: string;
   constructor(
+    private themeService: ThemeService,
     public postService: PostService,
     public blocnotesService: BlocNotesService) { }
 
   ngOnInit() { }
+
+  @computed get themeFilter() {
+    return this.postService.themeFilter;
+  }
   @computed get allKeyWords() {
     if (this.postService.posts) {
       return this.postService.posts.reduce((acc, post) => {

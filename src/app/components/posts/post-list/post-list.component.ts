@@ -10,15 +10,12 @@ import { Post } from 'src/app/models/post.model';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-
   post: Post;
   constructor(
     public postService: PostService,
     private router: Router) { }
-
   ngOnInit() {
   }
-
   @computed get postsComputed() {
     if (this.postService.posts) {
       return this.postService.posts.filter(post => {
@@ -30,7 +27,6 @@ export class PostListComponent implements OnInit {
       });
     }
   }
-
   onViewPost(id: string) {
     this.router.navigate(['/posts', 'view', id]);
   }

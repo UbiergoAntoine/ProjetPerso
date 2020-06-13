@@ -7,30 +7,30 @@ import { serialize } from 'serializr';
 import { autorun } from 'mobx';
 @Injectable()
 export class ThemeService {
-  // @observable themes: Theme[] = [];
+  @observable themes: Theme[] = [];
   @observable themeFilter: string;
   @observable keyWordsFilter: string;
   @observable titreFilter: string;
-  @observable themes = [{
-    name: 'Front-End',
-    icon: 'keyboard'
-  },
-  {
-    name: 'Back-End',
-    icon: 'backup'
-  },
-  {
-    name: 'Design',
-    icon: 'developer_board'
-  },
-  {
-    name: 'Logiciels',
-    icon: 'build'
-  },
-  {
-    name: 'Théorie',
-    icon: 'dashboard'
-  }];
+  // @observable themes = [{
+  //   name: 'Front-End',
+  //   icon: 'keyboard'
+  // },
+  // {
+  //   name: 'Back-End',
+  //   icon: 'backup'
+  // },
+  // {
+  //   name: 'Design',
+  //   icon: 'developer_board'
+  // },
+  // {
+  //   name: 'Logiciels',
+  //   icon: 'build'
+  // },
+  // {
+  //   name: 'Théorie',
+  //   icon: 'dashboard'
+  // }];
 
   constructor() {
     this.fetchThemes();

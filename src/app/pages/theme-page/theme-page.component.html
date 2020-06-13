@@ -1,4 +1,17 @@
 <div class="theme-page-container">
+    <!-- <div class="text-right"> -->
+    <div class="custom-control custom-switch">
+        <mat-checkbox type="checkbox"
+                      class="custom-control-input"
+                      id="darkMode"
+                      [checked]="isThemeDark | async"
+                      (change)="toggleDarkTheme($event)">
+            <label class="custom-control-label"
+                   for="darkMode"></label>
+            <a class="text-capitalize">Dark Mode</a>
+        </mat-checkbox>
+    </div>
+    <!-- </div> -->
     <p>THEME PAGE</p>
     <button mat-button
             *ngIf="isAuth"

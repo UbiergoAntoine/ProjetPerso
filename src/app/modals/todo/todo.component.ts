@@ -1,7 +1,6 @@
 import { TodoService } from './../../services/todo.service';
 import { Todo } from './../../models/todo.model';
 import { AppComponent } from './../../app.component';
-import { HeaderComponent } from './../../components/header/header.component';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,7 +20,7 @@ export class TodoComponent implements OnInit {
     public todoService: TodoService,
     private formBuilder: FormBuilder,
     private router: Router,
-    public dialogRef: MatDialogRef<AppComponent, HeaderComponent>,
+    public dialogRef: MatDialogRef<AppComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
   @computed get todoListComputed() {
     if (this.todoService.todoList) {

@@ -1,7 +1,6 @@
 import { AppComponent } from './../../app.component';
 import { Notes } from './../../models/notes.model';
 import { BlocNotesService } from './../../services/bloc-notes.service';
-import { HeaderComponent } from './../../components/header/header.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
@@ -25,7 +24,7 @@ export class BlocNotesComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<HeaderComponent, AppComponent>,
+    public dialogRef: MatDialogRef<AppComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 

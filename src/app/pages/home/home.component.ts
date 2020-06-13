@@ -1,8 +1,9 @@
 import { PostService } from './../../services/post.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { computed } from 'mobx-angular';
+import { computed, observable } from 'mobx-angular';
 import { Post } from 'src/app/models/post.model';
+import { Theme } from 'src/app/models/theme.model';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,15 @@ import { Post } from 'src/app/models/post.model';
 })
 export class HomeComponent implements OnInit {
 
-  post: Post;
+  @Input() theme: Theme;
+  @observable themes: Theme[] = [];
+  @Input() post: Post;
   constructor(
     public postService: PostService,
     private router: Router) { }
 
   ngOnInit() {
+    this.postService.themeFilter = this.theme.name;
   }
   @computed get firstPost() {
     return this.postService.getFilteredPosts[0];

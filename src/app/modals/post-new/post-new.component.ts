@@ -1,4 +1,3 @@
-import { HeaderComponent } from './../../components/header/header.component';
 import { AppComponent } from './../../app.component';
 import { Post } from 'src/app/models/post.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -41,7 +40,7 @@ export class PostNewComponent implements OnInit {
     public postService: PostService,
     private router: Router,
     private formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<AppComponent, HeaderComponent>,
+    public dialogRef: MatDialogRef<AppComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {

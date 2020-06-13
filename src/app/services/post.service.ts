@@ -5,35 +5,38 @@ import * as firebase from 'firebase';
 import Datasnapshot = firebase.database.DataSnapshot;
 import { serialize } from 'serializr';
 import { autorun } from 'mobx';
+import { ThemeService } from './theme.service';
+import { Theme } from '../models/theme.model';
 @Injectable()
 export class PostService {
   @observable posts: Post[] = [];
   @observable themeFilter: string;
   @observable keyWordsFilter: string;
   @observable titreFilter: string;
-  themes = [{
-    name: 'Front-End',
-    icon: 'keyboard'
-  },
-  {
-    name: 'Back-End',
-    icon: 'backup'
-  },
-  {
-    name: 'Design',
-    icon: 'developer_board'
-  },
-  {
-    name: 'Logiciels',
-    icon: 'build'
-  },
-  {
-    name: 'Théorie',
-    icon: 'dashboard'
-  }];
-
+  @observable themes: Theme[] = [];
+  // themes = [{
+  //   name: 'Front-End',
+  //   icon: 'keyboard'
+  // },
+  // {
+  //   name: 'Back-End',
+  //   icon: 'backup'
+  // },
+  // {
+  //   name: 'Design',
+  //   icon: 'developer_board'
+  // },
+  // {
+  //   name: 'Logiciels',
+  //   icon: 'build'
+  // },
+  // {
+  //   name: 'Théorie',
+  //   icon: 'dashboard'
+  // }];
   constructor() {
     this.fetchPosts();
+    this.fetchThemes();
     autorun(() => {
       console.log(this.themeFilter);
     });
@@ -57,7 +60,7 @@ export class PostService {
       if (this.themeFilter) {
         return post.theme === this.themeFilter;
       } else {
-        return true;
+        return [];
       }
     }).filter(post => {
       if (this.titreFilter) {
@@ -140,5 +143,24 @@ export class PostService {
         );
       }
     );
+  }
+  fetchThemes() {
+    firebase.database().ref('/themes')
+      .on('value', (data: Datasnapshot) => {
+        this.themes = data.val()
+          ? Object.values(data.val()).map(theme => new Theme(theme))
+          : [];
+        // console.log('this.theme', this.themes);
+      });
+  }
+  createNewTheme(newTheme: Theme) {
+    this.themes.push(newTheme);
+    const newThemeId = firebase.database().ref('/themes').push(newTheme).key;
+    newTheme.id = newThemeId;
+    firebase.database().ref('/themes/' + newThemeId).set(newTheme);
+  }
+
+  updateTheme(theme: Theme) {
+    firebase.database().ref('/themes/' + theme.id).update(serialize(theme));
   }
 }

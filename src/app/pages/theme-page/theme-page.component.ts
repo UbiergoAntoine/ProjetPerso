@@ -3,7 +3,7 @@ import { PostService } from './../../services/post.service';
 import { ThemeService } from './../../services/theme.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { computed } from 'mobx-angular';
+import { computed, observable } from 'mobx-angular';
 import { MatDialog } from '@angular/material';
 @Component({
   selector: 'app-theme-page',
@@ -11,6 +11,8 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./theme-page.component.scss']
 })
 export class ThemePageComponent implements OnInit {
+
+  @observable isThemeDark: boolean;
   constructor(
     public dialog: MatDialog,
     public postService: PostService,
@@ -23,8 +25,8 @@ export class ThemePageComponent implements OnInit {
     return this.themeService.themes;
   }
   selectTheme(theme: string) {
-    this.themeService.themeFilter = theme;
-    console.log('VALUE DU THEME FILTER', this.themeService.themeFilter);
+    // this.postService.themeFilter = theme;
+    console.log('VALUE DU THEME FILTER', this.postService.themeFilter);
     this.router.navigate(['/posts-list']);
   }
 
