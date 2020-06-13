@@ -25,7 +25,7 @@
       </mat-option>
       <mat-option [value]="theme.name"
                   *ngFor="let theme of postService.themes">
-        <mat-icon mat-icon>{{theme.icon}}</mat-icon>{{theme.name}}
+        <mat-icon>{{theme.icon}}</mat-icon>{{theme.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -43,11 +43,11 @@
            [matAutocomplete]="autoKeyWords">
     <button mat-button
             matSuffix
+            color="accent"
             mat-icon-button
             aria-label="Clear"
             (click)="resetFilter($event)">
-      <mat-icon mat-icon
-                color="primary">close</mat-icon>
+      <mat-icon mat-icon>close</mat-icon>
     </button>
     <mat-autocomplete (optionSelected)="selectKeyWords($event.option.value)"
                       #autoKeyWords="matAutocomplete">
@@ -59,13 +59,11 @@
   </mat-form-field>
   <!--Autocomplete titres des posts-->
   <mat-form-field class="FormsMenu"
-                  color="accent"
                   appearance="outline">
-    <mat-label color="accent">
-      <mat-icon color="accent">title</mat-icon>&nbsp; Titre
+    <mat-label>
+      <mat-icon>title</mat-icon>&nbsp; Titre
     </mat-label>
     <input class="search"
-           color="accent"
            matInput
            [(ngModel)]="postService.titreFilter"
            (keyup)="searchTitle($event)"
@@ -77,15 +75,13 @@
             color="accent"
             aria-label="Clear"
             (click)="resetTitleFilter($event)">
-      <mat-icon backgroundColor="accent">close</mat-icon>
+      <mat-icon>close</mat-icon>
     </button>
     <mat-autocomplete (optionSelected)="selectTitle($event.option.value)"
-                      color="accent"
                       #autoTitle="matAutocomplete">
       <mat-option *ngFor="let post of postsTitleAutocomplete"
-                  color="accent"
                   [value]="post.titre">
-        <span color="accent">{{ post.titre }}</span>
+        <span>{{ post.titre }}</span>
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

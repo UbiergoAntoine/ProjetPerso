@@ -6,17 +6,7 @@
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
 
-$light-primary: mat-palette($mat-indigo, A200, A100, A400);
-$light-accent: mat-palette($mat-blue, A200, A100, A400);
-$light-warn: mat-palette($mat-red, A200, A100, A400);
-$primary: mat-color($light-primary);
-$accent: mat-color($light-accent);
-$warn: mat-color($light-warn);
-$light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
 
-
-
-@include angular-material-theme($light-theme);
 
 $dark-primary: mat-palette($mat-blue, A200, A100, A400);
 $dark-accent: mat-palette($mat-amber, A200, A100, A400);
@@ -35,11 +25,21 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 .dark-mode {
   @include angular-material-theme($dark-theme);
 
+  .mat-focused,
   .mat-form-field-label {
-    color: $primary !important;
+    color: $accent !important;
   }
 
   .mat-form-field-underline {
-    background-color: $primary !important;
+    background-color: $accent !important;
   }
+
+  .mat-form-field-ripple {
+    background-color: $accent !important;
+  }
+
+  input {
+    color: $accent !important;
+  }
+
 }

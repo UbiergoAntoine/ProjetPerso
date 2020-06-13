@@ -1,5 +1,17 @@
 @import './theme/dark-mode.scss';
 
+$light-primary: mat-palette($mat-indigo, A200, A100, A400);
+$light-accent: mat-palette($mat-blue, A200, A100, A400);
+$light-warn: mat-palette($mat-red, A200, A100, A400);
+$primary: mat-color($light-primary);
+$accent: mat-color($light-accent);
+$warn: mat-color($light-warn);
+$light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
+
+
+
+@include angular-material-theme($light-theme);
+
 html,
 body {
   height: 100%;
@@ -12,7 +24,7 @@ body {
 }
 
 
-@include angular-material-theme($light-theme);
+// @include angular-material-theme($light-theme);
 
 
 // @media (angular-material-theme($light-theme))
@@ -25,19 +37,24 @@ body {
 // }
 
 //
+
+
+
+.mat-focused,
 .mat-form-field-label {
   color: $primary;
 }
 
-.mat-form-field-underline {
+
+.mat-form-field-ripple {
   background-color: $primary;
 }
 
+input {
+  color: $accent;
+}
 
-html.transition,
-html.transition *,
-html.transition *:before,
-html.transition *:after {
-  transition: all 750ms !important;
-  transition-delay: 0 !important;
+
+.mat-form-field-underline {
+  background-color: $primary;
 }
