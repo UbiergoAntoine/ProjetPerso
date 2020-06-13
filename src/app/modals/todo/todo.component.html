@@ -1,6 +1,49 @@
 <div class="todoCompo"
      fxLayout="column">
-  <mat-card fxLayout="row"
+  <!--Le tableau de la TodoList-->
+  <mat-grid-list cols="2" rowHeight="100%">
+    <mat-grid-tile>
+      <div class="container-todo">
+        <h5>Travailler, toujours travailler ...</h5>
+        <mat-divider class="divider"
+                       *ngIf="!last"></mat-divider>
+        <mat-nav-list class="mat-list-todo">
+          <mat-list-item class="itemsTodo"
+                *ngFor="let todo of todoListComputed">
+              <p style="min-width: 60%;">{{todo.todo}}</p>
+              <mat-checkbox [(ngModel)]="todo.done"
+                          (change)="todoService.updateTodoList(todo)"
+                          class="valider">Fait ! </mat-checkbox>
+              <button mat-button
+                      class="effacer"
+                      (click)="onDeleteTodoItem(todo)">
+                <mat-icon>close</mat-icon> &nbsp; Effacer
+              </button>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="container-todo">
+        <h5 class="jobsDone">Travail terminé !</h5>
+        <mat-divider class="divider"
+                       *ngIf="!last"></mat-divider>
+        <mat-nav-list class="mat-list-todo">
+          <mat-list-item class="itemsDone"
+              *ngFor="let todo of doneListComputed">
+              <p style="min-width: 60%;">{{todo.todo}}</p>
+              <button mat-button
+                      class="effacer"
+                      (click)="onDeleteTodoItem(todo)">
+                <mat-icon>close</mat-icon> &nbsp; Effacer
+              </button>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  <mat-card fxLayout="column"
             fxLayoutAlign="space-around center">
     <form class="todoFormulaire"
           [formGroup]="TodoListForm"
@@ -30,35 +73,4 @@
               type="submit"> Au Travail ! </button>
     </form>
   </mat-card>
-  <!--Le tableau de la TodoList-->
-  <div class="itemsList">
-    <div fxLayout="row"
-         fxLayoutAlign="center center">
-      <h5 fxFlex>Travailler, toujours travailler ...</h5>
-    </div>
-    <div class="itemsTodo"
-         *ngFor="let todo of todoListComputed">
-      <div fxLayout="row"
-           fxLayoutAlign="end start"><button mat-button
-                class="effacer"
-                (click)="onDeleteTodoItem(todo)">
-          <mat-icon>close</mat-icon> &nbsp; Effacer
-        </button>
-        <mat-checkbox [(ngModel)]="todo.done"
-                      (change)="todoService.updateTodoList(todo)"
-                      class="valider">Fait ! </mat-checkbox>
-      </div>{{todo.todo}} <mat-divider class="divider"
-                   *ngIf="!last"></mat-divider>
-    </div>
-    <h5 class="jobsDone">Travail terminé !</h5>
-    <div class="itemsDone"
-         *ngFor="let todo of doneListComputed"> {{todo.todo}} <div fxLayout="row"
-           fxLayoutAlign="end start"> <button mat-button
-                class="effacer"
-                (click)="onDeleteTodoItem(todo)">
-          <mat-icon>close</mat-icon> &nbsp; Effacer
-        </button></div>
-      <mat-divider class="divider"
-                   *ngIf="!last"></mat-divider>
-    </div>
-  </div>
+</div>

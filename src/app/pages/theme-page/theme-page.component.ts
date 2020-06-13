@@ -11,7 +11,9 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./theme-page.component.scss']
 })
 export class ThemePageComponent implements OnInit {
-
+  defaultElevation = 2;
+  raisedElevation = 8;
+  // post: Post;
   constructor(
     public dialog: MatDialog,
     public postService: PostService,

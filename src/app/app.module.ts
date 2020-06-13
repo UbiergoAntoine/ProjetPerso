@@ -25,6 +25,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MarkdownModule } from 'ngx-markdown';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MaterialElevationDirective } from './material-elevation.directive';
 
 // Les compos
 import { AppRoutingModule } from './app-routing.module';
@@ -80,7 +82,8 @@ import { DarkModeService } from './services/dark-mode.service';
     PostFormComponent,
     FiltersComponent,
     ThemePageComponent,
-    ThemeComponent
+    ThemeComponent,
+    MaterialElevationDirective
   ],
 
   imports: [
@@ -93,6 +96,7 @@ import { DarkModeService } from './services/dark-mode.service';
     MatSelectModule,
     MatInputModule,
     MatCardModule,
+    MatGridListModule,
     MatSlideToggleModule,
     FlexLayoutModule,
     MatExpansionModule,
