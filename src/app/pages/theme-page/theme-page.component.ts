@@ -12,7 +12,6 @@ import { MatDialog } from '@angular/material';
 })
 export class ThemePageComponent implements OnInit {
 
-  @observable isThemeDark: boolean;
   constructor(
     public dialog: MatDialog,
     public postService: PostService,

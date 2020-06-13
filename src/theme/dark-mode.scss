@@ -9,15 +9,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$umla-app-primary: mat-palette($mat-blue, A200);
-$umla-app-accent: mat-palette($mat-cyan, 500);
+$dark-mode-app-primary: mat-palette($mat-blue, A200);
+$dark-mode-app-accent: mat-palette($mat-cyan, 500);
 // The warn palette is optional (defaults to red).
-$umla-app-warn: mat-palette($mat-red);
+$dark-mode-app-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$umla-app-theme: mat-light-theme($umla-app-primary, $umla-app-accent, $umla-app-warn);
+$dark-mode-app-theme: mat-light-theme($dark-mode-app-primary, $dark-mode-app-accent, $dark-mode-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($umla-app-theme);
+@include angular-material-theme($dark-mode-app-theme);
+
+::ng-deep .dark-theme {
+
+  // .mat-card,
+  .mat-button,
+  a,
+  div {
+    color: white !important;
+    background-color: #444444 !important;
+  }
+}

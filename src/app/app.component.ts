@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { TodoComponent } from './modals/todo/todo.component';
 import { BlocNotesComponent } from './modals/bloc-notes/bloc-notes.component';
 import { PostNewComponent } from './modals/post-new/post-new.component';
@@ -10,7 +11,8 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import * as firebase from 'firebase';
 import { AuthGuardService } from './services/auth-guard.service';
-import { computed } from 'mobx-angular';
+import { computed, observable } from 'mobx-angular';
+import { DarkModeService } from './services/dark-mode.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,14 +20,15 @@ import { computed } from 'mobx-angular';
 })
 export class AppComponent implements OnInit {
   title = 'POUJADE Valentin & UBIERGO Antoine';
-  isAuth: boolean;
-
+  @observable isAuth: boolean;
+  isThemeDark: Observable<boolean>;
   constructor(
     private authGuardService: AuthGuardService,
     public postService: PostService,
     public blocnotesService: BlocNotesService,
     private authService: AuthService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    public darkModeService: DarkModeService) { }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(
@@ -59,4 +62,10 @@ export class AppComponent implements OnInit {
     return this.authGuardService.isSigned;
   }
 
+  // DarkMode
+  toggleDarkTheme(setDarkMode) {
+    this.darkModeService.setDarkTheme(setDarkMode.checked);
+    // console.log("checked >", this.isThemeDark);
+    console.log("checked >", setDarkMode.checked);
+  }
 }

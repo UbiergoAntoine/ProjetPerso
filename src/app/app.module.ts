@@ -52,7 +52,6 @@ import { TodoComponent } from './modals/todo/todo.component';
 import * as firebase from 'firebase';
 
 // Les services
-
 import { ThemeService } from './services/theme.service';
 import { BlocNotesService } from './services/bloc-notes.service';
 import { TodoService } from './services/todo.service';
@@ -61,6 +60,7 @@ import { AuthService } from './services/auth.service';
 import { PostService } from './services/post.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DarkModeService } from './services/dark-mode.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -118,7 +118,8 @@ import { NgModule } from '@angular/core';
     AuthService,
     TodoService,
     BlocNotesService,
-    ThemeService
+    ThemeService,
+    DarkModeService
   ],
 
   bootstrap: [

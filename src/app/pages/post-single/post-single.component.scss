@@ -1,4 +1,4 @@
-@import '../../../theme/umla.scss';
+@import '../../../theme/dark-mode.scss';
 
 .postContainer {
   margin-right: 200px;
@@ -35,11 +35,11 @@ mat-card-content {
 }
 
 .EditPost {
-  background-color: mat-color($umla-app-primary, A400);
+  background-color: mat-color($dark-mode-app-primary, A400);
   margin: 8px;
 }
 
 .SupprPost {
-  background-color: mat-color($umla-app-warn);
+  background-color: mat-color($dark-mode-app-warn);
   margin: 8px;
 }

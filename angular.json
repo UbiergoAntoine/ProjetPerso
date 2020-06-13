@@ -28,7 +28,7 @@
               "src/_redirects"
             ],
             "styles": [
-              "src/theme/umla.scss",
+              "src/theme/dark-mode.scss",
               "src/styles.scss",
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],

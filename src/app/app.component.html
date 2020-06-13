@@ -1,9 +1,21 @@
 <div class="header mat-elevation-z12"
+     [ngClass]="{'dark-theme': darkMode}"
      *ngIf="signedMode">
   <div class="headerContainer"
        fxLayout="row"
        fxLayoutAlign="end">
-    <div fxFlex></div>
+    <div fxFlex>
+      <div class="custom-control custom-switch">
+        <mat-checkbox type="checkbox"
+                      class="custom-control-input"
+                      [(ngModel)]="darkMode"
+                      #darkModeToggle
+                      (click)="darkModeToggle.toggle()">
+          <label class="custom-control-label"
+                 for="darkMode">Dark Mode</label>
+        </mat-checkbox>
+      </div>
+    </div>
     <a class="logo-header"
        routerLink="/">
       <img src="../assets/images/logo.jpg">

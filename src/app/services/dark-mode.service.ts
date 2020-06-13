@@ -6,28 +6,25 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class DarkModeService {
+  white: '#ffffff';
+  black: '#141313';
 
-  white: string = '#ffffff';
-  black: string = '#141313';
-
-  private _themeDark: Subject<boolean> = new Subject<boolean>();
-
-  isThemeDark = this._themeDark.asObservable();
-
+  private darkMode: Subject<boolean> = new Subject<boolean>();
+  isThemeDark = this.darkMode.asObservable();
   constructor() { }
 
   setDarkTheme(isThemeDark: boolean) {
-    this._themeDark.next(isThemeDark);
+    this.darkMode.next(isThemeDark);
 
-    if (isThemeDark == true) {
+    if (isThemeDark === true) {
       console.log('Dark Used');
       document.documentElement.style.setProperty('--white-color', this.black);
       document.documentElement.style.setProperty('--black-color', this.white);
       localStorage.setItem('dark', 'true');
-    }
-    else {
+    } else {
       console.log('Light Used');
       document.documentElement.style.setProperty('--white-color', this.white);
+      document.documentElement.style.setProperty('--black-color', this.black);
       document.documentElement.style.setProperty('--black-color', this.black);
       localStorage.setItem('dark', 'false');
     }

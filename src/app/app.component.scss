@@ -1,4 +1,4 @@
-@import '../theme/umla.scss';
+@import '../theme/dark-mode.scss';
 
 :host,
 .header,
@@ -60,7 +60,7 @@ mat-icon {
 .header {
   width: 100%;
   text-align: center;
-  background-color: mat-color($umla-app-primary);
+  background-color: mat-color($dark-mode-app-primary);
   height: 48px;
 
   img {
@@ -72,7 +72,7 @@ mat-icon {
 
 
 .newPostButton {
-  background-color: mat-color($umla-app-primary, A100);
+  background-color: mat-color($dark-mode-app-primary, A100);
   position: fixed;
   bottom: 50px;
   left: 50px;
@@ -81,3 +81,8 @@ mat-icon {
 .headerContainer {
   margin-bottom: 32px;
 }
+
+// ::ng-deep .dark-theme * {
+//   color: white !important;
+//   background-color: #444444 !important;
+// }
