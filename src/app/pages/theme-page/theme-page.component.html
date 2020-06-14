@@ -2,16 +2,23 @@
      [ngClass]="{'dark-mode': darkMode}">
     <!-- <div class="text-right"> -->
     <!-- </div> -->
-    <p>THEME PAGE</p>
-    <button mat-button
-            *ngIf="userSigned"
-            (click)="openThemeForm()">
-        <mat-icon>done_outline</mat-icon>&nbsp; Ajouter un langage &nbsp;
-    </button>
+    <p class="primary">THEME PAGE</p>
     <p>J'ai changé la route, maintenant cette page est le "/home" et l'ancienne route "/home" est "posts-list"</p>
-    <div class="themes-container"
-         *ngFor="let theme of allThemes"
-         (click)="selectTheme(theme.name)">
-        <app-theme [theme]="theme"></app-theme>
-    </div>
+    <mat-grid-list cols="3"
+                   gutterSize="24px"
+                   rowHeight="100px">
+        <mat-grid-tile *ngFor="let theme of allThemes"
+                       class="theme-grid-tile"
+                       (click)="selectTheme(theme.name)">
+            <app-theme [theme]="theme"></app-theme>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="userSigned">
+            <button mat-flat-button
+                    color="accent"
+                    *ngIf="userSigned"
+                    (click)="openThemeForm()">
+                <mat-icon>add</mat-icon>&nbsp; Ajouter un langage &nbsp;
+            </button>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

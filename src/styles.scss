@@ -23,28 +23,10 @@ body {
 
 }
 
-
-// @include angular-material-theme($light-theme);
-
-
-// @media (angular-material-theme($light-theme))
-// .dark-mode {
-//   body {
-//     background-color: #E6E6E6;
-
-//   }
-
-// }
-
-//
-
-
-
 .mat-focused,
 .mat-form-field-label {
   color: $primary;
 }
-
 
 .mat-form-field-ripple {
   background-color: $primary;
@@ -59,11 +41,9 @@ textarea {
   background-color: $accent !important;
 }
 
-
 .mat-form-field-underline {
   background-color: $primary;
 }
-
 
 .primary {
   color: $primary;
@@ -75,4 +55,14 @@ textarea {
 
 .warn {
   color: $warn;
+}
+
+.mat-flat-button {
+  border-radius: 20px !important;
+}
+
+.theme-grid-tile {
+  border: 2px solid $accent;
+  border-radius: 16px;
+  background-color: #E6E6E6;
 }

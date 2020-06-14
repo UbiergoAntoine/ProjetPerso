@@ -8,6 +8,7 @@
            (click)="darkModeToggle.toggle()">
         <mat-slide-toggle class="dark-mode-toggle"
                           color="accent"
+                          mat-flat-button
                           disabled
                           [(ngModel)]="darkMode"
                           #darkModeToggle>
@@ -25,35 +26,36 @@
       </a>
       <div class="connectionButtons"
            fxLayout="row"
-           fxLayoutAlign="center end">
+           fxLayoutAlign="center end"
+           fxLayoutGap="8px">
         <button class="new-post-button"
-                mat-button
+                mat-flat-button
                 color="accent"
                 *ngIf="userSigned"
                 (click)="openNewPostComponent()">
           <mat-icon>add</mat-icon>Nouveau Post
         </button>
-        <button mat-button
+        <button mat-flat-button
                 color="accent"
                 *ngIf="userSigned"
                 class="todolist"
                 (click)="openTodoList()">
           <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
         </button>
-        <button mat-button
+        <button mat-flat-button
                 color="accent"
                 *ngIf="userSigned"
                 class="blocnoteslist"
                 (click)="openBlocNotesList()">
           <mat-icon> notes</mat-icon>&nbsp; Bloc Notes &nbsp;
         </button>
-        <button mat-button
+        <button mat-flat-button
                 color="accent"
                 routerLink="auth/signin"
                 *ngIf="!userSigned">
           <mat-icon>account_box</mat-icon>&nbsp; Connexion
         </button>
-        <button mat-button
+        <button mat-flat-button
                 color="accent"
                 (click)="signOut()"
                 style="cursor:pointer"
