@@ -6,6 +6,13 @@
     <!-- </div> -->
     <p class="primary">THEME PAGE</p>
     <p>J'ai changé la route, maintenant cette page est le "/home" et l'ancienne route "/home" est "posts-list"</p>
+    <button mat-flat-button
+            class="add-theme-button"
+            color="accent"
+            *ngIf="userSigned"
+            (click)="openThemeForm()">
+        <mat-icon>edit</mat-icon>&nbsp; Editer les Thèmes &nbsp;
+    </button>
     <mat-grid-list class="theme-grid-list "
                    cols="3"
                    gutterSize="24px"
@@ -14,15 +21,6 @@
                        class="theme-grid-tile hover-bs"
                        (click)="selectTheme(theme.name)">
             <app-theme [theme]="theme"></app-theme>
-        </mat-grid-tile>
-        <mat-grid-tile *ngIf="userSigned"
-                       class="theme-grid-tile hover-bs">
-            <button mat-flat-button
-                    color="accent"
-                    *ngIf="userSigned"
-                    (click)="openThemeForm()">
-                <mat-icon>add</mat-icon>&nbsp; Ajouter un langage &nbsp;
-            </button>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

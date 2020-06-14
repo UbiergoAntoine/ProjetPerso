@@ -1,6 +1,8 @@
 
 
 // Les modules
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -49,6 +51,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BlocNotesComponent } from './modals/bloc-notes/bloc-notes.component';
 import { TodoComponent } from './modals/todo/todo.component';
+import { ThemeFormComponent } from './modals/theme-form/theme-form.component';
 
 // FB
 import * as firebase from 'firebase';
@@ -60,8 +63,7 @@ import { TodoService } from './services/todo.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { PostService } from './services/post.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +84,7 @@ import { NgModule } from '@angular/core';
     FiltersComponent,
     ThemePageComponent,
     ThemeComponent,
+    ThemeFormComponent,
     MaterialElevationDirective
   ],
 
@@ -130,13 +133,13 @@ import { NgModule } from '@angular/core';
   entryComponents: [
     BlocNotesComponent,
     TodoComponent,
-    PostNewComponent
+    PostNewComponent,
+    ThemeFormComponent
   ]
 })
 export class AppModule {
   constructor() {
-
-    // Your web app's Firebase configuration
+    // La configuration Firebase
     const firebaseConfig = {
       apiKey: 'AIzaSyBiVCMTCZsuZP00q3rE6wgFS351-cxC9iM',
       authDomain: 'site-perso-85dde.firebaseapp.com',
@@ -146,8 +149,6 @@ export class AppModule {
       messagingSenderId: '3032690032',
       appId: '1:3032690032:web:a629f27ab4125f3b'
     };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
   }
 }

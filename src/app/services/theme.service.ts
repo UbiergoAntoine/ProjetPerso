@@ -44,15 +44,11 @@ export class ThemeService {
         this.themes = data.val()
           ? Object.values(data.val()).map(theme => new Theme(theme))
           : [];
-        // console.log('this.theme', this.themes);
       });
   }
-
-  // @computed get getSortedThemes(): Theme[] {
-  //   return this.themes.slice().sort((a, b) => {
-  //     return a.date > b.date ? 1 : -1;
-  //   });
-  // }
+  @computed get getAllThemes(): Theme[] {
+    return this.themes;
+  }
   // @computed get getFilteredThemes(): Theme[] {
   //   return this.getSortedThemes.filter(theme => {
   //     if (this.themeFilter) {
@@ -92,34 +88,21 @@ export class ThemeService {
   updateTheme(theme: Theme) {
     firebase.database().ref('/themes/' + theme.id).update(serialize(theme));
   }
-  // removeTheme(theme: Theme) {
-
-  //   if (confirm('Supprimer le theme ?')) {
-  //     if (theme.photo) {
-  //       const storageRef = firebase.storage().refFromURL(theme.photo);
-  //       storageRef.delete().then(
-  //         () => {
-  //           console.log('Photo removed!');
-  //         },
-  //         (error) => {
-  //           console.log('Could not remove photo! : ' + error);
-  //         }
-  //       );
-  //     }
-  //     const themeIndexToRemove = this.themes.findIndex(
-  //       (themeEl) => {
-  //         if (themeEl === theme) {
-  //           return true;
-  //         }
-  //       }
-  //     );
-  //     firebase.database().ref('/themes/' + theme.id).remove();
-  //     this.themes.splice(themeIndexToRemove, 1);
-
-  //   } else {
-  //     alert('Le theme n\'a pas été supprimé en vous allez y être redirigé');
-  //   }
-  // }
+  removeTheme(theme: Theme) {
+    if (confirm('Supprimer le theme ?')) {
+      const themeIndexToRemove = this.themes.findIndex(
+        (themeId) => {
+          if (themeId === theme) {
+            return true;
+          }
+        }
+      );
+      firebase.database().ref('/themes/' + theme.id).remove();
+      this.themes.splice(themeIndexToRemove, 1);
+    } else {
+      alert('Le theme n\'a pas été supprimé en vous allez y être redirigé');
+    }
+  }
   // uploadFile(file: File) {
   //   return new Promise(
   //     (resolve, reject) => {

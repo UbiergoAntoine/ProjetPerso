@@ -1,0 +1,42 @@
+<div class="theme-form-container">
+  <!--Le tableau de la TodoList-->
+  <div class="container-themes">
+    <h5>Liste des themes</h5>
+    <mat-grid-list class="theme-grid-list "
+                   cols="3"
+                   gutterSize="24px"
+                   rowHeight="100px">
+      <mat-grid-tile *ngFor="let theme of allThemes"
+                     class="theme-grid-tile hover-bs"
+                     (click)="selectTheme(theme.name)">
+        <app-theme [theme]="theme"></app-theme>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <form [formGroup]="themesListForm"
+        (ngSubmit)="saveThemesList()">
+    <mat-card class="formBlocThemes">
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Outline form field</mat-label>
+          <input matInput
+                 formControlName="name"
+                 (ngModel)="theme.name"
+                 placeholder="Entrez un nouveau Theme">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions class="ideaInput"
+                        fxLayout="column"
+                        fxLayoutAlign="end">
+        <button mat-button
+                id="newTheme"
+                color="primary"
+                type="submit">
+          <mat-icon>add</mat-icon>&nbsp; Nouveau theme
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

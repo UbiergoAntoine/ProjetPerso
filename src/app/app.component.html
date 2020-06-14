@@ -1,5 +1,7 @@
-<div class="general-container "
-     [ngClass]="{'dark-mode': darkMode}">
+<div class="general-container"
+     [ngClass]="{'dark-mode': darkMode}"
+     fxLayout="column"
+     fxLayoutAlign="start center">
   <div class="header mat-elevation-z12">
     <div class="headerContainer"
          fxLayout="row"
@@ -65,5 +67,9 @@
       </div>
     </div>
   </div>
-  <router-outlet></router-outlet>
+  <div class="pages-container"
+       fxLayout="column"
+       fxLayoutAlign="start center">
+    <router-outlet></router-outlet>
+  </div>
 </div>

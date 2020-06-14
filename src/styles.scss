@@ -7,9 +7,6 @@ $primary: mat-color($light-primary);
 $accent: mat-color($light-accent);
 $warn: mat-color($light-warn);
 $light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
-
-
-
 @include angular-material-theme($light-theme);
 
 html,

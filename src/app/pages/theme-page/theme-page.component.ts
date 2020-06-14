@@ -1,4 +1,3 @@
-import { ThemeFormComponent } from './../../components/theme/theme-form/theme-form.component';
 import { PostService } from './../../services/post.service';
 import { ThemeService } from './../../services/theme.service';
 import { Component, OnInit } from '@angular/core';
@@ -6,6 +5,7 @@ import { Router } from '@angular/router';
 import { computed, observable } from 'mobx-angular';
 import { MatDialog } from '@angular/material';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { ThemeFormComponent } from 'src/app/modals/theme-form/theme-form.component';
 @Component({
   selector: 'app-theme-page',
   templateUrl: './theme-page.component.html',
