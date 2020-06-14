@@ -7,34 +7,16 @@
   width: 960px;
 }
 
-// .mat-form-field-infix,
-// textarea#todo.form-control.mat-input-element {
-//   width: 500px !important;
-// }
+.theme-grid-form {
+  width: 960px;
+  height: auto;
+  margin: 8px 8px 24px 8px;
+}
 
-// .effacer {
-//   color: red !important;
-//   margin-left: 4% !important;
-// }
+.new-theme-input {
+  width: 300px !important;
+}
 
-// h5 {
-//   padding-left: 32px;
-//   font-size: 18px;
-// }
-
-
-// .itemsTodo,
-// .itemsDone {
-//   padding-left: 100px;
-// }
-
-// .divider {
-//   margin-top: 24px;
-//   margin-bottom: 24px;
-// }
-
-
-// mat-checkbox.valider {
-//   position: relative;
-//   top: 5px;
-// }
+.new-theme {
+  height: fit-content;
+}

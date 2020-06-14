@@ -1,3 +1,8 @@
-<mat-icon mat-icon
-          class="accent"> {{ theme.icon }} </mat-icon>
-<h3 class="accent">{{ theme.name }}</h3>
+<div fxLayout="column"
+     fxLayoutAlign="start center">
+  <button mat-card-avatar
+          mat-flat-button
+          class="theme-icon mat-chip">
+    <span> {{ theme.icon }}</span></button>
+  <h3 class="accent theme-name">{{ theme.name }}</h3>
+</div>
