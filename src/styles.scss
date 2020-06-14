@@ -20,6 +20,22 @@ body {
 
 }
 
+.non-draggable {
+  user-select: none !important;
+  -moz-user-select: none !important;
+  -webkit-user-drag: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+.items-list {
+  height: auto !important;
+
+  .mat-list-item-content {
+    align-items: start !important;
+  }
+}
+
 .mat-focused,
 .mat-form-field-label {
   color: $primary;
@@ -36,6 +52,7 @@ textarea {
 
 .mat-chip {
   background-color: $accent !important;
+  color: $primary;
 }
 
 .mat-form-field-underline {

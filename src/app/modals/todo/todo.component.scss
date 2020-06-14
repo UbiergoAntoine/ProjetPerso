@@ -45,14 +45,6 @@ h5 {
   height: 48px;
 }
 
-::ng-deep .items-list {
-  height: auto !important;
-
-  .mat-list-item-content {
-    align-items: start !important;
-  }
-}
-
 .divider {
   margin-top: 24px;
   margin-bottom: 24px;

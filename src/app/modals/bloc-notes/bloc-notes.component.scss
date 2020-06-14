@@ -38,3 +38,21 @@ h5 {
 mat-card-action.ideaInput {
   margin-bottom: 0 !important;
 }
+
+.nav-list {
+  position: relative;
+}
+
+.bloc-notes-list {
+  width: 500px;
+  height: 48px;
+}
+
+.note-content {
+  max-width: 700px;
+  width: 700px;
+}
+
+.drop-handler {
+  margin-top: 8px;
+}

@@ -14,22 +14,32 @@
                cdkDragHandle>
               <mat-icon class="drop-handler">swap_vert</mat-icon>
             </a> -->
-    <mat-nav-list>
-      <mat-list-item class="blocNotesList"
-                     cdkDrag
-                     *ngFor="let note of blocnotesService.notes; let first = first; let last = last;">
-        <a cdkDragHandle>
-          <mat-icon class="drop-handler">swap_vert</mat-icon>
-        </a>
-        <p>{{note.prettyDate}}</p>
-        <markdown [data]="note.note"
-                  ngPreserveWhitespaces
-                  class="note"></markdown>
-        <button mat-button
-                class="effacer"
-                (click)="onDeleteNote(note)">
-          <mat-icon>close</mat-icon> &nbsp; Effacer cette note
-        </button>
+    <mat-nav-list class="nav-list"
+                  cdkDropList
+                  cdkDropListOrientation="vertical"
+                  (cdkDropListDropped)="dropNote($event)">
+      <mat-list-item class="items-list"
+                     fxLayout="row"
+                     fxLayoutAlign="space-between start"
+                     *ngFor="let note of blocNotesService.sortedNotes; let first = first; let last = last;trackBy: ngForTrackByFn"
+                     [cdkDragData]="note"
+                     cdkDrag>
+        <div fxLayout="row">
+          <p>{{note.prettyDate}}</p>
+          <markdown [data]="note.note"
+                    ngPreserveWhitespaces
+                    class="note-content"></markdown>
+        </div>
+        <div fxLayout="row">
+          <button mat-icon-button
+                  color="warn"
+                  class="effacer"
+                  (click)="onDeleteNote(note)">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-icon class="drop-handler"
+                    cdkDragHandle>swap_vert</mat-icon>
+        </div>
         <mat-divider *ngIf="!last"></mat-divider>
       </mat-list-item>
     </mat-nav-list>

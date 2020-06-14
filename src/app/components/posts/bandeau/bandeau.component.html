@@ -12,12 +12,10 @@
           <markdown [data]="post.lien"></markdown>
           <mat-chip-list class="chipListPost"
                          id="chips"
-                         color="warn"
                          fxLayout="row"
                          fxLayoutAlign="center center">
                <mat-chip class="chipsPost"
                          mat-chip
-                         color="warn"
                          *ngFor="let keyWord of post.keyWords"> {{keyWord.name}}</mat-chip>
           </mat-chip-list>
           <a mat-flat-button

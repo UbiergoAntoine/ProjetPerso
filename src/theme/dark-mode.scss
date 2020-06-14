@@ -44,6 +44,8 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
   .mat-chip {
     background-color: $accent !important;
+    color: $primary !important;
+
 
     &:hover {
       background-color: rgb(255, 238, 88) !important;

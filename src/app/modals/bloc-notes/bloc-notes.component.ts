@@ -4,8 +4,9 @@ import { BlocNotesService } from './../../services/bloc-notes.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
-import { observable } from 'mobx-angular';
+import { observable, computed } from 'mobx-angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-bloc-notes',
@@ -13,14 +14,12 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./bloc-notes.component.scss']
 })
 export class BlocNotesComponent implements OnInit {
-
   note = '';
   notesListForm: FormGroup;
   @observable date: Date;
   @observable noteId: string;
-
   constructor(
-    public blocnotesService: BlocNotesService,
+    public blocNotesService: BlocNotesService,
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -36,16 +35,17 @@ export class BlocNotesComponent implements OnInit {
   }
   initForm() {
     this.notesListForm = this.formBuilder.group({
-      note: ['', Validators.required]
+      note: ['', Validators.required],
+      order: [-1, Validators.required]
     });
   }
   onSaveNotesList() {
     const newNotes = new Notes({
       note: this.notesListForm.get('note').value,
-
+      order: -1,
       date: Date.now()
     });
-    this.blocnotesService.createNewNotesList(newNotes);
+    this.blocNotesService.createNewNotesList(newNotes);
     this.notesListForm.reset();
   }
   onEnter(note: string) {
@@ -55,6 +55,21 @@ export class BlocNotesComponent implements OnInit {
   }
 
   onDeleteNote(note: Notes) {
-    this.blocnotesService.removeNotesList(note);
+    this.blocNotesService.removeNotesList(note);
+  }
+  ngForTrackByFn(index, item) {
+    return item.id;
+  }
+
+  // Drag & Drop
+  dropNote(event) {
+    if (event.previousIndex !== event.currentIndex) {
+      const notesArray = Object.assign([], this.blocNotesService.sortedNotes);
+      moveItemInArray(notesArray, event.previousIndex, event.currentIndex);
+      notesArray.forEach((note, i) => {
+        note.order = i;
+        this.blocNotesService.updateNotesList(note);
+      });
+    }
   }
 }
