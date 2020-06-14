@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
     public dialog: MatDialog,
     public darkModeService: DarkModeService) {
-    overlayContainer.getContainerElement().classList.add('dark-mode');
+
   }
 
   ngOnInit() {
@@ -67,7 +67,11 @@ export class AppComponent implements OnInit {
   }
 
   // DarkMode
-  toggleDarkTheme(setDarkMode) {
-    this.darkModeService.setDarkTheme(setDarkMode.checked);
+  toggleDarkTheme(isThemeDark) {
+    if (isThemeDark) {
+      this.overlayContainer.getContainerElement().classList.remove('dark-mode');
+    } else {
+      this.overlayContainer.getContainerElement().classList.add('dark-mode');
+    }
   }
 }

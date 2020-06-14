@@ -32,12 +32,11 @@ mat-card-content {
   margin: 0 auto;
 }
 
-.EditPost {
-  // background-color: mat-color($light-primary);
+.EditPost,
+.SupprPost {
   margin: 8px;
 }
 
-.SupprPost {
-  // background-color: mat-color($light-accent);
-  margin: 8px;
+.edit-buttons-container {
+  margin-bottom: 24px;
 }

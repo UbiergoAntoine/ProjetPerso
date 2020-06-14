@@ -1,9 +1,10 @@
 <div fxLayout="column"
+     class="post-edit-container"
      fxLayoutGap="8px">
   <!--Le form de l'Edit avec des ngModel-->
   <div fxLayout="row">
-    <mat-form-field fxFlex="1 1  50%"
-                    appearance="outline">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
       <mat-label for="titre">
         <mat-icon>title</mat-icon>&nbsp; Titre
       </mat-label>
@@ -12,15 +13,10 @@
              matInput
              [(ngModel)]="post.titre">
     </mat-form-field>
-    <!--Le markdown en face pour avoir une vue realtime-->
-    <mat-card class="markdownView"
-              fxFlex="1 1  50%">
-      <markdown [data]="post.titre"></markdown>
-    </mat-card>
   </div>
   <div fxLayout="row">
-    <mat-form-field fxFlex="1 1  50%"
-                    appearance="outline">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
       <mat-label for="contenu">
         <mat-icon>title</mat-icon>&nbsp; Contenu
       </mat-label>
@@ -32,15 +28,10 @@
                 cdkAutosizeMinRows="5"
                 [(ngModel)]="post.contenu"></textarea>
     </mat-form-field>
-    <!--Le markdown en face pour avoir une vue realtime-->
-    <mat-card class="markdownView"
-              fxFlex="1 1  50%">
-      <markdown [data]="post.contenu"></markdown>
-    </mat-card>
   </div>
   <div fxLayout="row">
-    <mat-form-field fxFlex="1 1 50%"
-                    appearance="outline">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
       <mat-label for="keyWords">
         <mat-icon>title</mat-icon>&nbsp; Mots-clés
       </mat-label>
@@ -59,8 +50,8 @@
       </mat-chip-list>
     </mat-form-field>
     <!-- le stackblitz-->
-    <mat-form-field fxFlex="1 1 50%"
-                    appearance="outline">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
       <mat-label for="stackBlitz">
         <mat-icon>title</mat-icon>&nbsp; stackBlitz
       </mat-label>
@@ -71,8 +62,8 @@
     </mat-form-field>
   </div>
   <div fxLayout="row">
-    <mat-form-field fxFlex="1 1 50%"
-                    appearance="outline">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
       <mat-label for="lien">
         <mat-icon>title</mat-icon>&nbsp; Lien
       </mat-label>
@@ -84,14 +75,10 @@
                 matInput
                 [(ngModel)]="post.lien"></textarea>
     </mat-form-field>
-    <mat-card class="markdownView"
-              fxFlex="1 1  50%">
-      <markdown [data]="post.lien"></markdown>
-    </mat-card>
   </div>
   <div fxLayout="row">
-    <mat-form-field fxFlex="1 1 50%"
-                    appearance="outline">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
       <mat-label for="notes">
         <mat-icon>title</mat-icon>&nbsp; Notes
       </mat-label>
@@ -103,10 +90,6 @@
                 cdkAutosizeMinRows="5"
                 [(ngModel)]="post.notes"></textarea>
     </mat-form-field>
-    <mat-card class="markdownView"
-              fxFlex="1 1  50%">
-      <markdown [data]="post.notes"></markdown>
-    </mat-card>
   </div>
   <!-- <button mat-button
           id="enregistrer"

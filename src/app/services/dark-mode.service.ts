@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { computed } from 'mobx-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class DarkModeService {
   white: '#ffffff';
   black: '#141313';
 
+  darkModeEnabled: boolean;
   private darkMode: Subject<boolean> = new Subject<boolean>();
   isThemeDark = this.darkMode.asObservable();
   constructor() { }
@@ -29,4 +31,9 @@ export class DarkModeService {
     }
   }
 
+  // @computed get darkModeSet() {
+  //   if (this.isThemeDark === true) {
+  //     return
+  //   }
+  // }
 }

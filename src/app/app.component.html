@@ -10,6 +10,7 @@
            (click)="darkModeToggle.toggle()">
         <mat-slide-toggle class="dark-mode-toggle "
                           color="accent"
+                          (click)="toggleDarkTheme(darkMode)"
                           mat-flat-button
                           disabled
                           [(ngModel)]="darkMode"
