@@ -10,7 +10,7 @@
 
 $dark-primary: mat-palette($mat-blue, A200, A100, A400);
 $dark-accent: mat-palette($mat-amber, A200, A100, A400);
-$dark-warn: mat-palette($mat-deep-orange, A200, A100, A400);
+$dark-warn: mat-palette($mat-orange, A400, A200, A800);
 $primary: mat-color($dark-primary);
 $accent: mat-color($dark-accent);
 $warn: mat-color($dark-warn);
@@ -38,8 +38,25 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
     background-color: $accent !important;
   }
 
-  input {
+  input,
+  textarea {
     color: $accent !important;
+  }
+
+  .mat-chip {
+    background-color: $accent !important;
+  }
+
+  .primary {
+    color: $primary;
+  }
+
+  .accent {
+    color: $accent;
+  }
+
+  .warn {
+    color: $warn;
   }
 
 }

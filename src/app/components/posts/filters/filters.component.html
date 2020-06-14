@@ -24,6 +24,7 @@
         <mat-icon>all_out</mat-icon>&nbsp;--- Réinitialiser ---
       </mat-option>
       <mat-option [value]="theme.name"
+                  class="accent"
                   *ngFor="let theme of postService.themes">
         <mat-icon>{{theme.icon}}</mat-icon>{{theme.name}}
       </mat-option>

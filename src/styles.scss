@@ -50,11 +50,29 @@ body {
   background-color: $primary;
 }
 
-input {
+input,
+textarea {
   color: $accent;
+}
+
+.mat-chip {
+  background-color: $accent !important;
 }
 
 
 .mat-form-field-underline {
   background-color: $primary;
+}
+
+
+.primary {
+  color: $primary;
+}
+
+.accent {
+  color: $accent;
+}
+
+.warn {
+  color: $warn;
 }

@@ -12,12 +12,10 @@
                           disabled
                           [(ngModel)]="darkMode"
                           #darkModeToggle>
-          <label class="dm-label"
+          <label class="dm-label accent"
                  *ngIf="darkMode"
-                 for="darkModeToggle"
-                 color="accent">Dark Mode</label>
-          <label class="dm-label"
-                 color="accent"
+                 for="darkModeToggle">Dark Mode</label>
+          <label class="dm-label accent"
                  *ngIf="!darkMode"
                  for="darkModeToggle">Light Mode</label>
         </mat-slide-toggle>
