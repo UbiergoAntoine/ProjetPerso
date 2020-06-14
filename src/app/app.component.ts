@@ -32,19 +32,18 @@ export class AppComponent implements OnInit {
     public dialog: MatDialog,
     public darkModeService: DarkModeService) {
     overlayContainer.getContainerElement().classList.add('dark-mode');
-    // overlayContainer.getContainerElement().classList.add('dark-mode');
   }
 
   ngOnInit() {
-    firebase.auth().onAuthStateChanged(
-      (user) => {
-        if (user) {
-          this.isAuth = true;
-        } else {
-          this.isAuth = false;
-        }
-      }
-    );
+    // firebase.auth().onAuthStateChanged(
+    //   (user) => {
+    //     if (user) {
+    //       this.isAuth = true;
+    //     } else {
+    //       this.isAuth = false;
+    //     }
+    //   }
+    // );
   }
   signOut() {
     this.authService.signOutUser();
@@ -63,7 +62,7 @@ export class AppComponent implements OnInit {
   // (oublie pas d'importer @computed CTRL espace ==> icône cube violet)
   // Dans le HTML où tu veux contrôler que ce soit visible que quand on est log :
   //  *ngIf="signedMode"
-  @computed get signedMode(): boolean {
+  @computed get userSigned(): boolean {
     return this.authGuardService.isSigned;
   }
 

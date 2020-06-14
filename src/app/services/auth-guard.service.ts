@@ -34,8 +34,19 @@ export class AuthGuardService implements CanActivate {
   }
 
   @computed get isSigned(): boolean {
-    if (firebase.auth()) {
+    if (firebase.auth().currentUser !== null) {
       return true;
     }
+    //     (user) => {
+    //       if (user) {
+    //         this.isAuth = true;
+    //       } else {
+    //         this.isAuth = false;
+    //       }
+    //     }
+    //   )) {
+    //     return true;
+    //   }
+    // }
   }
 }

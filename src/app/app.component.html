@@ -1,7 +1,6 @@
 <div class="general-container "
      [ngClass]="{'dark-mode': darkMode}">
-  <div class="header mat-elevation-z12"
-       *ngIf="signedMode">
+  <div class="header mat-elevation-z12">
     <div class="headerContainer"
          fxLayout="row"
          fxLayoutAlign="space-between end">
@@ -30,20 +29,20 @@
         <button class="new-post-button"
                 mat-button
                 color="accent"
-                *ngIf="isAuth"
+                *ngIf="userSigned"
                 (click)="openNewPostComponent()">
           <mat-icon>add</mat-icon>Nouveau Post
         </button>
         <button mat-button
                 color="accent"
-                *ngIf="isAuth"
+                *ngIf="userSigned"
                 class="todolist"
                 (click)="openTodoList()">
           <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
         </button>
         <button mat-button
                 color="accent"
-                *ngIf="isAuth"
+                *ngIf="userSigned"
                 class="blocnoteslist"
                 (click)="openBlocNotesList()">
           <mat-icon> notes</mat-icon>&nbsp; Bloc Notes &nbsp;
@@ -51,14 +50,14 @@
         <button mat-button
                 color="accent"
                 routerLink="auth/signin"
-                *ngIf="!isAuth">
+                *ngIf="!userSigned">
           <mat-icon>account_box</mat-icon>&nbsp; Connexion
         </button>
         <button mat-button
                 color="accent"
                 (click)="signOut()"
                 style="cursor:pointer"
-                *ngIf="isAuth">
+                *ngIf="userSigned">
           <mat-icon>exit_to_app</mat-icon>&nbsp; Déconnexion
         </button>
       </div>

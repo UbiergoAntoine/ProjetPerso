@@ -13,6 +13,7 @@ import { ThemePageComponent } from './pages/theme-page/theme-page.component';
 
 const routes: Routes = [
   { path: 'auth/signin', component: SigninComponent },
+  { path: 'auth/signup', component: SignupComponent },
   { path: 'posts', component: PostListComponent },
   { path: 'posts/edit/:id', component: PostEditComponent },
   { path: 'posts/view/:id', component: PostSingleComponent },

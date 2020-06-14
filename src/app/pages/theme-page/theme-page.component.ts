@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { computed, observable } from 'mobx-angular';
 import { MatDialog } from '@angular/material';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 @Component({
   selector: 'app-theme-page',
   templateUrl: './theme-page.component.html',
@@ -15,12 +16,16 @@ export class ThemePageComponent implements OnInit {
   raisedElevation = 8;
   // post: Post;
   constructor(
+    private authGuardService: AuthGuardService,
     public dialog: MatDialog,
     public postService: PostService,
     public themeService: ThemeService,
     private router: Router) { }
 
   ngOnInit() {
+  }
+  @computed get userSigned(): boolean {
+    return this.authGuardService.isSigned;
   }
   @computed get allThemes() {
     return this.themeService.themes;

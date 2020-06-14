@@ -4,7 +4,7 @@
     <!-- </div> -->
     <p>THEME PAGE</p>
     <button mat-button
-            *ngIf="isAuth"
+            *ngIf="userSigned"
             (click)="openThemeForm()">
         <mat-icon>done_outline</mat-icon>&nbsp; Ajouter un langage &nbsp;
     </button>
