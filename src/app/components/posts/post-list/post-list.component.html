@@ -1,5 +1,6 @@
 <div fxLayout="row wrap">
-  <mat-card class="cartePost"
+  <mat-card class="single-post"
+            mat-card
             fxFlex="31%"
             *ngFor="let post of postsComputed"
             (click)="onViewPost(post.id)">

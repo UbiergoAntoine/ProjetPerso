@@ -26,7 +26,7 @@
       <mat-option [value]="theme.name"
                   class="accent"
                   *ngFor="let theme of postService.themes">
-        <mat-icon>{{theme.icon}}</mat-icon>{{theme.name}}
+        <mat-icon class="theme-icon-list">{{theme.icon}}</mat-icon>{{theme.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>

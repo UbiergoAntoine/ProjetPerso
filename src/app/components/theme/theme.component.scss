@@ -5,10 +5,11 @@
 
 .theme-icon {
   border-radius: 50% !important;
-  width: 64px !important;
-  height: 64px;
-  font-size: 34px;
+  min-width: 40px !important;
+  width: 48px !important;
+  height: 48px;
+  font-size: 20px !important;
   margin-top: 16px;
-  padding: 12px;
+  padding: 0px !important;
   cursor: none;
 }

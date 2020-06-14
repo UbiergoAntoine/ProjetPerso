@@ -91,12 +91,12 @@
                 [(ngModel)]="post.notes"></textarea>
     </mat-form-field>
   </div>
-  <!-- <button mat-button
+  <button mat-button
           id="enregistrer"
-          class="btn btn-success"
-          [disabled]="fileIsUploading"
+          class="accent"
           (click)="postService.updatePost(post)"
-          routerLink="/home">
+          routerLink="/posts">
+    <!-- [disabled]="fileIsUploading" -->
     <mat-icon>save_alt</mat-icon>&nbsp; Enregistrer
-  </button> -->
+  </button>
 </div>
