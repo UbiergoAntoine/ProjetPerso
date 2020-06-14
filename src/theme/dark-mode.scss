@@ -3,7 +3,7 @@
 
 $dark-primary: mat-palette($mat-grey, A100, A50, A200);
 $dark-accent: mat-palette($mat-amber, A200, A100, A400);
-$dark-warn: mat-palette($mat-red, A400, A200, A800);
+$dark-warn: mat-palette($mat-red, A800, A400, A800);
 $primary: mat-color($dark-primary);
 $accent: mat-color($dark-accent);
 $warn: mat-color($dark-warn);
@@ -25,6 +25,18 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
     background-color: $accent !important;
   }
 
+  .mat-flat-button {
+    &:hover {
+      background-color: rgb(255, 245, 157) !important;
+    }
+  }
+
+  .SupprPost {
+    &:hover {
+      background-color: rgb(239, 83, 80) !important;
+    }
+  }
+
   input,
   textarea {
     color: $accent !important;
@@ -32,6 +44,10 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
   .mat-chip {
     background-color: $accent !important;
+
+    &:hover {
+      background-color: rgb(255, 238, 88) !important;
+    }
   }
 
   .primary {

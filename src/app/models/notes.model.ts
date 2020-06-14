@@ -22,6 +22,7 @@ export class Notes {
   @serializable id: string = null;
   @serializable singlenote: string;
   @serializable date: string;
+  // @serializable order: number;
   constructor(data?) {
     this.setData(data);
   }
