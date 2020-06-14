@@ -18,6 +18,7 @@ export class MaterialElevationDirective implements OnChanges {
     this.setElevation(this.defaultElevation);
   }
 
+  // tslint:disable-next-line: variable-name
   ngOnChanges(_changes: SimpleChanges) {
     this.setElevation(this.defaultElevation);
   }

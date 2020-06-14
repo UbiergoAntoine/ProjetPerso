@@ -110,4 +110,9 @@ mat-icon {
 // ::ng-deep .dark-theme * {
 //   color: white !important;
 //   background-color: #444444 !important;
-// }
+// }$
+
+::ng-deep .toggle-container:hover .mat-slide-toggle-thumb {
+  box-shadow: 0 4px 4px 4px rgba(0, 0, 0, .2), 0 4px 8px 0 rgba(0, 0, 0, .14), 0 8px 8px 0 rgba(0, 0, 0, .12) !important;
+  transition: .8s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+}

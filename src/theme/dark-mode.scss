@@ -62,4 +62,15 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
   .theme-grid-tile {
     border: 2px solid $accent;
   }
+
+  .hover-bs {
+    background-color: #24242499 !important;
+    // opacity: 0.5 !important;
+  }
+
+  .hover-bs:hover {
+    transition: 0.6s;
+    background-color: #5a595999 !important;
+    // opacity: 1 !important;
+  }
 }

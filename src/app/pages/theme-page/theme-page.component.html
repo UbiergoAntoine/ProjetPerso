@@ -1,18 +1,22 @@
 <div class="theme-page-container"
+     fxLayout="column"
+     fxLayoutAlign="start center"
      [ngClass]="{'dark-mode': darkMode}">
     <!-- <div class="text-right"> -->
     <!-- </div> -->
     <p class="primary">THEME PAGE</p>
     <p>J'ai changé la route, maintenant cette page est le "/home" et l'ancienne route "/home" est "posts-list"</p>
-    <mat-grid-list cols="3"
+    <mat-grid-list class="theme-grid-list "
+                   cols="3"
                    gutterSize="24px"
                    rowHeight="100px">
         <mat-grid-tile *ngFor="let theme of allThemes"
-                       class="theme-grid-tile"
+                       class="theme-grid-tile hover-bs"
                        (click)="selectTheme(theme.name)">
             <app-theme [theme]="theme"></app-theme>
         </mat-grid-tile>
-        <mat-grid-tile *ngIf="userSigned">
+        <mat-grid-tile *ngIf="userSigned"
+                       class="theme-grid-tile hover-bs">
             <button mat-flat-button
                     color="accent"
                     *ngIf="userSigned"
