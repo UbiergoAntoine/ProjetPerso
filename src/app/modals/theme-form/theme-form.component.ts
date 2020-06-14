@@ -54,7 +54,7 @@ export class ThemeFormComponent implements OnInit {
     this.themesListForm.reset();
   }
 
-  onDeleteTheme(theme: Theme) {
+  deleteTheme(theme: Theme) {
     this.themeService.removeTheme(theme);
   }
 }

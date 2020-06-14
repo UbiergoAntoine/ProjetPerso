@@ -1,20 +1,18 @@
 <div class="theme-form-container">
-  <!--Le tableau de la TodoList-->
   <div class="container-themes">
-    <h5>Liste des themes</h5>
+    <h5 color="accent">Liste des themes</h5>
     <mat-grid-list class="theme-grid-form"
                    cols="3"
                    gutterSize="24px"
-                   rowHeight="100px">
+                   rowHeight="140px">
       <mat-grid-tile *ngFor="let theme of allThemes"
-                     class="theme-grid-tile hover-bs"
-                     (click)="selectTheme(theme.name)">
+                     class="theme-grid-tile hover-bs">
         <app-theme [theme]="theme"></app-theme>
-        <!-- <button mat-button
-                class="delete-theme"
-                (click)="onDeleteNote(note)">
-          <mat-icon>close</mat-icon> &nbsp; Effacer cette note
-        </button> -->
+        <button mat-icon-button
+                class="delete-theme warn"
+                (click)="deleteTheme(theme)">
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-grid-tile>
     </mat-grid-list>
   </div>

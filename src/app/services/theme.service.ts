@@ -11,27 +11,6 @@ export class ThemeService {
   @observable themeFilter: string;
   @observable keyWordsFilter: string;
   @observable titreFilter: string;
-  // @observable themes = [{
-  //   name: 'Front-End',
-  //   icon: 'keyboard'
-  // },
-  // {
-  //   name: 'Back-End',
-  //   icon: 'backup'
-  // },
-  // {
-  //   name: 'Design',
-  //   icon: 'developer_board'
-  // },
-  // {
-  //   name: 'Logiciels',
-  //   icon: 'build'
-  // },
-  // {
-  //   name: 'Théorie',
-  //   icon: 'dashboard'
-  // }];
-
   constructor() {
     this.fetchThemes();
     autorun(() => {
@@ -49,42 +28,12 @@ export class ThemeService {
   @computed get getAllThemes(): Theme[] {
     return this.themes;
   }
-  // @computed get getFilteredThemes(): Theme[] {
-  //   return this.getSortedThemes.filter(theme => {
-  //     if (this.themeFilter) {
-  //       return theme.theme === this.themeFilter;
-  //     } else {
-  //       return true;
-  //     }
-  //   }).filter(theme => {
-  //     if (this.titreFilter) {
-  //       return this.titreFilter.toLowerCase().split(' ').every(word => theme.titre.toLowerCase().includes(word));
-  //     } else {
-  //       return true;
-  //     }
-  //   }).filter(theme => {
-  //     if (this.keyWordsFilter) {
-  //       return theme.keyWords.some(keyword => keyword.name.toLowerCase() === this.keyWordsFilter.toLowerCase());
-  //     } else {
-  //       return true;
-  //     }
-  //   });
-  // }
-
-  // getSingleTheme(id: string) {
-  //   if (this.themes) {
-  //     return this.themes.find((theme) => {
-  //       return theme.id === id;
-  //     });
-  //   }
-  // }
   createNewTheme(newTheme: Theme) {
     this.themes.push(newTheme);
     const newThemeId = firebase.database().ref('/themes').push(newTheme).key;
     newTheme.id = newThemeId;
     firebase.database().ref('/themes/' + newThemeId).set(newTheme);
   }
-
   updateTheme(theme: Theme) {
     firebase.database().ref('/themes/' + theme.id).update(serialize(theme));
   }
@@ -98,31 +47,9 @@ export class ThemeService {
         }
       );
       firebase.database().ref('/themes/' + theme.id).remove();
-      this.themes.splice(themeIndexToRemove, 1);
+      this.themes.splice(themeIndexToRemove, 0);
     } else {
-      alert('Le theme n\'a pas été supprimé en vous allez y être redirigé');
+      alert('Le theme n\'a pas été supprimé');
     }
   }
-  // uploadFile(file: File) {
-  //   return new Promise(
-  //     (resolve, reject) => {
-  //       const almostUniqueFileName = Date.now().toString();
-  //       const upload = firebase.storage().ref()
-  //         .child('images/' + almostUniqueFileName + file.name).put(file);
-  //       upload.catch(err => console.warn(err));
-  //       upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
-  //         () => {
-  //           console.log('Chargement…');
-  //         },
-  //         (error) => {
-  //           console.log('Erreur de chargement ! : ', error);
-  //           reject();
-  //         },
-  //         () => {
-  //           resolve(upload.snapshot.ref.getDownloadURL());
-  //         }
-  //       );
-  //     }
-  //   );
-  // }
 }
