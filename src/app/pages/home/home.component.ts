@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   @Input() theme: Theme;
   @observable themes: Theme[] = [];
   @Input() post: Post;
+  @observable darkMode;
   constructor(
     public postService: PostService,
     private router: Router) { }

@@ -20,7 +20,7 @@ export class PostFormComponent implements OnInit {
   fileIsUploading = false;
   fileUrl: string;
   fileUploaded = false;
-  constructor(private postService: PostService) { }
+  constructor(public postService: PostService) { }
 
   ngOnInit() { }
 

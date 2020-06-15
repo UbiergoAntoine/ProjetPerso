@@ -37,7 +37,8 @@ export class ThemeFormComponent implements OnInit {
   }
   initForm() {
     this.themesListForm = this.formBuilder.group({
-      name: ['', Validators.required]
+      name: ['', Validators.required],
+      order: -1
     });
   }
   saveThemesList() {

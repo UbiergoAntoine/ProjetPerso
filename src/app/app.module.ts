@@ -52,6 +52,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BlocNotesComponent } from './modals/bloc-notes/bloc-notes.component';
 import { TodoComponent } from './modals/todo/todo.component';
 import { ThemeFormComponent } from './modals/theme-form/theme-form.component';
+import { ConfirmationDialogComponent } from './modals/confirmation-dialog/confirmation-dialog.component';
 
 // FB
 import * as firebase from 'firebase';
@@ -85,6 +86,7 @@ import { PostService } from './services/post.service';
     ThemePageComponent,
     ThemeComponent,
     ThemeFormComponent,
+    ConfirmationDialogComponent,
     MaterialElevationDirective
   ],
 
@@ -134,7 +136,8 @@ import { PostService } from './services/post.service';
     BlocNotesComponent,
     TodoComponent,
     PostNewComponent,
-    ThemeFormComponent
+    ThemeFormComponent,
+    ConfirmationDialogComponent
   ]
 })
 export class AppModule {

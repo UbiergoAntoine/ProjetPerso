@@ -22,7 +22,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class AppComponent implements OnInit {
   title = 'POUJADE Valentin & UBIERGO Antoine';
   @observable isAuth: boolean;
-  isThemeDark: Observable<boolean>;
+  darkMode: Observable<boolean>;
   constructor(
     public overlayContainer: OverlayContainer,
     private authGuardService: AuthGuardService,
@@ -67,8 +67,8 @@ export class AppComponent implements OnInit {
   }
 
   // DarkMode
-  toggleDarkTheme(isThemeDark) {
-    if (isThemeDark) {
+  toggleDarkTheme(darkMode) {
+    if (darkMode) {
       this.overlayContainer.getContainerElement().classList.remove('dark-mode');
     } else {
       this.overlayContainer.getContainerElement().classList.add('dark-mode');

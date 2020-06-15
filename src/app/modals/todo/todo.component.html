@@ -6,8 +6,7 @@
     <mat-grid-tile>
       <div class="container-todo">
         <h5 class="grid-title">Travailler, toujours travailler ...</h5>
-        <mat-divider class="divider accent"
-                     *ngIf="!last"></mat-divider>
+        <mat-divider class="divider accent"></mat-divider>
         <mat-nav-list class="mat-list-todo">
           <mat-list-item class="items-list"
                          fxLayout="row"
@@ -30,8 +29,7 @@
     <mat-grid-tile>
       <div class="container-todo">
         <h5 class="grid-title">Travail terminé !</h5>
-        <mat-divider class="divider"
-                     *ngIf="!last"></mat-divider>
+        <mat-divider class="divider"></mat-divider>
         <mat-nav-list class="mat-list-todo">
           <mat-list-item class="items-list"
                          *ngFor="let todo of doneListComputed">
