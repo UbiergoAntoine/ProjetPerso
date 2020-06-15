@@ -18,6 +18,7 @@ export class MaterialElevationDirective implements OnChanges {
     this.setElevation(this.defaultElevation);
   }
 
+  // tslint:disable-next-line: variable-name
   ngOnChanges(_changes: SimpleChanges) {
     this.setElevation(this.defaultElevation);
   }
@@ -34,7 +35,7 @@ export class MaterialElevationDirective implements OnChanges {
 
   setElevation(amount: number) {
     // remove all elevation classes
-    const classesToRemove = Array.from((<HTMLElement>this.element.nativeElement).classList).filter(c => c.startsWith('mat-elevation-z'));
+    const classesToRemove = Array.from((this.element.nativeElement as HTMLElement).classList).filter(c => c.startsWith('mat-elevation-z'));
     classesToRemove.forEach((c) => {
       this.renderer.removeClass(this.element.nativeElement, c);
     });

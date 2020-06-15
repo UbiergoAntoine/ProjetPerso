@@ -1,11 +1,8 @@
-import { BlocNotesService } from './services/bloc-notes.service';
-import { TodoService } from './services/todo.service';
-import { AuthGuardService } from './services/auth-guard.service';
-import { AuthService } from './services/auth.service';
-import { PostService } from './services/post.service';
+
+
+// Les modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// Les modules
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -33,36 +30,40 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MaterialElevationDirective } from './material-elevation.directive';
 
-
 // Les compos
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PostListComponent } from './Posts/post-list/post-list.component';
-import { PostEditComponent } from './Posts/post-edit/post-edit.component';
-import { PostSingleComponent } from './Posts/post-single/post-single.component';
-import { PostNewComponent } from './Posts/post-new/post-new.component';
-import { HeaderComponent } from './header/header.component';
+import { PostNewComponent } from './modals/post-new/post-new.component';
+import { PostSingleComponent } from './pages/post-single/post-single.component';
+import { PostEditComponent } from './pages/post-edit/post-edit.component';
+import { PostListComponent } from './components/posts/post-list/post-list.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { ThemeComponent } from './components/theme/theme.component';
+import { ThemePageComponent } from './pages/theme-page/theme-page.component';
+import { FiltersComponent } from './components/posts/filters/filters.component';
+import { PostFormComponent } from './components/posts/post-form/post-form.component';
+import { PostResumeComponent } from './components/posts/post-resume/post-resume.component';
+import { BandeauComponent } from './components/posts/bandeau/bandeau.component';
+import { PostCardComponent } from './components/posts/post-card/post-card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { BlocNotesComponent } from './modals/bloc-notes/bloc-notes.component';
+import { TodoComponent } from './modals/todo/todo.component';
+import { ThemeFormComponent } from './modals/theme-form/theme-form.component';
 
 // FB
 import * as firebase from 'firebase';
-import { TodoComponent } from './todo/todo.component';
-import { BlocNotesComponent } from './bloc-notes/bloc-notes.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
-import { PostCardComponent } from './Posts/post-card/post-card.component';
-import { BandeauComponent } from './Posts/bandeau/bandeau.component';
-import { PostResumeComponent } from './Posts/post-resume/post-resume.component';
-import { PostFormComponent } from './Posts/post-form/post-form.component';
-import { FiltersComponent } from './Posts/filters/filters.component';
-import { ThemePageComponent } from './theme-page/theme-page.component';
-import { ThemeComponent } from './theme/theme.component';
-import { ThemeService } from './services/theme.service';
-
 
 // Les services
+import { ThemeService } from './services/theme.service';
+import { BlocNotesService } from './services/bloc-notes.service';
+import { TodoService } from './services/todo.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
+import { PostService } from './services/post.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,6 @@ import { ThemeService } from './services/theme.service';
     PostEditComponent,
     PostSingleComponent,
     PostNewComponent,
-    HeaderComponent,
     SignupComponent,
     SigninComponent,
     TodoComponent,
@@ -84,6 +84,7 @@ import { ThemeService } from './services/theme.service';
     FiltersComponent,
     ThemePageComponent,
     ThemeComponent,
+    ThemeFormComponent,
     MaterialElevationDirective
   ],
 
@@ -132,13 +133,13 @@ import { ThemeService } from './services/theme.service';
   entryComponents: [
     BlocNotesComponent,
     TodoComponent,
-    PostNewComponent
+    PostNewComponent,
+    ThemeFormComponent
   ]
 })
 export class AppModule {
   constructor() {
-
-    // Your web app's Firebase configuration
+    // La configuration Firebase
     const firebaseConfig = {
       apiKey: 'AIzaSyBiVCMTCZsuZP00q3rE6wgFS351-cxC9iM',
       authDomain: 'site-perso-85dde.firebaseapp.com',
@@ -148,8 +149,6 @@ export class AppModule {
       messagingSenderId: '3032690032',
       appId: '1:3032690032:web:a629f27ab4125f3b'
     };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
   }
 }

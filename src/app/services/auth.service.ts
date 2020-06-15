@@ -44,6 +44,6 @@ export class AuthService {
 
   // Et finalement le signOut
   signOutUser() {
-    firebase.auth().signOut().then(() => console.log("Signout successful"));
+    firebase.auth().signOut().then(() => console.log('Signout successful'));
   }
 }

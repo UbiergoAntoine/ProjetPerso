@@ -44,7 +44,7 @@ export class SignupComponent implements OnInit {
 
         // Si la création d'un nouveau compte fonctionne, root vers /posts
 
-        this.router.navigate(['/posts']);
+        this.router.navigate(['/home']);
       },
       (error) => {
         this.errorMessage = error; // Sinon, message d'erreur envoyé par FB

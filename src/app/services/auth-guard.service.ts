@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
+import { computed } from 'mobx-angular';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
+  isAuth: boolean;
   constructor(private router: Router) { }
 
 
@@ -29,5 +31,24 @@ export class AuthGuardService implements CanActivate {
         );
       }
     );
+  }
+
+  @computed get isSigned(): boolean {
+    if (firebase.auth().currentUser !== null) {
+      return true;
+    } else {
+      return false;
+    }
+    //     (user) => {
+    //       if (user) {
+    //         this.isAuth = true;
+    //       } else {
+    //         this.isAuth = false;
+    //       }
+    //     }
+    //   )) {
+    //     return true;
+    //   }
+    // }
   }
 }

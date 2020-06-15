@@ -1,6 +1,6 @@
 import { Todo } from './../models/todo.model';
 import { Injectable } from '@angular/core';
-import { observable } from 'mobx-angular';
+import { observable, computed } from 'mobx-angular';
 import * as firebase from 'firebase';
 import Datasnapshot = firebase.database.DataSnapshot;
 import { serialize } from 'serializr';
@@ -47,4 +47,21 @@ export class TodoService {
     firebase.database().ref('/TodoList/' + todo.id).remove();
     this.todoList.splice(todoIndexToRemove, 1);
   }
+
+  // @computed get sortedNotes() {
+  //   if (this.blocNotesService.notes) {
+  //     return Array.from(
+  //       this.blocNotesService.notes).slice().sort((a: Notes, b: Notes) => {
+  //         if (a.order < b.order) {
+  //           return -1;
+  //         }
+  //         if (a.order > b.order) {
+  //           return 1;
+  //         } else {
+  //           return 0;
+  //         }
+  //       });
+  //   }
+  //   return [];
+  // }
 }

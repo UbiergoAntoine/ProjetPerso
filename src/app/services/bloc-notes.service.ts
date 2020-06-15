@@ -1,6 +1,6 @@
 import { Notes } from './../models/notes.model';
 import { Injectable } from '@angular/core';
-import { observable } from 'mobx-angular';
+import { observable, computed } from 'mobx-angular';
 import * as firebase from 'firebase';
 import Datasnapshot = firebase.database.DataSnapshot;
 import { serialize } from 'serializr';
@@ -9,18 +9,33 @@ import { serialize } from 'serializr';
   providedIn: 'root'
 })
 export class BlocNotesService {
-  // posts : notes
-  // post : note
-  // Post : Notes
   @observable notes: Notes[] = [];
   constructor() {
     this.getNotesList();
   }
+  @computed get sortedNotes() {
+    if (this.notes) {
+      return Array.from(
+        this.notes).slice().sort((a: Notes, b: Notes) => {
+          if (a.order < b.order) {
+            return -1;
+          }
+          if (a.order > b.order) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+    }
+    return [];
+  }
   createNewNotesList(newNotes) {
-    this.notes.push(newNotes);
     const newNotesId = firebase.database().ref('/NotesList').push(newNotes).key;
+    const newNoteOrder = firebase.database().ref('/NotesList').push(newNotes.order);
     newNotes.id = newNotesId;
+    newNotes.order = newNoteOrder;
     firebase.database().ref('/NotesList/' + newNotesId).set(newNotes);
+    this.notes.push(newNotes);
   }
 
   getNotesList() {

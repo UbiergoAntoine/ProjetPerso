@@ -1,0 +1,58 @@
+.note {
+  min-width: 60%;
+}
+
+.blocNotesCompo {
+  height: 70vh;
+  width: 60vw;
+}
+
+.prettyDate {
+  font-weight: bold;
+}
+
+.container-notes {
+  height: 65%;
+}
+
+.notes {
+  font-size: 20px;
+  margin-right: 16px !important;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+// .notesInput {
+//   width: 100%;
+// }
+
+// .blocNoteIcon {
+//   position: relative;
+//   top: 4px;
+//   left: 4px;
+//   margin-right: 16px;
+// }
+
+mat-card-action.ideaInput {
+  margin-bottom: 0 !important;
+}
+
+.nav-list {
+  position: relative;
+}
+
+.bloc-notes-list {
+  width: 500px;
+  height: 48px;
+}
+
+.note-content {
+  max-width: 700px;
+  width: 700px;
+}
+
+.drop-handler {
+  margin-top: 8px;
+}

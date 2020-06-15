@@ -12,20 +12,17 @@ import {
   getDefaultModelSchema,
   serializable,
 } from 'serializr';
-import * as moment from 'moment'; // Y'a un bug mais ça marche donc Fack it
-
-
-
+import * as moment from 'moment';
 
 export class Notes {
 
   @serializable id: string = null;
-  @serializable singlenote: string;
+  @serializable note: string;
   @serializable date: string;
+  @serializable order: number;
   constructor(data?) {
     this.setData(data);
   }
-
   setData(data?: any) {
     if (data) {
       Object.assign(this, data);

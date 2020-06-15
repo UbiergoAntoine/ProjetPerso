@@ -1,0 +1,102 @@
+<div fxLayout="column"
+     class="post-edit-container"
+     fxLayoutGap="8px">
+  <!--Le form de l'Edit avec des ngModel-->
+  <div fxLayout="row">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
+      <mat-label for="titre">
+        <mat-icon>title</mat-icon>&nbsp; Titre
+      </mat-label>
+      <input type="text"
+             id="titre"
+             matInput
+             [(ngModel)]="post.titre">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
+      <mat-label for="contenu">
+        <mat-icon>title</mat-icon>&nbsp; Contenu
+      </mat-label>
+      <textarea type="text"
+                id="contenu"
+                matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="5"
+                [(ngModel)]="post.contenu"></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
+      <mat-label for="keyWords">
+        <mat-icon>title</mat-icon>&nbsp; Mots-clés
+      </mat-label>
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let keyWord of post.keyWords"
+                  [removable]="removable"
+                  [selectable]="selectable"
+                  (removed)="remove(keyWord)"> {{keyWord.name}} <mat-icon matChipRemove
+                    *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Nouveau mot-clé"
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+    <!-- le stackblitz-->
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
+      <mat-label for="stackBlitz">
+        <mat-icon>title</mat-icon>&nbsp; stackBlitz
+      </mat-label>
+      <input type="text"
+             id="stackBlitz"
+             matInput
+             [(ngModel)]="post.stackBlitz" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
+      <mat-label for="lien">
+        <mat-icon>title</mat-icon>&nbsp; Lien
+      </mat-label>
+      <textarea type="text"
+                id="lien"
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="2"
+                matInput
+                [(ngModel)]="post.lien"></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field appearance="outline"
+                    class="post-edit-form">
+      <mat-label for="notes">
+        <mat-icon>title</mat-icon>&nbsp; Notes
+      </mat-label>
+      <textarea type="text"
+                id="notes"
+                matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="5"
+                [(ngModel)]="post.notes"></textarea>
+    </mat-form-field>
+  </div>
+  <button mat-button
+          id="enregistrer"
+          class="accent"
+          (click)="postService.updatePost(post)"
+          routerLink="/posts">
+    <!-- [disabled]="fileIsUploading" -->
+    <mat-icon>save_alt</mat-icon>&nbsp; Enregistrer
+  </button>
+</div>

@@ -1,46 +1,76 @@
-<div class="header mat-elevation-z12">
-  <div class="headerContainer"
-       fxLayout="row"
-       fxLayoutAlign="end">
-    <div fxFlex></div>
-    <a class="logo-header"
-       routerLink="/">
-      <img src="../assets/images/logo.jpg">
-    </a>
-    <div class="connectionButtons"
-         fxFlex
+<div class="general-container"
+     [ngClass]="{'dark-mode': darkMode}"
+     fxLayout="column"
+     fxLayoutAlign="start center">
+  <div class="header mat-elevation-z12">
+    <div class="headerContainer"
          fxLayout="row"
-         fxLayoutAlign="center end">
-      <button mat-button
-              *ngIf="isAuth"
-              class="todolist"
-              (click)="openTodoList()">
-        <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
-      </button>
-      <button mat-button
-              *ngIf="isAuth"
-              class="blocnoteslist"
-              (click)="openBlocNotesList()">
-        <mat-icon> notes</mat-icon>&nbsp; Bloc Notes &nbsp;
-      </button>
-      <button mat-button
-              routerLink="auth/signin"
-              *ngIf="!isAuth">
-        <mat-icon>account_box</mat-icon>&nbsp; Connexion
-      </button>
-      <button mat-button
-              (click)="signOut()"
-              style="cursor:pointer"
-              *ngIf="isAuth">
-        <mat-icon>exit_to_app</mat-icon>&nbsp; Déconnexion
-      </button>
+         fxLayoutAlign="space-between end">
+      <div class="toggle-container"
+           (click)="darkModeToggle.toggle()">
+        <mat-slide-toggle class="dark-mode-toggle "
+                          color="accent"
+                          (click)="toggleDarkTheme(darkMode)"
+                          mat-flat-button
+                          disabled
+                          [(ngModel)]="darkMode"
+                          #darkModeToggle>
+          <label class="dm-label accent"
+                 *ngIf="darkMode"
+                 for="darkModeToggle">Dark Mode</label>
+          <label class="dm-label accent"
+                 *ngIf="!darkMode"
+                 for="darkModeToggle">Light Mode</label>
+        </mat-slide-toggle>
+      </div>
+      <a class="logo-header"
+         routerLink="/">
+        <img src="../assets/images/logo.jpg">
+      </a>
+      <div class="connectionButtons"
+           fxLayout="row"
+           fxLayoutAlign="center end"
+           fxLayoutGap="8px">
+        <button class="new-post-button"
+                mat-flat-button
+                color="accent"
+                *ngIf="userSigned"
+                (click)="openNewPostComponent()">
+          <mat-icon>add</mat-icon>Nouveau Post
+        </button>
+        <button mat-flat-button
+                color="accent"
+                *ngIf="userSigned"
+                class="todolist"
+                (click)="openTodoList()">
+          <mat-icon>done_outline</mat-icon>&nbsp; To Do List &nbsp;
+        </button>
+        <button mat-flat-button
+                color="accent"
+                *ngIf="userSigned"
+                class="blocnoteslist"
+                (click)="openBlocNotesList()">
+          <mat-icon> notes</mat-icon>&nbsp; Bloc Notes &nbsp;
+        </button>
+        <button mat-flat-button
+                color="accent"
+                routerLink="auth/signin"
+                *ngIf="!userSigned">
+          <mat-icon>account_box</mat-icon>&nbsp; Connexion
+        </button>
+        <button mat-flat-button
+                color="accent"
+                (click)="signOut()"
+                style="cursor:pointer"
+                *ngIf="userSigned">
+          <mat-icon>exit_to_app</mat-icon>&nbsp; Déconnexion
+        </button>
+      </div>
     </div>
   </div>
-  <button class="newPostButton"
-          mat-button
-          *ngIf="isAuth"
-          (click)="openNewPostComponent()">
-    <mat-icon>add</mat-icon>Nouveau Post
-  </button>
-  <router-outlet></router-outlet>
+  <div class="pages-container"
+       fxLayout="column"
+       fxLayoutAlign="start center">
+    <router-outlet></router-outlet>
+  </div>
 </div>
