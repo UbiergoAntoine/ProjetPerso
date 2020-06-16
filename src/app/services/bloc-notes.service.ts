@@ -30,12 +30,12 @@ export class BlocNotesService {
     return [];
   }
   createNewNotesList(newNotes) {
-    const newNotesId = firebase.database().ref('/NotesList').push(newNotes).key;
-    const newNoteOrder = firebase.database().ref('/NotesList').push(newNotes.order);
-    newNotes.id = newNotesId;
-    newNotes.order = newNoteOrder;
-    firebase.database().ref('/NotesList/' + newNotesId).set(newNotes);
     this.notes.push(newNotes);
+    const newNotesId = firebase.database().ref('/NotesList').push(newNotes).key;
+    newNotes.id = newNotesId;
+    firebase.database().ref('/NotesList/' + newNotesId).set(newNotes);
+    // const newNoteOrder = firebase.database().ref('/NotesList').push(newNotes.order);
+    // newNotes.order = newNoteOrder;
   }
 
   getNotesList() {

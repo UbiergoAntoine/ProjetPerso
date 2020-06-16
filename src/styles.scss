@@ -28,6 +28,10 @@ body {
   -ms-user-select: none !important;
 }
 
+.mat-list-item-content {
+  width: inherit !important;
+}
+
 .mat-dialog-container {
   width: 80vw !important;
   height: 80vh !important;

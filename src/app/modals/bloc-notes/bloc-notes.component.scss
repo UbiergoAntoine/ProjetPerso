@@ -1,10 +1,10 @@
 .note {
-  min-width: 60%;
+  min-width: 300px;
 }
 
 .blocNotesCompo {
-  height: 70vh;
-  width: 60vw;
+  height: 100%;
+  width: 100%;
 }
 
 .prettyDate {
@@ -13,6 +13,11 @@
 
 .container-notes {
   height: 65%;
+  width: inherit !important;
+}
+
+.item-content {
+  width: inherit !important;
 }
 
 .notes {
@@ -35,8 +40,8 @@ h5 {
 //   margin-right: 16px;
 // }
 
-mat-card-action.ideaInput {
-  margin-bottom: 0 !important;
+.notes-form-field {
+  width: 100% !important;
 }
 
 .nav-list {
@@ -49,10 +54,13 @@ mat-card-action.ideaInput {
 }
 
 .note-content {
-  max-width: 700px;
-  width: 700px;
+  width: 100% !important;
 }
 
 .drop-handler {
   margin-top: 8px;
+}
+
+.note-date {
+  width: 165px;
 }

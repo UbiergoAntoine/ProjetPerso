@@ -13,7 +13,6 @@ import { computed } from 'mobx-angular';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-
   todo = '';
   TodoListForm: FormGroup;
   constructor(
@@ -61,15 +60,4 @@ export class TodoComponent implements OnInit {
   onDeleteTodoItem(todo: Todo) {
     this.todoService.removeToDoList(todo);
   }
-  // dropTodo(event) {
-  //   if (event.previousIndex !== event.currentIndex) {
-  //     const todosArray = Object.assign([], this.blocsortedTodos);
-  //     moveItemInArray(todosArray, event.previousIndex, event.currentIndex);
-  //     todosArray.forEach((todo, i) => {
-  //       todo.order = i;
-  //       this.blocTodosService.updateTodosList(todo);
-  //     });
-  //   }
-  // }
-
 }

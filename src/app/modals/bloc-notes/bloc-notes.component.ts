@@ -36,7 +36,7 @@ export class BlocNotesComponent implements OnInit {
   initForm() {
     this.notesListForm = this.formBuilder.group({
       note: ['', Validators.required],
-      order: [-1, Validators.required]
+      order: [-1]
     });
   }
   onSaveNotesList() {

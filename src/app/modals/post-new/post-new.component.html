@@ -7,7 +7,6 @@
         fxLayoutGap="16px"
         class="new-post-form"
         (ngSubmit)="onSavePost()">
-    <!-- Le form du new post-->
     <div fxLayout="row"
          fxLayout.lt-md="column"
          fxLayoutGap="16px">
@@ -50,7 +49,6 @@
                    (matChipInputTokenEnd)="add($event)">
           </mat-chip-list>
         </mat-form-field>
-        <!--Le reste-->
         <mat-form-field appearance="outline">
           <mat-label for="titre">
             <mat-icon>title</mat-icon>&nbsp; Titre
@@ -62,7 +60,6 @@
                  matInput
                  placeholder="Écrivez le titre">
         </mat-form-field>
-        <!---->
         <mat-form-field appearance="outline">
           <mat-label for="contenu">
             <mat-icon>title</mat-icon>&nbsp; Contenu
@@ -75,31 +72,8 @@
                     placeholder="Écrivez le contenu"></textarea>
         </mat-form-field>
       </div>
-      <!--
-          -->
       <div fxFlex="50"
            fxLayoutGap="16px">
-        <!-- <mat-form-field appearance="outline">
-          <mat-label for="keyWords">
-            <mat-icon>title</mat-icon>&nbsp; Mots-clés
-          </mat-label>
-          <mat-chip-list #chipList>
-            <mat-chip *ngFor="let keyWord of keyWords"
-                      [removable]="removable"
-                      [selectable]="selectable"
-                      (removed)="remove(keyWord)"> {{keyWord.name}} <mat-icon matChipRemove
-                        *ngIf="removable">cancel</mat-icon>
-            </mat-chip>
-            <input MatChipInput
-                   formControlName="keyWords"
-                   placeholder="Nouveau mot-clé"
-                   [matChipInputFor]="chipList"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   [matChipInputAddOnBlur]="addOnBlur"
-                   (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-        </mat-form-field> -->
-        <!---->
         <mat-form-field appearance="outline">
           <mat-label for="lien">
             <mat-icon>title</mat-icon>&nbsp; Lien
@@ -111,7 +85,6 @@
                     matInput
                     placeholder="Écrivez des liens"></textarea>
         </mat-form-field>
-        <!---->
         <mat-form-field appearance="outline">
           <mat-label for="notes">
             <mat-icon>title</mat-icon>&nbsp; Notes
@@ -123,7 +96,6 @@
                     matInput
                     placeholder="Écrivez la note"></textarea>
         </mat-form-field>
-        <!--Le Stackblitz-->
         <mat-form-field appearance="outline">
           <mat-label for="stackBlitz">
             <mat-icon>title</mat-icon>&nbsp; stackBlitz
@@ -135,7 +107,6 @@
                     matInput
                     placeholder="Met le lien du StackBlitz"></textarea>
         </mat-form-field>
-        <!-- Le bouton pour enregistrer le form-->
       </div>
     </div>
     <mat-card class="cardPhoto"
@@ -148,10 +119,9 @@
     </mat-card>
     <button mat-flat-button
             class="submit-button"
-            id="enregistrer"
             [disabled]="postForm.invalid || fileIsUploading"
             type="submit">
-      <mat-icon>save_alt</mat-icon>&nbsp; Enregistrer
+      <mat-icon class="warn">save_alt</mat-icon>&nbsp; Enregistrer
     </button>
   </form>
 </div>

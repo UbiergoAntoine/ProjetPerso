@@ -14,8 +14,9 @@
                      *ngFor="let note of blocNotesService.sortedNotes; let first = first; let last = last;trackBy: ngForTrackByFn"
                      [cdkDragData]="note"
                      cdkDrag>
-        <div fxLayout="row">
-          <p>{{note.prettyDate}}</p>
+        <div fxLayout="row"
+             class="item-content">
+          <p class="note-date">{{note.prettyDate}}</p>
           <markdown [data]="note.note"
                     ngPreserveWhitespaces
                     class="note-content"></markdown>
@@ -33,40 +34,38 @@
         <mat-divider *ngIf="!last"></mat-divider>
       </mat-list-item>
     </mat-nav-list>
+    <form [formGroup]="notesListForm"
+          (ngSubmit)="onSaveNotesList()">
+      <mat-card class="formBlocNotes">
+        <mat-card-content>
+          <mat-form-field appearance="outline"
+                          class="notes-form-field">
+            <mat-label for="note">
+              <mat-icon>highlight</mat-icon>&nbsp; Nouvelle idée ?
+            </mat-label>
+            <textarea type="text"
+                      id="note"
+                      class="form-control"
+                      formControlName="note"
+                      matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="5"
+                      placeholder="Une idée !"></textarea>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions class="ideaInput"
+                          fxLayout="column"
+                          fxLayoutAlign="end">
+          <button mat-button
+                  id="newNote"
+                  color="primary"
+                  [disabled]="notesListForm.invalid"
+                  type="submit">
+            <mat-icon>save_alt</mat-icon>&nbsp; Celle-là se perdra pas !
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
   </div>
-  <form [formGroup]="notesListForm"
-        (ngSubmit)="onSaveNotesList()">
-    <mat-card class="formBlocNotes">
-      <mat-card-content>
-        <mat-form-field appearance="outline"
-                        class="notesInput">
-          <mat-label for="note">
-            <mat-icon>highlight</mat-icon>&nbsp; Nouvelle idée ?
-          </mat-label>
-          <textarea type="text"
-                    id="note"
-                    class="form-control"
-                    formControlName="note"
-                    matInput
-                    cdkTextareaAutosize
-                    #autosize="cdkTextareaAutosize"
-                    cdkAutosizeMinRows="5"
-                    placeholder="Une idée !"
-                    #box
-                    (keyup.enter)="onEnter(box.value)"></textarea>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions class="ideaInput"
-                        fxLayout="column"
-                        fxLayoutAlign="end">
-        <button mat-button
-                id="newNote"
-                color="primary"
-                [disabled]="notesListForm.invalid"
-                type="submit">
-          <mat-icon>save_alt</mat-icon>&nbsp; Celle-là se perdra pas !
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
 </div>
