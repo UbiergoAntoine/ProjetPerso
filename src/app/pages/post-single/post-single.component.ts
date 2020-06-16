@@ -43,4 +43,8 @@ export class PostSingleComponent implements OnInit {
     this.router.navigate(['/posts', 'edit', id]);
 
   }
+
+  goToPosts() {
+    this.router.navigate(['/posts']);
+  }
 }

@@ -3,7 +3,6 @@ import { Post } from './../../../models/post.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { computed, observable } from 'mobx-angular';
-import { ThemeService } from 'src/app/services/theme.service';
 import { Theme } from 'src/app/models/theme.model';
 
 @Component({
@@ -21,25 +20,19 @@ export class FiltersComponent implements OnInit {
   constructor(
     public postService: PostService,
     public blocnotesService: BlocNotesService) { }
-  ngOnInit() {
-    console.log('this.postservice.themeFilter', this.postService.themeFilter);
-    console.log('this.postservice.titreFilter', this.postService.titreFilter);
-
-    console.log('this.postservice.keyWordsFilter', this.postService.keyWordsFilter);
-
-  }
+  ngOnInit() { }
 
   @computed get themeFilter() {
     return this.postService.themeFilter;
   }
   @computed get allKeyWords() {
     if (this.postService.getFilteredPosts) {
-      return this.postService.getFilteredPosts.filter(post => {
-        if (this.keyWordsPostValue) {
-          return post.getKeyWords.includes(this.keyWordsPostValue.toLowerCase());
-        } else {
-          return true;
-        }
+      return this.postService.getFilteredPosts.reduce((acc, post) => {
+        return acc.concat(
+          post.keyWords.filter(k => {
+            return acc.every(key => key.name.toLowerCase() !== k.name.toLowerCase());
+          })
+        );
       }, []);
     }
   }

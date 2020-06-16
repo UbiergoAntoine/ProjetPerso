@@ -9,15 +9,16 @@
   padding: 0 !important;
 }
 
+.back-button {
+  position: absolute;
+  left: 200px;
+  top: 100px;
+}
+
 mat-card-title {
   margin-top: 3% !important;
 }
 
-.postContainer {
-  background-color: #6D87C5;
-  margin-top: 5%;
-
-}
 
 .contenuPost {
   background-color: #6D87C5;

@@ -33,7 +33,7 @@
                  placeholder="Saisissez votre mot de passe">
         </mat-form-field>
       </div>
-      <button mat-button
+      <button mat-flat-button
               class="btn btn-primary"
               type="submit"
               [disabled]="signinForm.invalid">
@@ -43,8 +43,8 @@
     <p class="text-danger">{{ errorMessage }}</p>
     <!--Si infos invalides, error message rendu par firebase lui-même !-->
   </div>
-  <button mat-button
+  <button mat-flat-button
           (click)="goToSignIn()">
-    <mat-icon>forward</mat-icon>&nbsp; Me Connecter !
+    <mat-icon>forward</mat-icon>&nbsp; Créer un compte
   </button>
 </div>

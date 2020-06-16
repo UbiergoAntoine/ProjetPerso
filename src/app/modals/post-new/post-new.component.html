@@ -1,13 +1,18 @@
 <div fxLayout="column"
      class="post-new-container"
      fxLayoutAlign="center center">
-  <mat-card class="cardNewPost">
-    <h4>Enregistrer un nouveau post</h4>
-    <form [formGroup]="postForm"
-          fxLayout="row"
-          (ngSubmit)="onSavePost()">
-      <!-- Le form du new post-->
-      <div fxFlex="50">
+  <h4>Enregistrer un nouveau post</h4>
+  <form [formGroup]="postForm"
+        fxLayout="column"
+        fxLayoutGap="16px"
+        class="new-post-form"
+        (ngSubmit)="onSavePost()">
+    <!-- Le form du new post-->
+    <div fxLayout="row"
+         fxLayout.lt-md="column"
+         fxLayoutGap="16px">
+      <div fxFlex="50"
+           fxLayoutGap="16px">
         <mat-form-field appearance="outline">
           <mat-label for="theme">
             <mat-icon>list</mat-icon>&nbsp; Thème
@@ -26,6 +31,24 @@
               <mat-icon>{{theme.icon}}</mat-icon>{{theme.name}}
             </mat-option>
           </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-chip-list"
+                        appearance="outline">
+          <mat-chip-list #chipList
+                         aria-label="Fruit selection">
+            <mat-chip *ngFor="let keyWord of keyWords"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(keyWord)"> {{keyWord.name}} <mat-icon matChipRemove
+                        *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Nouveau mot-clé"
+                   formControlName="keyWords"
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
         </mat-form-field>
         <!--Le reste-->
         <mat-form-field appearance="outline">
@@ -54,7 +77,8 @@
       </div>
       <!--
           -->
-      <div fxFlex="50">
+      <div fxFlex="50"
+           fxLayoutGap="16px">
         <!-- <mat-form-field appearance="outline">
           <mat-label for="keyWords">
             <mat-icon>title</mat-icon>&nbsp; Mots-clés
@@ -75,23 +99,6 @@
                    (matChipInputTokenEnd)="add($event)">
           </mat-chip-list>
         </mat-form-field> -->
-        <mat-form-field class="example-chip-list">
-          <mat-chip-list #chipList
-                         aria-label="Fruit selection">
-            <mat-chip *ngFor="let keyWord of keyWords"
-                      [selectable]="selectable"
-                      [removable]="removable"
-                      (removed)="remove(keyWord)"> {{keyWord.name}} <mat-icon matChipRemove
-                        *ngIf="removable">cancel</mat-icon>
-            </mat-chip>
-            <input placeholder="Nouveau mot-clé"
-                   formControlName="keyWords"
-                   [matChipInputFor]="chipList"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   [matChipInputAddOnBlur]="addOnBlur"
-                   (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-        </mat-form-field>
         <!---->
         <mat-form-field appearance="outline">
           <mat-label for="lien">
@@ -129,20 +136,22 @@
                     placeholder="Met le lien du StackBlitz"></textarea>
         </mat-form-field>
         <!-- Le bouton pour enregistrer le form-->
-        <mat-card class="cardPhoto">
-          <mat-icon>photo_camera</mat-icon>&nbsp; Ajouter une photo <input type="file"
-                 (change)="detectFiles($event)"
-                 class="form-control"
-                 accept="image/*">
-          <p *ngIf="fileUploaded">Fichier chargé !</p>
-        </mat-card>
       </div>
-      <button mat-button
-              id="enregistrer"
-              [disabled]="postForm.invalid || fileIsUploading"
-              type="submit">
-        <mat-icon>save_alt</mat-icon>&nbsp; Enregistrer
-      </button>
-    </form>
-  </mat-card>
+    </div>
+    <mat-card class="cardPhoto"
+              fxLayoutAlign="center center">
+      <mat-icon>photo_camera</mat-icon>&nbsp; Ajouter une photo <input type="file"
+             (change)="detectFiles($event)"
+             class="form-control"
+             accept="image/*">
+      <p *ngIf="fileUploaded">Fichier chargé !</p>
+    </mat-card>
+    <button mat-flat-button
+            class="submit-button"
+            id="enregistrer"
+            [disabled]="postForm.invalid || fileIsUploading"
+            type="submit">
+      <mat-icon>save_alt</mat-icon>&nbsp; Enregistrer
+    </button>
+  </form>
 </div>

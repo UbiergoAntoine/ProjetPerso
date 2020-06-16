@@ -27,7 +27,7 @@
                    showMore="true"></app-bandeau>
       <app-post-resume [post]="post"></app-post-resume>
     </div>
-    <mat-accordion>
+    <mat-accordion *ngIf="post">
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>

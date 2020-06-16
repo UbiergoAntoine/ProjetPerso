@@ -28,6 +28,11 @@ body {
   -ms-user-select: none !important;
 }
 
+.mat-dialog-container {
+  width: 80vw !important;
+  height: 80vh !important;
+}
+
 .items-list {
   height: auto !important;
 

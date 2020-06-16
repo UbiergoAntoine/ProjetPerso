@@ -1,7 +1,13 @@
 <div *ngIf="post"
      fxLayout="column"
      fxLayoutAlign="center center"
-     class="postContent">
+     class="primary"
+     class="post-container">
+  <button mat-flat-button
+          class="back-button"
+          (click)="goToPosts()">
+    <mat-icon>keyboard_backspace</mat-icon>&nbsp; Retour
+  </button>
   <div *ngIf="isAuth"
        class="edit-buttons-container">
     <button mat-flat-button

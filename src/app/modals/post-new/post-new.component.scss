@@ -1,7 +1,6 @@
 :host,
 .post-new-container {
-  height: 800px !important;
-  max-height: 800px !important;
+  height: auto !important;
   width: 960px;
 }
 
@@ -26,13 +25,7 @@ form {
   margin-bottom: 6%;
 }
 
-.mat-dialog-container {
-  width: 60vw !important;
-  height: 90vh !important;
-  overflow: auto;
-  /* view hieght  // vw */
-  background-color: #98A4C1 !important;
-}
+
 
 h4 {
   text-align: center;
@@ -46,8 +39,20 @@ h4 {
 
 .cardPhoto {
   background-color: #3B63C4;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 8px;
 }
 
 .cardNewPost {
   background-color: #7C9EF2;
+}
+
+.new-post-form {
+  width: 100%;
+}
+
+.submit-button {
+  max-width: 400px;
+  margin: auto;
 }

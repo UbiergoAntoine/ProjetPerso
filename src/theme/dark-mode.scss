@@ -3,7 +3,7 @@
 
 $dark-primary: mat-palette($mat-grey, A100, A50, A200);
 $dark-accent: mat-palette($mat-amber, A200, A100, A400);
-$dark-warn: mat-palette($mat-red, A800, A400, A800);
+$dark-warn: mat-palette($mat-red, A200, A100, A400);
 $primary: mat-color($dark-primary);
 $accent: mat-color($dark-accent);
 $warn: mat-color($dark-warn);
