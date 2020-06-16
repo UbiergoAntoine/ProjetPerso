@@ -2,6 +2,25 @@
      class="post-edit-container"
      fxLayoutGap="8px">
   <!--Le form de l'Edit avec des ngModel-->
+  <mat-form-field appearance="outline">
+    <mat-label for="theme">
+      <mat-icon>list</mat-icon>&nbsp; Thème
+    </mat-label>
+    <mat-select matSelect
+                class="form-control"
+                [(ngModel)]="post.theme"
+                [(value)]="selected"
+                placeholder="Choisissez votre thème">
+      <mat-select-trigger>{{selected}}</mat-select-trigger>
+      <mat-option>
+        <mat-icon>all_out</mat-icon>&nbsp;--- Tous les themes ---
+      </mat-option>
+      <mat-option [value]="theme.name"
+                  *ngFor="let theme of postService.themes">
+        <mat-icon>{{theme.icon}}</mat-icon>{{theme.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <div fxLayout="row">
     <mat-form-field appearance="outline"
                     class="post-edit-form">
@@ -36,7 +55,7 @@
         <mat-icon>title</mat-icon>&nbsp; Mots-clés
       </mat-label>
       <mat-chip-list #chipList>
-        <mat-chip *ngFor="let keyWord of post.keyWords"
+        <mat-chip *ngFor="let keyWord of keyWords"
                   [removable]="removable"
                   [selectable]="selectable"
                   (removed)="remove(keyWord)"> {{keyWord.name}} <mat-icon matChipRemove
@@ -51,6 +70,7 @@
     </mat-form-field>
     <!-- le stackblitz-->
     <mat-form-field appearance="outline"
+                    1
                     class="post-edit-form">
       <mat-label for="stackBlitz">
         <mat-icon>title</mat-icon>&nbsp; stackBlitz

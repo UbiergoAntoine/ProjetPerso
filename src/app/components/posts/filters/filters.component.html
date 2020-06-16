@@ -9,7 +9,7 @@
           (click)="resetAllFilters($event)">
     <mat-icon>all_out</mat-icon>Réinitialiser les filtres
   </button>
-  <mat-form-field class="FormsMenu theme-select"
+  <mat-form-field class="FormsMenu filters-form"
                   appearance="outline">
     <mat-label for="theme">
       <mat-icon>list</mat-icon>&nbsp; Thème
@@ -31,7 +31,7 @@
     </mat-select>
   </mat-form-field>
   <!--Liste de chips contenant les mots-clés-->
-  <mat-form-field class="FormsMenu"
+  <mat-form-field class="FormsMenu  filters-form"
                   appearance="outline">
     <mat-label>
       <mat-icon>palette</mat-icon>&nbsp; Mots-clés
@@ -59,7 +59,7 @@
     </mat-autocomplete>
   </mat-form-field>
   <!--Autocomplete titres des posts-->
-  <mat-form-field class="FormsMenu"
+  <mat-form-field class="FormsMenu  filters-form"
                   appearance="outline">
     <mat-label>
       <mat-icon>title</mat-icon>&nbsp; Titre
@@ -73,6 +73,7 @@
     <button mat-button
             matSuffix
             mat-icon-button
+            *ngIf="postService.titreFilter"
             color="accent"
             aria-label="Clear"
             (click)="resetTitleFilter($event)">

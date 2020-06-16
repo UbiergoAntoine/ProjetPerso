@@ -1,7 +1,7 @@
-
+import { PostService } from './../../services/post.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { computed, observable } from 'mobx-angular';
 import { ThemeService } from 'src/app/services/theme.service';
@@ -14,15 +14,15 @@ import { Theme } from 'src/app/models/theme.model';
   styleUrls: ['./theme-form.component.scss']
 })
 export class ThemeFormComponent implements OnInit {
-  theme = '';
   themesListForm: FormGroup;
-  // @observable date: Date;
   @observable themeId: string;
+
+  @observable theme: Theme;
   constructor(
     private route: ActivatedRoute,
     public themeService: ThemeService,
+    public postService: PostService,
     private formBuilder: FormBuilder,
-    private router: Router,
     public dialogRef: MatDialogRef<ThemePageComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -50,12 +50,12 @@ export class ThemeFormComponent implements OnInit {
     this.themesListForm.reset();
   }
   onEnter(theme: string) {
-    this.theme = theme;
+    this.theme.name = theme;
     this.saveThemesList();
     this.themesListForm.reset();
   }
-
   deleteTheme(theme: Theme) {
     this.themeService.removeTheme(theme);
   }
+
 }

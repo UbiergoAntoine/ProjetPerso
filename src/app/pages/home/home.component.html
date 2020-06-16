@@ -27,6 +27,21 @@
                    showMore="true"></app-bandeau>
       <app-post-resume [post]="post"></app-post-resume>
     </div>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h4>Posts assignés à des thèmes inexistants</h4>
+          </mat-panel-title>
+          <mat-panel-description *ngIf="panelOpenState === true"> Assignez-leur de nouveaux themes </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div *ngFor="let post of postsWhithoutTheme">
+          <app-bandeau [post]="post"
+                       showMore="true"></app-bandeau>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
     <!-- <div *ngIf="noResult">No result</div> -->
   </div>
   <app-filters fxFlex

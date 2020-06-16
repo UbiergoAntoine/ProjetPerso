@@ -11,7 +11,9 @@ export class ThemeService {
   @observable themeFilter: string;
   @observable keyWordsFilter: string;
   @observable titreFilter: string;
-  constructor() {
+
+  constructor(
+  ) {
     this.fetchThemes();
     autorun(() => {
       console.log(this.themeFilter);
@@ -25,8 +27,12 @@ export class ThemeService {
           : [];
       });
   }
-  @computed get getAllThemes(): Theme[] {
-    return this.themes;
+  getSingleTheme(id: string) {
+    if (this.themes) {
+      return this.themes.find((theme) => {
+        return theme.id === id;
+      });
+    }
   }
   createNewTheme(newTheme: Theme) {
     this.themes.push(newTheme);
@@ -47,7 +53,7 @@ export class ThemeService {
         }
       );
       firebase.database().ref('/themes/' + theme.id).remove();
-      this.themes.splice(themeIndexToRemove, 0);
+      this.themes.splice(themeIndexToRemove, 1);
     } else {
       alert('Le theme n\'a pas été supprimé');
     }

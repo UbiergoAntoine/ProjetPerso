@@ -1,6 +1,6 @@
 import { KeyWord, Post } from './../../../models/post.model';
 import { PostService } from 'src/app/services/post.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
@@ -10,20 +10,19 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
   styleUrls: ['./post-form.component.scss']
 })
 export class PostFormComponent implements OnInit {
-
   @Input() post: Post;
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
+  @ViewChild('chipList') chipList;
+
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   fileIsUploading = false;
   fileUrl: string;
   fileUploaded = false;
   constructor(public postService: PostService) { }
-
   ngOnInit() { }
-
   onUpdatePost() {
     this.postService.updatePost(this.post);
   }
@@ -31,7 +30,7 @@ export class PostFormComponent implements OnInit {
     const input = event.input;
     const value = event.value;
 
-    if ((value || '').trim()) {
+    if ((value && value.trim() !== '')) {
       this.post.keyWords.push({ name: value.trim() });
     }
     if (input) {

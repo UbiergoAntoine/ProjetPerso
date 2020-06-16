@@ -11,8 +11,9 @@
     <mat-card-title class="contenuPost">{{post.titre}}</mat-card-title>
     <mat-card-subtitle class="contenuPost"> {{post.theme}} </mat-card-subtitle>
     <mat-chip-list id="chips"
+                   *ngFor="let keyWord of keyWords"
                    class="contenuPost">
-      <mat-chip> {{post.keyWords}}</mat-chip>
+      <mat-chip> {{keyWord.name}}</mat-chip>
     </mat-chip-list>
     <mat-card-content class="contenuPost"
                       id="carteLiens"> {{post.lien}} </mat-card-content>

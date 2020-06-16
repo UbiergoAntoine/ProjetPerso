@@ -1,8 +1,8 @@
 import { AppComponent } from './../../app.component';
 import { Post } from 'src/app/models/post.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { PostService } from './../../services/post.service';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatChipInputEvent } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -19,15 +19,13 @@ export interface KeyWord {
   styleUrls: ['./post-new.component.scss']
 })
 export class PostNewComponent implements OnInit {
-
-
-  // Pour les Mat-Chips
   selected = '';
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
-  keyWords: KeyWord[] = [{ name: 'Angular' }];
+  keyWords: KeyWord[] = [];
+  @ViewChild('chipList') chipList;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   // Le reste
@@ -61,7 +59,7 @@ export class PostNewComponent implements OnInit {
     const newPost = new Post({
       titre: this.postForm.get('titre').value,
       contenu: this.postForm.get('contenu').value,
-      keyWords: this.keyWords.map(keyword => keyword.name),
+      keyWords: this.keyWords,
       lien: this.postForm.get('lien').value,
       notes: this.postForm.get('notes').value,
       theme: this.postForm.get('theme').value,
@@ -88,6 +86,7 @@ export class PostNewComponent implements OnInit {
   detectFiles(event) {
     this.onUploadFile(event.target.files[0]);
   }
+
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -109,5 +108,4 @@ export class PostNewComponent implements OnInit {
       this.keyWords.splice(index, 1);
     }
   }
-
 }

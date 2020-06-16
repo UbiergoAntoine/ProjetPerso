@@ -21,7 +21,6 @@ export class Theme {
   @serializable id: string;
   @serializable name: string;
   @serializable icon: string;
-  @serializable(list(object(Post))) posts: Post[] = new Array<Post>();
 
   constructor(data?) {
     this.setData(data);

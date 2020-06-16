@@ -13,10 +13,10 @@ export class PostService {
   @observable themeFilter: string;
   @observable keyWordsFilter: string;
   @observable titreFilter: string;
-  @observable themes: Theme[] = [];
-  constructor() {
+  // @observable themes: Theme[] = [];
+  constructor(public themeService: ThemeService) {
     this.fetchPosts();
-    this.fetchThemes();
+    // this.fetchThemes();
     autorun(() => {
       console.log(this.themeFilter);
     });
@@ -30,9 +30,24 @@ export class PostService {
       });
   }
 
+  @computed get themes() {
+    return this.themeService.themes;
+  }
+  @computed get postsWhithoutTheme() {
+    if (this.posts) {
+      return this.getSortedPosts.filter(post => {
+        return !this.allThemesNames.includes(post.theme);
+      });
+    }
+  }
   @computed get getSortedPosts(): Post[] {
     return this.posts.slice().sort((a, b) => {
       return a.date > b.date ? 1 : -1;
+    });
+  }
+  @computed get allThemesNames() {
+    return this.themes.map(theme => {
+      return theme.name;
     });
   }
   @computed get getFilteredPosts(): Post[] {
@@ -125,15 +140,15 @@ export class PostService {
       }
     );
   }
-  fetchThemes() {
-    firebase.database().ref('/themes')
-      .on('value', (data: Datasnapshot) => {
-        this.themes = data.val()
-          ? Object.values(data.val()).map(theme => new Theme(theme))
-          : [];
-        // console.log('this.theme', this.themes);
-      });
-  }
+  // fetchThemes() {
+  //   firebase.database().ref('/themes')
+  //     .on('value', (data: Datasnapshot) => {
+  //       this.themes = data.val()
+  //         ? Object.values(data.val()).map(theme => new Theme(theme))
+  //         : [];
+  //       // console.log('this.theme', this.themes);
+  //     });
+  // }
   createNewTheme(newTheme: Theme) {
     this.themes.push(newTheme);
     const newThemeId = firebase.database().ref('/themes').push(newTheme).key;

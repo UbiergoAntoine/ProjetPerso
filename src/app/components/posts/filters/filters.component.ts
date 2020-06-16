@@ -34,12 +34,12 @@ export class FiltersComponent implements OnInit {
   }
   @computed get allKeyWords() {
     if (this.postService.getFilteredPosts) {
-      return this.postService.getFilteredPosts.reduce((acc, post) => {
-        return acc.concat(
-          post.keyWords.filter(k => {
-            return acc.every(key => key.name.toLowerCase() !== k.name.toLowerCase());
-          })
-        );
+      return this.postService.getFilteredPosts.filter(post => {
+        if (this.keyWordsPostValue) {
+          return post.getKeyWords.includes(this.keyWordsPostValue.toLowerCase());
+        } else {
+          return true;
+        }
       }, []);
     }
   }

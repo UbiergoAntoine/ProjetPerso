@@ -33,4 +33,8 @@ export class HomeComponent implements OnInit {
   @computed get otherPosts() {
     return this.postService.getFilteredPosts.slice(3);
   }
+
+  @computed get postsWhithoutTheme() {
+    return this.postService.postsWhithoutTheme;
+  }
 }

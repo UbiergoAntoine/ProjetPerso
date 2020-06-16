@@ -1,19 +1,9 @@
-<div class="blocNotesCompo">
-  <!--Le tableau de la TodoList-->
+<div class="blocNotesCompo"
+     fxLayout="column"
+     fxLayoutAlign="start center"
+     fxLayoutGap="16px">
   <div class="container-notes">
     <h5>Dernières notes : </h5>
-    <!-- <div *ngFor="let section of orderedPresentationSections; last as isLast;trackBy: ngForTrackByFn"
-               class="section-description-component-container"
-               cdkDrag
-               [cdkDragDisabled]="!editMode"
-               [cdkDragData]="section">
-            <a class="drop-section-handle"
-               *ngIf="editMode"
-               title="Déplacer la section"
-               [ngStyle]="{ 'visibility': editMode ? 'visible' : 'hidden' }"
-               cdkDragHandle>
-              <mat-icon class="drop-handler">swap_vert</mat-icon>
-            </a> -->
     <mat-nav-list class="nav-list"
                   cdkDropList
                   cdkDropListOrientation="vertical"
