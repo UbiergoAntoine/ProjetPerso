@@ -5,7 +5,7 @@
   "author": "Valentin Poujade & Antoine Ubiergo",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "executable": "electron-packager .",
     "build": "ng build",
     "test": "ng test",

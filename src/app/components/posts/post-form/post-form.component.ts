@@ -3,6 +3,7 @@ import { PostService } from 'src/app/services/post.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { computed } from 'mobx-angular';
 
 @Component({
   selector: 'app-post-form',
@@ -25,6 +26,14 @@ export class PostFormComponent implements OnInit {
   ngOnInit() { }
   onUpdatePost() {
     this.postService.updatePost(this.post);
+  }
+
+  @computed get selected() {
+    if (this.post.theme) {
+      return this.post.theme;
+    } else {
+      return '';
+    }
   }
   add(event: MatChipInputEvent): void {
     const input = event.input;

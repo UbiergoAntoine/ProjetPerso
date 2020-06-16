@@ -4,7 +4,7 @@
      class="primary"
      class="post-container">
   <button mat-flat-button
-          class="back-button"
+          class="back-button warn"
           (click)="goToPosts()">
     <mat-icon>keyboard_backspace</mat-icon>&nbsp; Retour
   </button>
@@ -22,6 +22,8 @@
             (click)="onDeletePost(post)">
       <mat-icon class="clear">delete</mat-icon> Effacer le post
     </button></div>
-  <app-bandeau [post]="post"></app-bandeau>
-  <app-post-resume [post]="post"></app-post-resume>
+  <app-bandeau [post]="post"
+               class="primary"></app-bandeau>
+  <app-post-resume class="primary"
+                   [post]="post"></app-post-resume>
 </div>
